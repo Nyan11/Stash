@@ -14,3 +14,9 @@ Collection >> asStashObject [
 		  classType: self class;
 		  yourself
 ]
+
+{ #category : #'*Stash-Serializer' }
+Collection >> shouldBeTagged [
+
+	^ false
+]

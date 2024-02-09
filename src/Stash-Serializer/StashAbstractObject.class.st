@@ -1,7 +1,7 @@
 Class {
 	#name : #StashAbstractObject,
 	#superclass : #Object,
-	#category : #'Stash-Serializer-stash'
+	#category : #'Stash-Serializer-stash-objects'
 }
 
 { #category : #testing }

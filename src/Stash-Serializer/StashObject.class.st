@@ -7,7 +7,7 @@ Class {
 		'occurences',
 		'propertiesSet'
 	],
-	#category : #'Stash-Serializer-stash'
+	#category : #'Stash-Serializer-stash-objects'
 }
 
 { #category : #'as yet unclassified' }

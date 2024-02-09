@@ -1,7 +1,7 @@
 Class {
 	#name : #StashConstructTagObjectsStep,
 	#superclass : #StashStep,
-	#category : #'Stash-Serializer-stash'
+	#category : #'Stash-Serializer-stash-steps'
 }
 
 { #category : #actions }

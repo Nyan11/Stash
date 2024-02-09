@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'classType'
 	],
-	#category : #'Stash-Serializer-stash'
+	#category : #'Stash-Serializer-stash-objects'
 }
 
 { #category : #accessing }
