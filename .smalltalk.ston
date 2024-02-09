@@ -1,0 +1,13 @@
+SmalltalkCISpec {
+
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'StashSerialization',
+      #directory : 'src',
+      #platforms : [ #pharo ]
+    }
+  ],
+  #testing : {
+    #packages : [ 'Stash-Serialization.*' ]
+  }
+}
