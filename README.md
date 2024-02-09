@@ -1,8 +1,8 @@
-# Instalation
+# Installation
 
 ```st
 Metacello new
 	baseline: 'Stash-Serialization';
-	repository: 'github://Nyan11/Stash';
+	repository: 'github://Nyan11/Stash:main/src';
 	load
 ```
