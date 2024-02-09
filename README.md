@@ -2,7 +2,7 @@
 
 ```st
 Metacello new
-	baseline: 'Stash-Serialization';
-	repository: 'github://Nyan11/Stash:main/src';
+	baseline: 'StashSerialization';
+	repository: 'github://Nyan11/Stash:master/src';
 	load
 ```
