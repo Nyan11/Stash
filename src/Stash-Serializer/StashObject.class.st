@@ -13,7 +13,7 @@ Class {
 { #category : #'as yet unclassified' }
 StashObject >> allGettersForMyStash [
 
-	^ self object allSetterAndGettersForMyStash collect: #value
+	^ self object allSetterAndGettersForMyStash select: [ :each | each isStashGetter ] thenCollect: #value
 ]
 
 { #category : #'as yet unclassified' }
@@ -64,16 +64,16 @@ StashObject >> isStashObject [
 { #category : #'as yet unclassified' }
 StashObject >> nextInstances [
 
-	^ self allGettersForMyStash collect: [ :each |
-		  self getInstanceWith: each.
-		   ]
+	^ self allGettersForMyStash
+		  collect: [ :each | self getInstanceWith: each ]
 ]
 
 { #category : #'as yet unclassified' }
 StashObject >> nextSettersAndInstances [
 
 	^ self allSetterAndGettersForMyStash collect: [ :each |
-		  each key -> (self getInstanceWith: each value) ]
+		each isStashGetter ifTrue: [ each key -> (self getInstanceWith: each value) ] ifFalse: [ each ].
+		   ]
 ]
 
 { #category : #accessing }

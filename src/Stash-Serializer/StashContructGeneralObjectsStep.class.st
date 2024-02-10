@@ -31,13 +31,7 @@ StashContructGeneralObjectsStep >> constructObject: aStashObject on: aStash [
 
 	aStash addOnSourceCode: aStashObject constructorOrTag.
 	aStashObject isPropertiesSet ifTrue: [ ^ self ].
-	aStashObject propertiesAreSet.
-	aStashObject nextSettersAndInstances do: [ :association | aStash addOnSourceCode: '<r>'.
-			aStash addOnSourceCode: association key.
-			self
-				nextInstance: (association value)
-				on: aStash ]
-		separatedBy: [ aStash addOnSourceCode: ';<r>' ].
+	self setPropertiesOf: aStashObject on: aStash.
 	aStash addOnSourceCode: ';yourself'
 ]
 
@@ -49,17 +43,10 @@ StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: 
 		aStashObject methodToBuild ifNotNil: [
 			aStash addOnSourceCode: aStashObject methodToBuild ].
 		^ self ].
-	aStashObject propertiesAreSet.
-	aStashObject nextSettersAndInstances
-		do: [ :association |
-			aStash addOnSourceCode: '<r>'.
-			aStash addOnSourceCode: association key.
-			self nextInstance: association value on: aStash ]
-		separatedBy: [ aStash addOnSourceCode: ';<r>' ].
-		aStashObject methodToBuild ifNotNil: [
-			aStash addOnSourceCode: ';'.
-	aStash addOnSourceCode: aStashObject methodToBuild ].
-	
+	self setPropertiesOf: aStashObject on: aStash.
+	aStashObject methodToBuild ifNotNil: [
+		aStash addOnSourceCode: ';'.
+		aStash addOnSourceCode: aStashObject methodToBuild ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -112,4 +99,23 @@ StashContructGeneralObjectsStep >> nextReference: aStashObject on: aStash [
 StashContructGeneralObjectsStep >> runOn: aStash [
 
 	self nextInstance: aStash rootObject on: aStash
+]
+
+{ #category : #actions }
+StashContructGeneralObjectsStep >> setPropertiesOf: aStashObject on: aStash [
+	aStashObject propertiesAreSet.
+	aStashObject nextSettersAndInstances
+		do: [ :association |
+			aStash addOnSourceCode: '<r>'.
+			self setProperty: association on: aStash ]
+		separatedBy: [ aStash addOnSourceCode: ';<r>' ].
+	
+]
+
+{ #category : #actions }
+StashContructGeneralObjectsStep >> setProperty: association on: aStash [
+
+	 association key isBlock ifTrue: [ aStash addOnSourceCode: (association key value: association value). ^ self ].
+aStash addOnSourceCode: association key.
+			self nextInstance: association value on: aStash
 ]

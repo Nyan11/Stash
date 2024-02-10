@@ -1,11 +1,11 @@
 Class {
-	#name : #StashBlocTest,
+	#name : #StashBlocVisualsTest,
 	#superclass : #TestCase,
 	#category : #'Stash-Serializer-test-cases'
 }
 
 { #category : #tests }
-StashBlocTest >> testBlElementBackground1 [
+StashBlocVisualsTest >> testBlElementBackground1 [
 
 	| object source |
 	object := BlElement new background: BlTransparentBackground new.
@@ -14,7 +14,7 @@ StashBlocTest >> testBlElementBackground1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBackground2 [
+StashBlocVisualsTest >> testBlElementBackground2 [
 
 	| object source newObject |
 	object := BlElement new
@@ -28,7 +28,7 @@ StashBlocTest >> testBlElementBackground2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBackground3 [
+StashBlocVisualsTest >> testBlElementBackground3 [
 
 	| object source newObject |
 	object := BlElement new
@@ -48,7 +48,7 @@ StashBlocTest >> testBlElementBackground3 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBackground4 [
+StashBlocVisualsTest >> testBlElementBackground4 [
 
 	| object source newObject |
 	object := BlElement new
@@ -77,7 +77,7 @@ StashBlocTest >> testBlElementBackground4 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder1 [
+StashBlocVisualsTest >> testBlElementBorder1 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorder paint: Color red).
@@ -96,7 +96,7 @@ StashBlocTest >> testBlElementBorder1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder10 [
+StashBlocVisualsTest >> testBlElementBorder10 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -133,7 +133,7 @@ StashBlocTest >> testBlElementBorder10 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder11 [
+StashBlocVisualsTest >> testBlElementBorder11 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -169,7 +169,7 @@ StashBlocTest >> testBlElementBorder11 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder12 [
+StashBlocVisualsTest >> testBlElementBorder12 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -206,7 +206,7 @@ StashBlocTest >> testBlElementBorder12 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder13 [
+StashBlocVisualsTest >> testBlElementBorder13 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -245,7 +245,7 @@ StashBlocTest >> testBlElementBorder13 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder2 [
+StashBlocVisualsTest >> testBlElementBorder2 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorder paint: Color red width: 3).
@@ -276,7 +276,7 @@ StashBlocTest >> testBlElementBorder2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder3 [
+StashBlocVisualsTest >> testBlElementBorder3 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -310,7 +310,7 @@ StashBlocTest >> testBlElementBorder3 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder4 [
+StashBlocVisualsTest >> testBlElementBorder4 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -345,7 +345,7 @@ StashBlocTest >> testBlElementBorder4 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder5 [
+StashBlocVisualsTest >> testBlElementBorder5 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -381,7 +381,7 @@ StashBlocTest >> testBlElementBorder5 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder6 [
+StashBlocVisualsTest >> testBlElementBorder6 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -417,7 +417,7 @@ StashBlocTest >> testBlElementBorder6 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder7 [
+StashBlocVisualsTest >> testBlElementBorder7 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -453,7 +453,7 @@ StashBlocTest >> testBlElementBorder7 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder8 [
+StashBlocVisualsTest >> testBlElementBorder8 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -488,7 +488,7 @@ StashBlocTest >> testBlElementBorder8 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementBorder9 [
+StashBlocVisualsTest >> testBlElementBorder9 [
 
 	| object source newObject |
 	object := BlElement new border: (BlBorderBuilder new
@@ -524,69 +524,7 @@ StashBlocTest >> testBlElementBorder9 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementChildren1 [
-
-	| object source |
-	object := BlElement new.
-	source := Stash new serialize: object.
-	self
-		assert: source
-		equals: 'BlElement new'
-]
-
-{ #category : #tests }
-StashBlocTest >> testBlElementChildren2 [
-
-	| object source |
-	object := BlElement new
-		          addChild: BlElement new;
-		          yourself.
-	source := Stash new serialize: object.
-	self
-		assert: source
-		equals: 'BlElement new
-   addChildren: {BlElement new};
-   yourself'
-]
-
-{ #category : #tests }
-StashBlocTest >> testBlElementChildren3 [
-
-	| object source |
-	object := BlElement new
-		          addChild: BlElement new;
-		          addChild: BlElement new;
-		          addChild: BlElement new;
-		          yourself.
-	source := Stash new serialize: object.
-	self assert: source equals: 'BlElement new
-   addChildren: {BlElement new . 
-      BlElement new . 
-      BlElement new};
-   yourself'
-]
-
-{ #category : #tests }
-StashBlocTest >> testBlElementChildren4 [
-
-	| object source |
-	object := BlElement new
-		          addChild: BlElement new;
-		          addChild: (BlElement new addChild: BlElement new; yourself);
-		          addChild: BlElement new;
-		          yourself.
-	source := Stash new serialize: object.
-	self assert: source equals: 'BlElement new
-   addChildren: {BlElement new . 
-      (BlElement new
-         addChildren: {BlElement new};
-         yourself) . 
-      BlElement new};
-   yourself'
-]
-
-{ #category : #tests }
-StashBlocTest >> testBlElementClipChildren1 [
+StashBlocVisualsTest >> testBlElementClipChildren1 [
 
 	| object source newObject |
 	object := BlElement new clipChildren: true.
@@ -599,7 +537,7 @@ StashBlocTest >> testBlElementClipChildren1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementClipChildren2 [
+StashBlocVisualsTest >> testBlElementClipChildren2 [
 
 	| object source newObject |
 	object := BlElement new clipChildren: false.
@@ -614,7 +552,7 @@ StashBlocTest >> testBlElementClipChildren2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementEffect1 [
+StashBlocVisualsTest >> testBlElementEffect1 [
 
 	| object source newObject |
 	object := BlElement new effect: BlNullEffect new.
@@ -629,7 +567,7 @@ StashBlocTest >> testBlElementEffect1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementEffect2 [
+StashBlocVisualsTest >> testBlElementEffect2 [
 
 	| object source newObject |
 	object := BlElement new effect:
@@ -651,7 +589,7 @@ StashBlocTest >> testBlElementEffect2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementEffect3 [
+StashBlocVisualsTest >> testBlElementEffect3 [
 
 	| object source newObject |
 	object := BlElement new effect:
@@ -669,7 +607,7 @@ StashBlocTest >> testBlElementEffect3 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementElevation1 [
+StashBlocVisualsTest >> testBlElementElevation1 [
 
 	| object source newObject |
 	object := BlElement new zIndex: 1.
@@ -684,7 +622,7 @@ StashBlocTest >> testBlElementElevation1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementElevation2 [
+StashBlocVisualsTest >> testBlElementElevation2 [
 
 	| object source newObject |
 	object := BlElement new zIndex: 4.
@@ -699,7 +637,7 @@ StashBlocTest >> testBlElementElevation2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocusability1 [
+StashBlocVisualsTest >> testBlElementFocusability1 [
 
 	| object source newObject |
 	object := BlElement new
@@ -716,7 +654,7 @@ StashBlocTest >> testBlElementFocusability1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocusability2 [
+StashBlocVisualsTest >> testBlElementFocusability2 [
 
 	| object source newObject |
 	object := BlElement new
@@ -731,7 +669,7 @@ StashBlocTest >> testBlElementFocusability2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocusability3 [
+StashBlocVisualsTest >> testBlElementFocusability3 [
 
 	| object source newObject |
 	object := BlElement new
@@ -748,7 +686,7 @@ StashBlocTest >> testBlElementFocusability3 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocusability4 [
+StashBlocVisualsTest >> testBlElementFocusability4 [
 
 	| object source newObject |
 	object := BlElement new
@@ -765,7 +703,7 @@ StashBlocTest >> testBlElementFocusability4 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocusability5 [
+StashBlocVisualsTest >> testBlElementFocusability5 [
 
 	| object source newObject |
 	object := BlElement new
@@ -782,7 +720,7 @@ StashBlocTest >> testBlElementFocusability5 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocused1 [
+StashBlocVisualsTest >> testBlElementFocused1 [
 
 	| object source newObject |
 	object := BlElement new focused: false.
@@ -795,7 +733,7 @@ StashBlocTest >> testBlElementFocused1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementFocused2 [
+StashBlocVisualsTest >> testBlElementFocused2 [
 
 	| object source newObject |
 	object := BlElement new focused: true.
@@ -810,7 +748,7 @@ StashBlocTest >> testBlElementFocused2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry1 [
+StashBlocVisualsTest >> testBlElementGeometry1 [
 
 	| object source newObject |
 	object := BlElement new geometry: (BlRectangleGeometry new).
@@ -825,7 +763,7 @@ StashBlocTest >> testBlElementGeometry1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry10 [
+StashBlocVisualsTest >> testBlElementGeometry10 [
 
 	| object source newObject |
 	object := BlElement new geometry:
@@ -857,7 +795,7 @@ StashBlocTest >> testBlElementGeometry10 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry11 [
+StashBlocVisualsTest >> testBlElementGeometry11 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlTriangleGeometry new beTop.
@@ -873,7 +811,7 @@ StashBlocTest >> testBlElementGeometry11 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry12 [
+StashBlocVisualsTest >> testBlElementGeometry12 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlTriangleGeometry new beLeft.
@@ -889,7 +827,7 @@ StashBlocTest >> testBlElementGeometry12 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry13 [
+StashBlocVisualsTest >> testBlElementGeometry13 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlTriangleGeometry new beRight.
@@ -905,7 +843,7 @@ StashBlocTest >> testBlElementGeometry13 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry14 [
+StashBlocVisualsTest >> testBlElementGeometry14 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlTriangleGeometry new beBottom.
@@ -921,7 +859,7 @@ StashBlocTest >> testBlElementGeometry14 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry15 [
+StashBlocVisualsTest >> testBlElementGeometry15 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlTriangleGeometry new.
@@ -937,7 +875,7 @@ StashBlocTest >> testBlElementGeometry15 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry2 [
+StashBlocVisualsTest >> testBlElementGeometry2 [
 
 	| object source newObject |
 	object := BlElement new geometry: (BlAnnulusSectorGeometry new
@@ -965,7 +903,7 @@ StashBlocTest >> testBlElementGeometry2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry3 [
+StashBlocVisualsTest >> testBlElementGeometry3 [
 
 	| object source newObject |
 	object := BlElement new geometry:
@@ -992,7 +930,7 @@ StashBlocTest >> testBlElementGeometry3 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry4 [
+StashBlocVisualsTest >> testBlElementGeometry4 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlCircleGeometry new.
@@ -1007,7 +945,7 @@ StashBlocTest >> testBlElementGeometry4 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry5 [
+StashBlocVisualsTest >> testBlElementGeometry5 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlEllipseGeometry new.
@@ -1022,7 +960,7 @@ StashBlocTest >> testBlElementGeometry5 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry6 [
+StashBlocVisualsTest >> testBlElementGeometry6 [
 
 	| object source newObject |
 	object := (BlElement new geometry: (BlLineGeometry new from: 10@ 0 to: 100 @ 100)).
@@ -1042,7 +980,7 @@ StashBlocTest >> testBlElementGeometry6 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry7 [
+StashBlocVisualsTest >> testBlElementGeometry7 [
 
 	| object source newObject |
 	object := BlElement new geometry: (BlPolylineGeometry vertices: {
@@ -1074,7 +1012,7 @@ StashBlocTest >> testBlElementGeometry7 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry8 [
+StashBlocVisualsTest >> testBlElementGeometry8 [
 
 	| object source newObject |
 	object := BlElement new geometry: BlSquareGeometry new.
@@ -1089,7 +1027,7 @@ StashBlocTest >> testBlElementGeometry8 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementGeometry9 [
+StashBlocVisualsTest >> testBlElementGeometry9 [
 
 	| object source newObject |
 	object := BlElement new geometry:
@@ -1105,7 +1043,7 @@ StashBlocTest >> testBlElementGeometry9 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementMouseCursor1 [
+StashBlocVisualsTest >> testBlElementMouseCursor1 [
 
 	| object source newObject |
 	object := BlElement new mouseCursor: nil.
@@ -1118,7 +1056,7 @@ StashBlocTest >> testBlElementMouseCursor1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementMouseCursor2 [
+StashBlocVisualsTest >> testBlElementMouseCursor2 [
 
 	| object source newObject |
 	object := BlElement new mouseCursor: Cursor webLink.
@@ -1133,7 +1071,7 @@ StashBlocTest >> testBlElementMouseCursor2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementOpacity1 [
+StashBlocVisualsTest >> testBlElementOpacity1 [
 
 	| object source newObject |
 	object := BlElement new opacity: 1.0.
@@ -1146,7 +1084,7 @@ StashBlocTest >> testBlElementOpacity1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementOpacity2 [
+StashBlocVisualsTest >> testBlElementOpacity2 [
 
 	| object source newObject |
 	object := BlElement new opacity: 0.2.
@@ -1161,7 +1099,7 @@ StashBlocTest >> testBlElementOpacity2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementOutskirst1 [
+StashBlocVisualsTest >> testBlElementOutskirst1 [
 
 	| object source newObject |
 	object := BlElement new outskirts: BlOutskirts inside.
@@ -1174,7 +1112,7 @@ StashBlocTest >> testBlElementOutskirst1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementOutskirst2 [
+StashBlocVisualsTest >> testBlElementOutskirst2 [
 
 	| object source newObject |
 	object := BlElement new outskirts: BlOutskirts centered.
@@ -1189,7 +1127,7 @@ StashBlocTest >> testBlElementOutskirst2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementOutskirst3 [
+StashBlocVisualsTest >> testBlElementOutskirst3 [
 
 	| object source newObject |
 	object := BlElement new outskirts: BlOutskirts outside.
@@ -1204,7 +1142,7 @@ StashBlocTest >> testBlElementOutskirst3 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementVisibility1 [
+StashBlocVisualsTest >> testBlElementVisibility1 [
 
 	| object source newObject |
 	object := BlElement new visibility: BlVisibility visible. 
@@ -1217,7 +1155,7 @@ StashBlocTest >> testBlElementVisibility1 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementVisibility2 [
+StashBlocVisualsTest >> testBlElementVisibility2 [
 
 	| object source newObject |
 	object := BlElement new visibility: BlVisibility hidden.
@@ -1232,7 +1170,7 @@ StashBlocTest >> testBlElementVisibility2 [
 ]
 
 { #category : #tests }
-StashBlocTest >> testBlElementVisibility3 [
+StashBlocVisualsTest >> testBlElementVisibility3 [
 
 	| object source newObject |
 	object := BlElement new visibility: BlVisibility gone.

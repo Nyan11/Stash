@@ -7,3 +7,9 @@ Association >> asStashObject [
 		  object: self;
 		  yourself
 ]
+
+{ #category : #'*Stash-Serializer' }
+Association >> isStashGetter [
+
+	^ true
+]
