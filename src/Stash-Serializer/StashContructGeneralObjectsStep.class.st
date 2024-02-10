@@ -5,6 +5,14 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+StashContructGeneralObjectsStep >> addTag: aTag on: aStash [
+
+
+	aStash addOnSourceCode: aTag.
+	
+]
+
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: aStash [
 
 	aStashAssociation propertiesAreSet.
@@ -72,27 +80,8 @@ StashContructGeneralObjectsStep >> nextInstance: anObject on: aStash [
 
 { #category : #actions }
 StashContructGeneralObjectsStep >> nextReference: aStashObject on: aStash [
-
-	(aStashObject shouldBeTagged and: [ aStashObject isPropertiesSet ])
-		ifTrue: [
-			aStash addOnSourceCode: aStashObject tag.
-			^ self ].
-	aStashObject isStashCollection ifTrue: [
-		self constructCollection: aStashObject on: aStash.
-		^ self ].
-	aStashObject isStashAssociation ifTrue: [
-		self constructAssociation: aStashObject on: aStash.
-		^ self ].
-	aStashObject isStashPoint ifTrue: [
-		self constructPoint: aStashObject on: aStash.
-		^ self ].
-	aStashObject isStashObjectWithBuilder ifTrue: [
-		self constructObjectWithBuilder: aStashObject on: aStash.
-		^ self ].
-	aStashObject isStashDictionary ifTrue: [
-		self constructDictionary: aStashObject on: aStash.
-		^ self ].
-	self constructObject: aStashObject on: aStash
+	"Double dispatch to easily add more different objects"
+	aStashObject constructForGeneralObjectStep: self on: aStash
 ]
 
 { #category : #actions }

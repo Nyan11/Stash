@@ -21,16 +21,16 @@ StashObjectWithBuilder >> builder: anObject [
 ]
 
 { #category : #'as yet unclassified' }
+StashObjectWithBuilder >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
+
+	aStashContructGeneralObjectsStep constructObjectWithBuilder: self on: aStash
+]
+
+{ #category : #'as yet unclassified' }
 StashObjectWithBuilder >> constructorOrTag [
 
 	self shouldBeTagged ifFalse: [ ^ self builder asStashContructor ].
 	^ self tag
-]
-
-{ #category : #testing }
-StashObjectWithBuilder >> isStashObjectWithBuilder [
-
-	^ true
 ]
 
 { #category : #accessing }

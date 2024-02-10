@@ -1,6 +1,6 @@
 Class {
 	#name : #StashObject,
-	#superclass : #StashAbstractObject,
+	#superclass : #Object,
 	#instVars : [
 		'tag',
 		'object',
@@ -9,6 +9,16 @@ Class {
 	],
 	#category : #'Stash-Serializer-stash-objects'
 }
+
+{ #category : #adding }
+StashObject >> addTagOrConstructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
+
+	(self shouldBeTagged and: [ self isPropertiesSet ])
+		ifTrue: [
+			aStashContructGeneralObjectsStep addTag: self tag on: aStash.
+			^ self ].
+	self constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash
+]
 
 { #category : #'as yet unclassified' }
 StashObject >> allGettersForMyStash [
@@ -20,6 +30,12 @@ StashObject >> allGettersForMyStash [
 StashObject >> allSetterAndGettersForMyStash [
 
 	^ self object allSetterAndGettersForMyStash collect: [ :each | each isAssociation ifTrue: [ each ] ifFalse: [ each asMutator -> each ] ]
+]
+
+{ #category : #'as yet unclassified' }
+StashObject >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
+
+	aStashContructGeneralObjectsStep constructObject: self on: aStash
 ]
 
 { #category : #'as yet unclassified' }
@@ -53,12 +69,6 @@ StashObject >> initialize [
 StashObject >> isPropertiesSet [
 
 	^ propertiesSet.
-]
-
-{ #category : #testing }
-StashObject >> isStashObject [
-
-	^ self class == StashObject
 ]
 
 { #category : #'as yet unclassified' }

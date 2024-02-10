@@ -19,10 +19,12 @@ StashCollection >> classType: anObject [
 	classType := anObject
 ]
 
-{ #category : #testing }
-StashCollection >> isStashCollection [
+{ #category : #'as yet unclassified' }
+StashCollection >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
-	^ true
+	aStashContructGeneralObjectsStep
+		constructCollection: self
+		on: aStash
 ]
 
 { #category : #'as yet unclassified' }

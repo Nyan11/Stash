@@ -4,10 +4,12 @@ Class {
 	#category : #'Stash-Serializer-stash-objects'
 }
 
-{ #category : #testing }
-StashPoint >> isStashPoint [
+{ #category : #'as yet unclassified' }
+StashPoint >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
-	^ true
+	aStashContructGeneralObjectsStep
+		constructPoint: self
+		on: aStash
 ]
 
 { #category : #'as yet unclassified' }

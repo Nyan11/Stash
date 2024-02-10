@@ -16,7 +16,9 @@ BlElement >> allSetterAndGettersForMyStash [
 
 { #category : #'*Stash-Serializer' }
 BlElement >> allSetterAndGettersForMyStashConstraints: settersAndGetters [
-constraints == self defaultLayoutCommonConstraints ifFalse: [ settersAndGetters add: constraints ]
+
+	constraints = self defaultLayoutCommonConstraints ifFalse: [
+		settersAndGetters add: #constraints ]
 ]
 
 { #category : #'*Stash-Serializer' }

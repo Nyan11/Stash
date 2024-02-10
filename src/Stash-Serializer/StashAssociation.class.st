@@ -4,10 +4,10 @@ Class {
 	#category : #'Stash-Serializer-stash-objects'
 }
 
-{ #category : #testing }
-StashAssociation >> isStashAssociation [
+{ #category : #'as yet unclassified' }
+StashAssociation >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
-	^ true
+	aStashContructGeneralObjectsStep constructAssociation: self on: aStash
 ]
 
 { #category : #'as yet unclassified' }
