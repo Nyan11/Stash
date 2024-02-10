@@ -46,7 +46,8 @@ StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: 
 
 	aStash addOnSourceCode: aStashObject constructorOrTag.
 	aStashObject isPropertiesSet ifTrue: [
-		aStash addOnSourceCode: aStashObject methodToBuild.
+		aStashObject methodToBuild ifNotNil: [
+			aStash addOnSourceCode: aStashObject methodToBuild ].
 		^ self ].
 	aStashObject propertiesAreSet.
 	aStashObject nextSettersAndInstances
@@ -55,8 +56,10 @@ StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: 
 			aStash addOnSourceCode: association key.
 			self nextInstance: association value on: aStash ]
 		separatedBy: [ aStash addOnSourceCode: ';<r>' ].
-	aStash addOnSourceCode: ';'.
-	aStash addOnSourceCode: aStashObject methodToBuild
+		aStashObject methodToBuild ifNotNil: [
+			aStash addOnSourceCode: ';'.
+	aStash addOnSourceCode: aStashObject methodToBuild ].
+	
 ]
 
 { #category : #'as yet unclassified' }

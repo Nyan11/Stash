@@ -586,6 +586,526 @@ StashBlocTest >> testBlElementChildren4 [
 ]
 
 { #category : #tests }
+StashBlocTest >> testBlElementClipChildren1 [
+
+	| object source newObject |
+	object := BlElement new clipChildren: true.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject clipChildren
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementClipChildren2 [
+
+	| object source newObject |
+	object := BlElement new clipChildren: false.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   clipChildren: false;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self deny: newObject clipChildren
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementElevation1 [
+
+	| object source newObject |
+	object := BlElement new zIndex: 1.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   elevation: (BlRelativeElevation elevation: 1);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject elevation elevation equals: 1
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementElevation2 [
+
+	| object source newObject |
+	object := BlElement new zIndex: 4.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   elevation: (BlRelativeElevation elevation: 4);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject elevation elevation equals: 4
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocusability1 [
+
+	| object source newObject |
+	object := BlElement new
+		          focusability: BlFocusability after;
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   focusability: BlFocusability after;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focusability equals: BlFocusability after
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocusability2 [
+
+	| object source newObject |
+	object := BlElement new
+		          focusability: BlFocusability before;
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focusability equals: BlFocusability before
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocusability3 [
+
+	| object source newObject |
+	object := BlElement new
+		          focusability: BlFocusability block;
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   focusability: BlFocusability block;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focusability equals: BlFocusability block
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocusability4 [
+
+	| object source newObject |
+	object := BlElement new
+		          focusability: BlFocusability ignore;
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   focusability: BlFocusability ignore;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focusability equals: BlFocusability ignore
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocusability5 [
+
+	| object source newObject |
+	object := BlElement new
+		          focusability: BlFocusability none;
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   focusability: BlFocusability none;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focusability equals: BlFocusability none
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocused1 [
+
+	| object source newObject |
+	object := BlElement new focused: false.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focused equals: false
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementFocused2 [
+
+	| object source newObject |
+	object := BlElement new focused: true.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   focused: true;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject focused equals: true
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry1 [
+
+	| object source newObject |
+	object := BlElement new geometry: (BlRectangleGeometry new).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlRectangleGeometry new;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry equals: BlRectangleGeometry new
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry10 [
+
+	| object source newObject |
+	object := BlElement new geometry:
+		          (BlRoundedRectangleGeometry cornerRadii:
+			           (BlCornerRadii new
+				            topLeft: 1;
+				            topRight: 2;
+				            bottomRight: 3;
+				            bottomLeft: 4;
+				            yourself)).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: (BlRoundedRectangleGeometry cornerRadii: (BlCornerRadii new
+               topLeft: 1;
+               topRight: 2;
+               bottomLeft: 4;
+               bottomRight: 3;
+               yourself));
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		(newObject geometry isKindOf: BlRoundedRectangleGeometry).
+	self assert: newObject geometry cornerRadii topLeft equals: 1.
+	self assert: newObject geometry cornerRadii topRight equals: 2.
+	self assert: newObject geometry cornerRadii bottomRight equals: 3.
+	self assert: newObject geometry cornerRadii bottomLeft equals: 4
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry11 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlTriangleGeometry new beTop.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlTriangleGeometry new beTop;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: (newObject geometry isKindOf: BlTriangleGeometry).
+	self assert: newObject geometry isTop
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry12 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlTriangleGeometry new beLeft.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlTriangleGeometry new beLeft;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: (newObject geometry isKindOf: BlTriangleGeometry).
+	self assert: newObject geometry isLeft
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry13 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlTriangleGeometry new beRight.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlTriangleGeometry new beRight;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: (newObject geometry isKindOf: BlTriangleGeometry).
+	self assert: newObject geometry isRight
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry14 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlTriangleGeometry new beBottom.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlTriangleGeometry new beBottom;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: (newObject geometry isKindOf: BlTriangleGeometry).
+	self assert: newObject geometry isBottom
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry15 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlTriangleGeometry new.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlTriangleGeometry new beRight;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: (newObject geometry isKindOf: BlTriangleGeometry).
+	self assert: newObject geometry isRight
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry2 [
+
+	| object source newObject |
+	object := BlElement new geometry: (BlAnnulusSectorGeometry new
+			           startAngle: 10;
+			           endAngle: 50;
+			           innerRadius: 0.2;
+			           outerRadius: 0.7).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: (BlAnnulusSectorGeometry new
+         startAngle: 10;
+         endAngle: 50;
+         innerRadius: 0.2;
+         outerRadius: 0.7;
+         yourself);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlAnnulusSectorGeometry.
+	self assert: newObject geometry startAngle equals: 10.
+	self assert: newObject geometry endAngle equals: 50.
+	self assert: newObject geometry innerRadius equals: 0.2.
+	self assert: newObject geometry outerRadius equals: 0.7
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry3 [
+
+	| object source newObject |
+	object := BlElement new geometry:
+		          (BlBezierCurveGeometry controlPoints: {
+				           (5 @ 0).
+				           (20 @ 35).
+				           (35 @ 40) }).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: (BlBezierCurveGeometry new
+         controlPoints: {(5 @ 0) . 
+            (20 @ 35) . 
+            (35 @ 40)};
+         yourself);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlBezierCurveGeometry.
+	self assert: newObject geometry controlPoints equals: {
+				           (5 @ 0).
+				           (20 @ 35).
+				           (35 @ 40) }
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry4 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlCircleGeometry new.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlCircleGeometry new;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlCircleGeometry
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry5 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlEllipseGeometry new.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlEllipseGeometry new;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlEllipseGeometry
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry6 [
+
+	| object source newObject |
+	object := (BlElement new geometry: (BlLineGeometry new from: 10@ 0 to: 100 @ 100)).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: (BlLineGeometry new
+         from: 10 @ 0;
+         to: 100 @ 100;
+         yourself);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlLineGeometry.
+	self assert: newObject geometry from equals: 10 @ 0.
+	self assert: newObject geometry to equals: 100 @ 100
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry7 [
+
+	| object source newObject |
+	object := BlElement new geometry: (BlPolylineGeometry vertices: {
+				           (100 @ 10).
+				           (40 @ 198).
+				           (190 @ 78).
+				           (10 @ 78).
+				           (160 @ 198) }).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: (BlPolylineGeometry new
+         vertices: {(100 @ 10) . 
+            (40 @ 198) . 
+            (190 @ 78) . 
+            (10 @ 78) . 
+            (160 @ 198)};
+         yourself);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlPolylineGeometry.
+	self assert: newObject geometry vertices equals: {
+			(100 @ 10).
+			(40 @ 198).
+			(190 @ 78).
+			(10 @ 78).
+			(160 @ 198) }
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry8 [
+
+	| object source newObject |
+	object := BlElement new geometry: BlSquareGeometry new.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: BlSquareGeometry new;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry class equals: BlSquareGeometry
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementGeometry9 [
+
+	| object source newObject |
+	object := BlElement new geometry:
+		          (BlRoundedRectangleGeometry cornerRadius: 4).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   geometry: (BlRoundedRectangleGeometry cornerRadius: 4);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject geometry equals: (BlRoundedRectangleGeometry cornerRadius: 4)
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementMouseCursor1 [
+
+	| object source newObject |
+	object := BlElement new mouseCursor: nil.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject mouseCursor equals: nil
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementMouseCursor2 [
+
+	| object source newObject |
+	object := BlElement new mouseCursor: Cursor webLink.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   mouseCursor: (Cursor classPool at: #WebLinkCursor);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject mouseCursor equals: Cursor webLink
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementOpacity1 [
+
+	| object source newObject |
+	object := BlElement new opacity: 1.0.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject opacity equals: 1.0
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementOpacity2 [
+
+	| object source newObject |
+	object := BlElement new opacity: 0.2.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   opacity: 0.2;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject opacity equals: 0.2
+]
+
+{ #category : #tests }
 StashBlocTest >> testBlElementOutskirst1 [
 
 	| object source newObject |

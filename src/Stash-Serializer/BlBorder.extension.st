@@ -30,3 +30,13 @@ BlBorder >> allSetterAndGettersForMyStash [
 
 	^ settersAndGetters
 ]
+
+{ #category : #'*Stash-Serializer' }
+BlBorder >> asStashObject [
+
+	^ StashObjectWithBuilder new
+		  builder: BlBorderBuilder new;
+		methodToBuild: #build;
+		  object: self;
+		  yourself
+]
