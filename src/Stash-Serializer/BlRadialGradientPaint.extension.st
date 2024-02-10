@@ -4,8 +4,8 @@ Extension { #name : #BlRadialGradientPaint }
 BlRadialGradientPaint >> allSetterAndGettersForMyStash [
 
 	^ super allSetterAndGettersForMyStash , {
-		  (#innerCenter: -> #innerCenter).
-		  (#innerRadius: -> #innerRadius).
-		(#outerCenter: -> #outerCenter).
-		  (#outerRadius: -> #outerRadius) }
+		  (#innerCenter).
+		  (#innerRadius).
+		  (#outerCenter).
+		  (#outerRadius) }
 ]

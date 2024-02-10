@@ -19,7 +19,7 @@ StashObject >> allGettersForMyStash [
 { #category : #'as yet unclassified' }
 StashObject >> allSetterAndGettersForMyStash [
 
-	^ self object allSetterAndGettersForMyStash
+	^ self object allSetterAndGettersForMyStash collect: [ :each | each isAssociation ifTrue: [ each ] ifFalse: [ each asMutator -> each ] ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -27,6 +27,13 @@ StashObject >> constructorOrTag [
 
 	self shouldBeTagged ifFalse: [ ^ self object asStashContructor ].
 	^ self tag
+]
+
+{ #category : #'as yet unclassified' }
+StashObject >> getInstanceWith: anObject [
+		 anObject isBlock
+			  ifTrue: [ ^ anObject value: self object ]
+			  ifFalse: [ ^ self object perform: anObject ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -57,14 +64,16 @@ StashObject >> isStashObject [
 { #category : #'as yet unclassified' }
 StashObject >> nextInstances [
 
-	^ self allGettersForMyStash collect: [ :each | self object perform: each ]
+	^ self allGettersForMyStash collect: [ :each |
+		  self getInstanceWith: each.
+		   ]
 ]
 
 { #category : #'as yet unclassified' }
 StashObject >> nextSettersAndInstances [
 
-	^ self allSetterAndGettersForMyStash  collect: [ :each |
-		  (each key) -> (self object perform: each value) ]
+	^ self allSetterAndGettersForMyStash collect: [ :each |
+		  each key -> (self getInstanceWith: each value) ]
 ]
 
 { #category : #accessing }

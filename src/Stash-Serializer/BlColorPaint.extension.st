@@ -3,5 +3,5 @@ Extension { #name : #BlColorPaint }
 { #category : #'*Stash-Serializer' }
 BlColorPaint >> allSetterAndGettersForMyStash [
 
-	^ { #color: -> #color }
+	^ { (#color) }
 ]

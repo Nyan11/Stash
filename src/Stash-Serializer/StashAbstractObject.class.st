@@ -29,6 +29,12 @@ StashAbstractObject >> isStashObject [
 ]
 
 { #category : #testing }
+StashAbstractObject >> isStashObjectWithBuilder [
+
+	^ false
+]
+
+{ #category : #testing }
 StashAbstractObject >> isStashPoint [
 
 	^ false

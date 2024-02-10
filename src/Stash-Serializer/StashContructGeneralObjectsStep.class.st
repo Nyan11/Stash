@@ -41,6 +41,24 @@ StashContructGeneralObjectsStep >> constructObject: aStashObject on: aStash [
 	aStash addOnSourceCode: ';yourself'
 ]
 
+{ #category : #actions }
+StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: aStash [
+
+	aStash addOnSourceCode: aStashObject constructorOrTag.
+	aStashObject isPropertiesSet ifTrue: [
+		aStash addOnSourceCode: aStashObject methodToBuild.
+		^ self ].
+	aStashObject propertiesAreSet.
+	aStashObject nextSettersAndInstances
+		do: [ :association |
+			aStash addOnSourceCode: '<r>'.
+			aStash addOnSourceCode: association key.
+			self nextInstance: association value on: aStash ]
+		separatedBy: [ aStash addOnSourceCode: ';<r>' ].
+	aStash addOnSourceCode: ';'.
+	aStash addOnSourceCode: aStashObject methodToBuild
+]
+
 { #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructPoint: aStashAssociation on: aStash [
 
@@ -77,6 +95,9 @@ StashContructGeneralObjectsStep >> nextReference: aStashObject on: aStash [
 		^ self ].
 	aStashObject isStashPoint ifTrue: [
 		self constructPoint: aStashObject on: aStash.
+		^ self ].
+	aStashObject isStashObjectWithBuilder ifTrue: [
+		self constructObjectWithBuilder: aStashObject on: aStash.
 		^ self ].
 	aStashObject isStashDictionary ifTrue: [
 		self constructDictionary: aStashObject on: aStash.
