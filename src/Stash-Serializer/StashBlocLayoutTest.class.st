@@ -5,6 +5,19 @@ Class {
 }
 
 { #category : #tests }
+StashBlocLayoutTest >> testBlBasicLayout [
+
+	| object source newObject |
+	object := BlElement new layout: BlBasicLayout uniqueInstance.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject layout class equals: BlBasicLayout
+]
+
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout1 [
 
 	| object source newObject |

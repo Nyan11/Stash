@@ -7,10 +7,16 @@ BlElement >> allSetterAndGettersForMyStash [
 	settersAndGetters := OrderedCollection new.
 	self children ifNotEmpty: [
 		settersAndGetters add: #addChildren: -> #children ].
+	self allSetterAndGettersForMyStashUserData: settersAndGetters.
 	self allSetterAndGettersForMyStashVisuals: settersAndGetters.
 	self allSetterAndGettersForMyStashLayout: settersAndGetters.
 
 	^ settersAndGetters
+]
+
+{ #category : #'*Stash-Serializer' }
+BlElement >> allSetterAndGettersForMyStashConstraints: settersAndGetters [
+constraints == self defaultLayoutCommonConstraints ifFalse: [ settersAndGetters add: constraints ]
 ]
 
 { #category : #'*Stash-Serializer' }
@@ -19,6 +25,13 @@ BlElement >> allSetterAndGettersForMyStashLayout: settersAndGetters [
 	self layout == self defaultLayout ifFalse: [
 		settersAndGetters add: #layout ].
 	
+]
+
+{ #category : #'*Stash-Serializer' }
+BlElement >> allSetterAndGettersForMyStashUserData: settersAndGetters [
+
+	self id == nil ifFalse: [
+		settersAndGetters add: #id ]
 ]
 
 { #category : #'*Stash-Serializer' }
