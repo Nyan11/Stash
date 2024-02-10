@@ -614,6 +614,61 @@ StashBlocTest >> testBlElementClipChildren2 [
 ]
 
 { #category : #tests }
+StashBlocTest >> testBlElementEffect1 [
+
+	| object source newObject |
+	object := BlElement new effect: BlNullEffect new.
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   effect: BlNullEffect new;
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject effect class equals: BlNullEffect
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementEffect2 [
+
+	| object source newObject |
+	object := BlElement new effect:
+		          (BlGaussianShadowEffect
+			           color: Color black
+			           width: 5
+			           offset: 10 @ 20).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   effect: (BlGaussianShadowEffect color: (Color r: 0.0 g: 0.0 b: 0.0 alpha: 1.0) width: 5 offset: 10 @ 20);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject effect class equals: BlGaussianShadowEffect.
+	self assert: newObject effect color equals: Color black.
+	self assert: newObject effect width equals: 5.
+	self assert: newObject effect offset equals: 10 @ 20
+]
+
+{ #category : #tests }
+StashBlocTest >> testBlElementEffect3 [
+
+	| object source newObject |
+	object := BlElement new effect:
+		          (BlSimpleShadowEffect color: Color black offset: 5 @ 41).
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   effect: (BlSimpleShadowEffect color: (Color r: 0.0 g: 0.0 b: 0.0 alpha: 1.0) offset: 5 @ 41);
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject effect class equals: BlSimpleShadowEffect.
+	self assert: newObject effect color equals: Color black.
+	self assert: newObject effect offset equals: 5 @ 41
+]
+
+{ #category : #tests }
 StashBlocTest >> testBlElementElevation1 [
 
 	| object source newObject |
