@@ -25,6 +25,18 @@ StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: a
 ]
 
 { #category : #'as yet unclassified' }
+StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on: aStash [
+
+	aStash addOnSourceCode: '[ :constraints |<r>'.
+	aStashObject nextSettersAndInstances
+		do: [ :association |
+			aStash addOnSourceCode: 'constraints '.
+			self setProperty: association on: aStash ]
+		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+	aStash addOnSourceCode: ']'
+]
+
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructCollection: aStashCollection on: aStash [
 
 	aStashCollection propertiesAreSet.
