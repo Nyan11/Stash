@@ -26,22 +26,65 @@ StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: a
 
 { #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on: aStash [
+	"horizontal - vertical"
 
 	aStash addOnSourceCode: '[ :constraints |<r>'.
-	aStashObject allHorizontalSetters do: [ :aProperty |
+	aStashObject allHorizontalSetters
+		do: [ :aProperty |
 			aStash addOnSourceCode: 'constraints horizontal '.
 			self
 				setProperty: aProperty
 				ofObject: aStashObject object
 				on: aStash ]
 		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
-	aStashObject allVerticalSetters do: [ :aProperty |
+	aStashObject allVerticalSetters
+		do: [ :aProperty |
 			aStash addOnSourceCode: 'constraints vertical '.
 			self
 				setProperty: aProperty
 				ofObject: aStashObject object
 				on: aStash ]
 		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+
+	"Layout"
+	aStashObject allLayoutSettersAndNames do: [ :association | | currentLayoutConstraints |
+		currentLayoutConstraints := (aStashObject object perform: association key).
+		
+		"Layout :: horizontal - vertical"
+		(aStashObject allHorizontalSettersFor: currentLayoutConstraints)
+			do: [ :aProperty |
+				aStash addOnSourceCode: 'constraints '.
+				aStash addOnSourceCode: association key.
+				aStash addOnSourceCode: ' horizontal '.
+				self
+					setProperty: aProperty
+					ofObject: currentLayoutConstraints
+					on: aStash ]
+			separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+		(aStashObject allVerticalSettersFor: (currentLayoutConstraints))
+			do: [ :aProperty |
+				aStash addOnSourceCode: 'constraints '.
+				aStash addOnSourceCode: association key.
+				aStash addOnSourceCode: ' vertical '.
+				self
+					setProperty: aProperty
+					ofObject: currentLayoutConstraints
+					on: aStash ]
+			separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+
+		"Layout :: Properties"
+		association value
+			do: [ :aProperty |
+				aStash addOnSourceCode: 'constraints '.
+				aStash addOnSourceCode: association key.
+				aStash addOnSourceCode: ' '.
+				self
+					setProperty: aProperty
+					ofObject: currentLayoutConstraints
+					on: aStash ]
+			separatedBy: [ aStash addOnSourceCode: '.<r>' ] ].
+
+	"Properties"
 	aStashObject allSetters
 		do: [ :aProperty |
 			aStash addOnSourceCode: 'constraints '.

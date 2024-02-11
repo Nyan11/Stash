@@ -4,7 +4,22 @@ Extension { #name : #BlLayoutCommonConstraints }
 BlLayoutCommonConstraints >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
-	settersAndGetters := super allSetterAndGettersForMyStash asOrderedCollection.
+	settersAndGetters := super allSetterAndGettersForMyStash
+		                     asOrderedCollection.
+	
+	self flow allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #flow onlyGetOnStash ].
+	self frame allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #frame onlyGetOnStash ].
+	self grid allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #grid onlyGetOnStash ].
+	self linear allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #linear onlyGetOnStash ].
+	self relative allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #relative onlyGetOnStash ].
+	self zoomable allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #zoomable onlyGetOnStash ].
+	
 	self position = (0 @ 0) ifFalse: [ settersAndGetters add: #position ].
 	self padding = BlInsets empty ifFalse: [
 		settersAndGetters add: #padding ].

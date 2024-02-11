@@ -50,15 +50,6 @@ StashObject >> nextInstances [
 		  self getInstanceWith: each ]
 ]
 
-{ #category : #'as yet unclassified' }
-StashObject >> nextSettersAndInstances [
-
-	^ self allSetters collect: [ :each |
-		  each isStashGetter
-			  ifTrue: [ each setter -> (self getInstanceWith: each) ]
-			  ifFalse: [ each setter ] ]
-]
-
 { #category : #accessing }
 StashObject >> object: anObject [
 

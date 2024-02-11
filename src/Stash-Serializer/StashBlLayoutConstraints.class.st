@@ -12,9 +12,35 @@ StashBlLayoutConstraints >> allHorizontalSetters [
 ]
 
 { #category : #'as yet unclassified' }
+StashBlLayoutConstraints >> allHorizontalSettersFor: aLayoutConstraints [
+
+	^ aLayoutConstraints horizontal allSetterAndGettersForMyStash
+		  collect: [ :each | each asStashProperty ]
+		  thenSelect: [ :each | each isStashSetter ]
+]
+
+{ #category : #'as yet unclassified' }
+StashBlLayoutConstraints >> allLayoutSettersAndNames [
+
+	| layouts |
+	layouts := { #flow. #frame. #grid. #linear. #relative. #zoomable }.
+	^ layouts collect: [ :layout | layout -> ((self object perform: layout) allSetterAndGettersForMyStash
+		  collect: [ :each | each asStashProperty ]
+		  thenSelect: [ :each | each isStashSetter ]) ]
+]
+
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> allVerticalSetters [
 
 	^ self object vertical allSetterAndGettersForMyStash
+		  collect: [ :each | each asStashProperty ]
+		  thenSelect: [ :each | each isStashSetter ]
+]
+
+{ #category : #'as yet unclassified' }
+StashBlLayoutConstraints >> allVerticalSettersFor: aLayoutConstraints [
+
+	^ aLayoutConstraints vertical allSetterAndGettersForMyStash
 		  collect: [ :each | each asStashProperty ]
 		  thenSelect: [ :each | each isStashSetter ]
 ]
@@ -44,36 +70,9 @@ StashBlLayoutConstraints >> getInstanceForVerticalWith: anObject [
 ]
 
 { #category : #'as yet unclassified' }
-StashBlLayoutConstraints >> nextHorizontalSettersAndInstances [
-
-	^ self object horizontal allSetterAndGettersForMyStash collect: [
-		  :each |
-
-				  'horizontal ' , each setter
-				  -> (self getInstanceForHorizontalWith: each value) 
-			   ]
-]
-
-{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> nextInstances [
 
 	^ super nextInstances, { self object horizontal . self object vertical } 
-]
-
-{ #category : #'as yet unclassified' }
-StashBlLayoutConstraints >> nextSettersAndInstances [
-
-	^ self nextHorizontalSettersAndInstances , self nextVerticalSettersAndInstances , super nextSettersAndInstances
-]
-
-{ #category : #'as yet unclassified' }
-StashBlLayoutConstraints >> nextVerticalSettersAndInstances [
-
-
-	^ self object vertical allSetterAndGettersForMyStash collect: [
-		  :each |
-		  'vertical ' , each setter
-		  -> (self getInstanceForVerticalWith: each value) ]
 ]
 
 { #category : #accessing }
