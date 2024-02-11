@@ -104,19 +104,41 @@ StashContructGeneralObjectsStep >> runOn: aStash [
 
 { #category : #actions }
 StashContructGeneralObjectsStep >> setPropertiesOf: aStashObject on: aStash [
+
 	aStashObject propertiesAreSet.
-	aStashObject nextSettersAndInstances
-		do: [ :association |
+	aStashObject allSetters
+		do: [ :aProperty |
 			aStash addOnSourceCode: '<r>'.
-			self setProperty: association on: aStash ]
-		separatedBy: [ aStash addOnSourceCode: ';<r>' ].
+			self setProperty: aProperty ofObject: aStashObject object on: aStash ]
+		separatedBy: [ aStash addOnSourceCode: ';<r>' ]
+]
+
+{ #category : #initialization }
+StashContructGeneralObjectsStep >> setProperty: aStashProperty ofObject: anObject on: aStash [
+
+	| argument |
+	aStashProperty setter isBlock
+		ifTrue: [
+		aStash addOnSourceCode: (aStashProperty setter value: anObject) ]
+		ifFalse: [ aStash addOnSourceCode: aStashProperty setter ].
+
+
+	"If property is a getter we put the get value as an argument."
+	aStashProperty isStashGetter ifFalse: [ ^ self ].
 	
+	argument := aStashProperty getter isBlock ifTrue: [  aStashProperty getter value: anObject ] ifFalse: [  anObject perform: aStashProperty getter].
+	self nextInstance: argument on: aStash
 ]
 
 { #category : #actions }
-StashContructGeneralObjectsStep >> setProperty: association on: aStash [
+StashContructGeneralObjectsStep >> setProperty: aProperty on: aStash [
 
-	 association key isBlock ifTrue: [ aStash addOnSourceCode: (association key value: association value). ^ self ].
-aStash addOnSourceCode: association key.
-			self nextInstance: association value on: aStash
+	aProperty setter isBlock ifTrue: [
+		aStash addOnSourceCode: (aProperty setter value: aProperty getter).
+		^ self ].
+	aStash addOnSourceCode: aProperty setter.
+	
+	"If property is a getter we put the get value as an argument."
+	aProperty isStashGetter ifFalse: [ ^ self ].
+	self nextInstance: aProperty getter on: aStash
 ]

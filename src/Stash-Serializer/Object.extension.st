@@ -28,6 +28,11 @@ Object >> asStashObject [
 ]
 
 { #category : #'*Stash-Serializer' }
+Object >> asStashProperty [
+	^ StashSetterGetter new context: self; yourself
+]
+
+{ #category : #'*Stash-Serializer' }
 Object class >> isTaggedInStash [
 ^ false
 ]

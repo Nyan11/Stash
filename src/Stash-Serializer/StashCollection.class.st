@@ -1,6 +1,6 @@
 Class {
 	#name : #StashCollection,
-	#superclass : #StashObject,
+	#superclass : #StashAbstractObject,
 	#instVars : [
 		'classType'
 	],

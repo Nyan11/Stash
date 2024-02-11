@@ -1,5 +1,5 @@
 Class {
-	#name : #StashTestObject1,
+	#name : #StashTesSetterGetter1,
 	#superclass : #Object,
 	#instVars : [
 		'name'
@@ -8,20 +8,19 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-StashTestObject1 >> allSetterAndGettersForMyStash [
+StashTesSetterGetter1 >> allSetterAndGettersForMyStash [
 
-	self name ifNil: [ ^ {  } ].
-	^ { (#name: -> #name) }
+	^ { #name: -> #name }
 ]
 
 { #category : #accessing }
-StashTestObject1 >> name [
+StashTesSetterGetter1 >> name [
 
 	^ name
 ]
 
 { #category : #accessing }
-StashTestObject1 >> name: anObject [
+StashTesSetterGetter1 >> name: anObject [
 
 	name := anObject
 ]

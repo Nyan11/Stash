@@ -13,3 +13,15 @@ Association >> isStashGetter [
 
 	^ true
 ]
+
+{ #category : #'*Stash-Serializer' }
+Association >> isStashSetter [
+
+	^ true
+]
+
+{ #category : #'*Stash-Serializer' }
+Association >> onlySetOnStash [
+
+	^ StashOnlySetter new context: self; yourself
+]

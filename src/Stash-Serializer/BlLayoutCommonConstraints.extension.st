@@ -4,7 +4,7 @@ Extension { #name : #BlLayoutCommonConstraints }
 BlLayoutCommonConstraints >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
-	settersAndGetters := OrderedCollection new.
+	settersAndGetters := super allSetterAndGettersForMyStash asOrderedCollection.
 	self position = (0 @ 0) ifFalse: [ settersAndGetters add: #position ].
 	self padding = BlInsets empty ifFalse: [
 		settersAndGetters add: #padding ].
@@ -19,8 +19,8 @@ BlLayoutCommonConstraints >> allSetterAndGettersForMyStash [
 	self minWidth = 0 ifFalse: [ settersAndGetters add: #minWidth ].
 
 	accountTransformation ifTrue: [
-		settersAndGetters add: ([ :c |
-		 #accountTransformation ] -> self) onlySetOnStash ].
+		settersAndGetters add:
+			([ :c | #accountTransformation ] -> self) onlySetOnStash ].
 
 	^ settersAndGetters
 ]

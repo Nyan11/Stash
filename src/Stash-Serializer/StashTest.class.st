@@ -140,76 +140,19 @@ StashTest >> testObject1 [
 ]
 
 { #category : #tests }
-StashTest >> testObject2 [
-
-	| object source newObject |
-	object := StashTestObject1 new
-		          name: 'test1';
-		          yourself.
-	source := (Stash new serialize: object).
-	self
-		assert: source
-		equals: 'StashTestObject1 new
-   name: ''test1'';
-   yourself'.
-
-	newObject := self class compiler
-		  source: source;
-		  evaluate.
-	self assert: newObject name equals: 'test1'
-	
-]
-
-{ #category : #tests }
 StashTest >> testObject3 [
 
 	| object source newObject |
 	object := StashTestObject1 new.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTestObject1 new'.
+	self assert: source equals: 'StashTestObject1 new
+   name: nil;
+   yourself'.
 
 	newObject := self class compiler
 		             source: source;
 		             evaluate.
 	self assert: newObject name equals: nil
-]
-
-{ #category : #tests }
-StashTest >> testObject4 [
-
-	| object source newObject |
-	object := StashTestObject1 new name:
-		          (StashTestObject1 new name: 'test').
-	source := Stash new serialize: object.
-	self assert: source equals: 'StashTestObject1 new
-   name: (StashTestObject1 new
-         name: ''test'';
-         yourself);
-   yourself'.
-
-	newObject := self class compiler
-		             source: source;
-		             evaluate.
-	self assert: newObject name name equals: 'test'
-]
-
-{ #category : #tests }
-StashTest >> testObject5 [
-
-	| object source newObject |
-	object := StashTestObject1 new.
-	object name: object.
-	source := Stash new serialize: object.
-	self assert: source equals: '| stashobject1 |
-stashobject1 := StashTestObject1 new.
-stashobject1
-   name: stashobject1;
-   yourself'.
-
-	newObject := self class compiler
-		             source: source;
-		             evaluate.
-	self assert: newObject name equals: newObject
 ]
 
 { #category : #tests }

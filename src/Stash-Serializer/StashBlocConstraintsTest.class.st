@@ -21,6 +21,20 @@ StashBlocConstraintsTest >> testAccountTransformation [
 ]
 
 { #category : #tests }
+StashBlocConstraintsTest >> testHorizontal1 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c horizontal matchParent ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints horizontal resizer isMatchParent
+]
+
+{ #category : #tests }
 StashBlocConstraintsTest >> testMargin1 [
 
 

@@ -1,6 +1,6 @@
 Class {
 	#name : #StashAssociation,
-	#superclass : #StashObject,
+	#superclass : #StashAbstractObject,
 	#category : #'Stash-Serializer-stash-objects'
 }
 
