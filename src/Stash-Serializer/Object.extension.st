@@ -38,6 +38,14 @@ Object class >> isTaggedInStash [
 ]
 
 { #category : #'*Stash-Serializer' }
+Object >> onlySetOnStash [
+
+	^ StashOnlySetter new
+		  context: self;
+		  yourself
+]
+
+{ #category : #'*Stash-Serializer' }
 Object >> shouldBeTagged [
 
 	^ self isLiteral not

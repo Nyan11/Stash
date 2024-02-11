@@ -18,7 +18,7 @@ BlElement >> allSetterAndGettersForMyStash [
 { #category : #'*Stash-Serializer' }
 BlElement >> allSetterAndGettersForMyStashConstraints: settersAndGetters [
 
-	constraints allSetterAndGettersForMyStash ifNotEmpty: [
+	(constraints allSetterAndGettersForMyStash select: [:each | each isStashSetter]) ifNotEmpty: [
 		settersAndGetters add: #constraintsDo: -> #constraints ]
 ]
 

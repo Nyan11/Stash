@@ -19,9 +19,3 @@ Association >> isStashSetter [
 
 	^ true
 ]
-
-{ #category : #'*Stash-Serializer' }
-Association >> onlySetOnStash [
-
-	^ StashOnlySetter new context: self; yourself
-]

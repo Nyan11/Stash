@@ -28,10 +28,10 @@ StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: a
 StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on: aStash [
 
 	aStash addOnSourceCode: '[ :constraints |<r>'.
-	aStashObject nextSettersAndInstances
+	aStashObject allSetters
 		do: [ :association |
 			aStash addOnSourceCode: 'constraints '.
-			self setProperty: association on: aStash ]
+			self setProperty: association of: self object on: aStash ]
 		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
 	aStash addOnSourceCode: ']'
 ]
@@ -128,17 +128,4 @@ StashContructGeneralObjectsStep >> setProperty: aStashProperty ofObject: anObjec
 	
 	argument := aStashProperty getter isBlock ifTrue: [  aStashProperty getter value: anObject ] ifFalse: [  anObject perform: aStashProperty getter].
 	self nextInstance: argument on: aStash
-]
-
-{ #category : #actions }
-StashContructGeneralObjectsStep >> setProperty: aProperty on: aStash [
-
-	aProperty setter isBlock ifTrue: [
-		aStash addOnSourceCode: (aProperty setter value: aProperty getter).
-		^ self ].
-	aStash addOnSourceCode: aProperty setter.
-	
-	"If property is a getter we put the get value as an argument."
-	aProperty isStashGetter ifFalse: [ ^ self ].
-	self nextInstance: aProperty getter on: aStash
 ]

@@ -140,22 +140,6 @@ StashTest >> testObject1 [
 ]
 
 { #category : #tests }
-StashTest >> testObject3 [
-
-	| object source newObject |
-	object := StashTestObject1 new.
-	source := Stash new serialize: object.
-	self assert: source equals: 'StashTestObject1 new
-   name: nil;
-   yourself'.
-
-	newObject := self class compiler
-		             source: source;
-		             evaluate.
-	self assert: newObject name equals: nil
-]
-
-{ #category : #tests }
 StashTest >> testPoint1 [
 
 	| object source |

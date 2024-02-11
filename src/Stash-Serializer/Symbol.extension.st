@@ -18,11 +18,3 @@ Symbol >> onlyGetOnStash [
 		  context: self;
 		  yourself
 ]
-
-{ #category : #'*Stash-Serializer' }
-Symbol >> onlySetOnStash [
-
-	^ StashOnlySetter new
-		  context: self;
-		  yourself
-]
