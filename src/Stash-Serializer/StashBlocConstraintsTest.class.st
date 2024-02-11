@@ -27,11 +27,63 @@ StashBlocConstraintsTest >> testHorizontal1 [
 	object := BlElement new constraintsDo: [ :c |
 		          c horizontal matchParent ].
 	source := Stash new serialize: object.
-	self assert: source equals: 'BlElement new'.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints horizontal matchParent ];
+   yourself'.
 	newObject := self class compiler
 		             source: source;
 		             evaluate.
 	self assert: newObject constraints horizontal resizer isMatchParent
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testHorizontal2 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c horizontal fitContent ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints horizontal fitContent ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints horizontal resizer isFitContent
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testHorizontal3 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c horizontal exact: 50.0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints horizontal resizer isExact.
+	self assert: newObject constraints horizontal resizer size equals: 50.0.
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testHorizontal4 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c horizontal exact: 500.0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints horizontal exact: 500.0 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints horizontal resizer isExact.
+	self
+		assert: newObject constraints horizontal resizer size
+		equals: 500.0
 ]
 
 { #category : #tests }
@@ -323,4 +375,72 @@ StashBlocConstraintsTest >> testPosition3 [
 		             source: source;
 		             evaluate.
 	self assert: newObject constraints position equals: 10 @ 10
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testVertical1 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c vertical matchParent ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints vertical matchParent ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints vertical resizer isMatchParent
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testVertical2 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c vertical fitContent ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints vertical fitContent ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints vertical resizer isFitContent
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testVertical3 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c vertical exact: 50.0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints vertical resizer isExact.
+	self
+		assert: newObject constraints vertical resizer size
+		equals: 50.0
+]
+
+{ #category : #tests }
+StashBlocConstraintsTest >> testVertical4 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c vertical exact: 500.0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints vertical exact: 500.0 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints vertical resizer isExact.
+	self
+		assert: newObject constraints vertical resizer size
+		equals: 500.0
 ]

@@ -9,8 +9,8 @@ BlLayoutCommonConstraintsAxis >> allSetterAndGettersForMyStash [
 		settersAndGetters add: #matchParent onlySetOnStash ].
 	self resizer isFitContent ifTrue: [
 		settersAndGetters add: #fitContent onlySetOnStash ].
-	self resizer isExact ifTrue: [
-		settersAndGetters add: (#exact: -> [ :axis | axis resizer size ]) onlySetOnStash ].
+	(self resizer isExact and: [ self resizer size ~= 50.0 ]) ifTrue: [
+		settersAndGetters add: #exact: -> [ :c | self resizer size ] ].
 	^ settersAndGetters
 ]
 

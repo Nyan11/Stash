@@ -28,10 +28,27 @@ StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: a
 StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on: aStash [
 
 	aStash addOnSourceCode: '[ :constraints |<r>'.
+	aStashObject allHorizontalSetters do: [ :aProperty |
+			aStash addOnSourceCode: 'constraints horizontal '.
+			self
+				setProperty: aProperty
+				ofObject: aStashObject object
+				on: aStash ]
+		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+	aStashObject allVerticalSetters do: [ :aProperty |
+			aStash addOnSourceCode: 'constraints vertical '.
+			self
+				setProperty: aProperty
+				ofObject: aStashObject object
+				on: aStash ]
+		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
 	aStashObject allSetters
-		do: [ :association |
+		do: [ :aProperty |
 			aStash addOnSourceCode: 'constraints '.
-			self setProperty: association of: self object on: aStash ]
+			self
+				setProperty: aProperty
+				ofObject: aStashObject object
+				on: aStash ]
 		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
 	aStash addOnSourceCode: ']'
 ]

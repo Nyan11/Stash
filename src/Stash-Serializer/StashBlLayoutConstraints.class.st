@@ -5,6 +5,21 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+StashBlLayoutConstraints >> allHorizontalSetters [
+
+	^ self object horizontal allSetterAndGettersForMyStash collect: [ :each | each asStashProperty ] thenSelect: [ :each |
+		  each isStashSetter ]
+]
+
+{ #category : #'as yet unclassified' }
+StashBlLayoutConstraints >> allVerticalSetters [
+
+	^ self object vertical allSetterAndGettersForMyStash
+		  collect: [ :each | each asStashProperty ]
+		  thenSelect: [ :each | each isStashSetter ]
+]
+
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
 	aStashContructGeneralObjectsStep
