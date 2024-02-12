@@ -23,10 +23,12 @@ StashBlLayoutConstraints >> allHorizontalSettersFor: aLayoutConstraints [
 StashBlLayoutConstraints >> allLayoutSettersAndNames [
 
 	| layouts |
-	layouts := { #flow. #frame. #grid. #linear. #relative. #zoomable }.
-	^ layouts collect: [ :layout | layout -> ((self object perform: layout) allSetterAndGettersForMyStash
-		  collect: [ :each | each asStashProperty ]
-		  thenSelect: [ :each | each isStashSetter ]) ]
+	layouts := { #flow. #frame. #grid. #linear. #proportional . #relative. #zoomable }.
+	^ layouts collect: [ :layout |
+		  layout
+		  -> ((self object perform: layout) allSetterAndGettersForMyStash
+				   collect: [ :each | each asStashProperty ]
+				   thenSelect: [ :each | each isStashSetter ]) ]
 ]
 
 { #category : #'as yet unclassified' }

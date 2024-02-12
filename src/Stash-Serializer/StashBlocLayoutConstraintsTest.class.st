@@ -432,3 +432,162 @@ StashBlocLayoutConstraintsTest >> testFrame9 [
 		assert: newObject constraints frame vertical alignment
 		equals: BlElementAlignment vertical center
 ]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear1 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c | c linear weight: 30.0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints linear weight: 30.0 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints linear weight equals: 30.0
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear2 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c linear horizontal alignLeft ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints linear horizontal alignment
+		equals: BlElementAlignment horizontal start
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear3 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c linear horizontal alignCenter ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints linear horizontal alignCenter ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints linear horizontal alignment
+		equals: BlElementAlignment horizontal center
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear4 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c linear horizontal alignRight ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints linear horizontal alignRight ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints linear horizontal alignment
+		equals: BlElementAlignment horizontal end
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear5 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c linear vertical alignTop ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints linear vertical alignment
+		equals: BlElementAlignment vertical start
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear6 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c linear vertical alignCenter ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints linear vertical alignCenter ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints linear vertical alignment
+		equals: BlElementAlignment vertical center
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testLinear7 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c linear vertical alignBottom ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints linear vertical alignBottom ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints linear vertical alignment
+		equals: BlElementAlignment vertical end
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testProportional1 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c | c proportional horizontal left: 0.2. c proportional horizontal right: 0.3 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints proportional horizontal left: 0.2.
+      constraints proportional horizontal right: 0.3 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject constraints proportional horizontal left equals: 0.2.
+	self assert: newObject constraints proportional horizontal right equals: 0.3.
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testProportional2 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c proportional vertical top: 0.2.
+		          c proportional vertical bottom: 0.3 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints proportional vertical top: 0.2.
+      constraints proportional vertical bottom: 0.3 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints proportional vertical top
+		equals: 0.2.
+	self
+		assert: newObject constraints proportional vertical bottom
+		equals: 0.3
+]

@@ -15,6 +15,8 @@ BlLayoutCommonConstraints >> allSetterAndGettersForMyStash [
 		settersAndGetters add: #grid onlyGetOnStash ].
 	self linear allSetterAndGettersForMyStash ifNotEmpty: [
 		settersAndGetters add: #linear onlyGetOnStash ].
+	self proportional allSetterAndGettersForMyStash ifNotEmpty: [
+		settersAndGetters add: #proportional onlyGetOnStash ].
 	self relative allSetterAndGettersForMyStash ifNotEmpty: [
 		settersAndGetters add: #relative onlyGetOnStash ].
 	self zoomable allSetterAndGettersForMyStash ifNotEmpty: [
