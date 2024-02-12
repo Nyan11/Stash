@@ -13,9 +13,3 @@ BlLayoutCommonConstraintsAxis >> allSetterAndGettersForMyStash [
 		settersAndGetters add: #exact: -> [ :c | self resizer size ] ].
 	^ settersAndGetters
 ]
-
-{ #category : #'*Stash-Serializer' }
-BlLayoutCommonConstraintsAxis >> shouldBeTagged [
-
-	^ false.
-]
