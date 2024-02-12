@@ -156,7 +156,7 @@ StashBlocLayoutConstraintsTest >> testFrame1 [
 
 	| object source newObject |
 	object := BlElement new constraintsDo: [ :c |
-		          c flow horizontal alignLeftAt: 0.5 ].
+		          c frame horizontal alignLeft ].
 	source := Stash new serialize: object.
 	self assert: source equals: 'BlElement new'.
 	newObject := self class compiler
@@ -164,5 +164,30 @@ StashBlocLayoutConstraintsTest >> testFrame1 [
 		             evaluate.
 	self
 		assert: newObject constraints frame horizontal alignment
+		equals: BlElementAlignment horizontal start
+]
+
+{ #category : #tests }
+StashBlocLayoutConstraintsTest >> testFrame2 [
+
+	| object source newObject |
+	object := BlElement new constraintsDo: [ :c |
+		          c frame horizontal alignLeftAt: 0.5 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   constraintsDo: [:constraints |  constraints frame horizontal alignLeftAt: 0.5 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self
+		assert: newObject constraints frame horizontal alignment class
+		equals: BlHorizontalCoordinateLeftAlignment.
+	self
+		assert: newObject constraints frame horizontal alignment coordinates
+		equals: 0.5.
+	self
+		assert:
+		newObject constraints frame horizontal alignment relativeAlignment
 		equals: BlElementAlignment horizontal start
 ]
