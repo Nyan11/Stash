@@ -49,8 +49,8 @@ Stash >> initialize [
 { #category : #'instance creation' }
 Stash >> newTagFor: aStashObject [
 
-	^ aStashObject class printString asLowercase
-	, self nextUUID printString
+	^ aStashObject object class printString asLowercase
+	  , self nextUUID printString
 ]
 
 { #category : #'as yet unclassified' }

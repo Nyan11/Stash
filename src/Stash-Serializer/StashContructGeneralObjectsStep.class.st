@@ -35,21 +35,23 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 			self
 				setProperty: aProperty
 				ofObject: aStashObject object
-				on: aStash ]
-		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+				on: aStash.
+			aStash addOnSourceCode: '.<r>' ].
 	aStashObject allVerticalSetters
 		do: [ :aProperty |
 			aStash addOnSourceCode: 'constraints vertical '.
 			self
 				setProperty: aProperty
 				ofObject: aStashObject object
-				on: aStash ]
-		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+				on: aStash.
+				aStash addOnSourceCode: '.<r>' ].
 
 	"Layout"
-	aStashObject allLayoutSettersAndNames do: [ :association | | currentLayoutConstraints |
-		currentLayoutConstraints := (aStashObject object perform: association key).
-		
+	aStashObject allLayoutSettersAndNames do: [ :association |
+		| currentLayoutConstraints |
+		currentLayoutConstraints := aStashObject object perform:
+			                            association key.
+
 		"Layout :: horizontal - vertical"
 		(aStashObject allHorizontalSettersFor: currentLayoutConstraints)
 			do: [ :aProperty |
@@ -59,9 +61,9 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 				self
 					setProperty: aProperty
 					ofObject: currentLayoutConstraints
-					on: aStash ]
-			separatedBy: [ aStash addOnSourceCode: '.<r>' ].
-		(aStashObject allVerticalSettersFor: (currentLayoutConstraints))
+					on: aStash.
+					aStash addOnSourceCode: '.<r>' ].
+		(aStashObject allVerticalSettersFor: currentLayoutConstraints)
 			do: [ :aProperty |
 				aStash addOnSourceCode: 'constraints '.
 				aStash addOnSourceCode: association key.
@@ -69,8 +71,8 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 				self
 					setProperty: aProperty
 					ofObject: currentLayoutConstraints
-					on: aStash ]
-			separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+					on: aStash.
+					 aStash addOnSourceCode: '.<r>' ].
 
 		"Layout :: Properties"
 		association value
@@ -81,8 +83,8 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 				self
 					setProperty: aProperty
 					ofObject: currentLayoutConstraints
-					on: aStash ]
-			separatedBy: [ aStash addOnSourceCode: '.<r>' ] ].
+					on: aStash.
+					aStash addOnSourceCode: '.<r>' ] ].
 
 	"Properties"
 	aStashObject allSetters
@@ -91,8 +93,8 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 			self
 				setProperty: aProperty
 				ofObject: aStashObject object
-				on: aStash ]
-		separatedBy: [ aStash addOnSourceCode: '.<r>' ].
+				on: aStash.
+				aStash addOnSourceCode: '.<r>' ].
 	aStash addOnSourceCode: ']'
 ]
 

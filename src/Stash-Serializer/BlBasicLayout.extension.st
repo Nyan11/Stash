@@ -5,3 +5,9 @@ BlBasicLayout >> asStashContructor [
 
 	^ 'BlBasicLayout uniqueInstance' 
 ]
+
+{ #category : #'*Stash-Serializer' }
+BlBasicLayout >> shouldBeTagged [
+
+	^ false
+]
