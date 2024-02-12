@@ -7,9 +7,10 @@ BlFrameLayoutConstraintsHorizontal >> allSetterAndGettersForMyStash [
 	settersAndGetters := OrderedCollection new.
 
 	self alignment = BlElementAlignment start horizontal ifFalse: [
-		settersAndGetters add: [ :e | self alignment asStashSelector ] onlySetOnStash].
+		settersAndGetters add:
+			[ :e | self alignment asStashSelector ] onlySetOnStash ].
 
-	self weight == 1.0 ifFalse: [ settersAndGetters add: #weight ].
+	self weight == 1.0 ifFalse: [ settersAndGetters add: [ :e | 'weight: ' , self weight printString ] onlySetOnStash ].
 
 	^ settersAndGetters
 ]
