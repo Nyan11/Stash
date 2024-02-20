@@ -5,14 +5,23 @@ BlElement >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
-	self children ifNotEmpty: [
-		settersAndGetters add: #addChildren: -> #children ].
+
+	self allSetterAndGettersForMyStashChildren: settersAndGetters.
 	self allSetterAndGettersForMyStashUserData: settersAndGetters.
 	self allSetterAndGettersForMyStashVisuals: settersAndGetters.
 	self allSetterAndGettersForMyStashLayout: settersAndGetters.
 	self allSetterAndGettersForMyStashConstraints: settersAndGetters.
+	self allSetterAndGettersForMyStashTransformation: settersAndGetters.
 
 	^ settersAndGetters
+]
+
+{ #category : #'*Stash-Serializer' }
+BlElement >> allSetterAndGettersForMyStashChildren: settersAndGetters [
+
+	self children ifNotEmpty: [
+		settersAndGetters add: #addChildren: -> #children ].
+	
 ]
 
 { #category : #'*Stash-Serializer' }
@@ -28,6 +37,13 @@ BlElement >> allSetterAndGettersForMyStashLayout: settersAndGetters [
 	self layout == self defaultLayout ifFalse: [
 		settersAndGetters add: #layout ].
 	
+]
+
+{ #category : #'*Stash-Serializer' }
+BlElement >> allSetterAndGettersForMyStashTransformation: settersAndGetters [
+
+	self transformation isIdentity ifFalse: [
+		settersAndGetters add: #transformDo: -> #transformation ]
 ]
 
 { #category : #'*Stash-Serializer' }

@@ -99,6 +99,17 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 ]
 
 { #category : #'as yet unclassified' }
+StashContructGeneralObjectsStep >> constructBlTransformation: aStashObject on: aStash [
+
+	aStash addOnSourceCode: '[ :transformation |<r>'.
+	aStashObject allSetters do: [ :aProperty |
+		aStash addOnSourceCode: 'transformation '.
+		self setProperty: aProperty ofObject: aStashObject object on: aStash.
+		aStash addOnSourceCode: '.<r>' ].
+	aStash addOnSourceCode: ']'
+]
+
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructCollection: aStashCollection on: aStash [
 
 	aStashCollection propertiesAreSet.
