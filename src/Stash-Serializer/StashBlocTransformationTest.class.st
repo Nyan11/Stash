@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #tests }
-StashBlocTransformationTest >> testReflexion1 [
+StashBlocTransformationTest >> testReflection1 [
 
 	| object source newObject |
 	object := BlElement new transformDo: [ :t |
@@ -34,7 +34,7 @@ StashBlocTransformationTest >> testReflexion1 [
 ]
 
 { #category : #tests }
-StashBlocTransformationTest >> testReflexion2 [
+StashBlocTransformationTest >> testReflection2 [
 
 	| object source newObject |
 	object := BlElement new transformDo: [ :t | t flipY ].
@@ -61,7 +61,7 @@ StashBlocTransformationTest >> testReflexion2 [
 ]
 
 { #category : #tests }
-StashBlocTransformationTest >> testReflexion3 [
+StashBlocTransformationTest >> testReflection3 [
 
 	| object source newObject |
 	object := BlElement new transformDo: [ :t | t flipX . t flipY ].
