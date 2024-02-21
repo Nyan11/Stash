@@ -266,3 +266,122 @@ StashBlocTransformationTest >> testScale3 [
 		             evaluate.
 	self assert: newObject transformation isIdentity
 ]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testShear1 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t shearBy: 0 @ 0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation shearBy: 0 @ 0 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first coefficient
+		equals: 0 @ 0.
+	
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testShear2 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t shearBy: 0.5 @ 0.5 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation shearBy: 0.5 @ 0.5 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first coefficient
+		equals: 0.5 @ 0.5
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testShear3 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t skewX: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation skewX: 90.0 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first coefficient y 
+		equals: 0.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first coefficient x
+		equals: 90 degreesToRadians tan negated
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testShear4 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t skewY: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation skewY: 90.0 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first coefficient x
+		equals: 0.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first coefficient y
+		equals: 90 degreesToRadians tan negated
+]
