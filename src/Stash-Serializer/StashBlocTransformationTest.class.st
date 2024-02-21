@@ -385,3 +385,82 @@ StashBlocTransformationTest >> testShear4 [
 				affineTransformation transformations first coefficient y
 		equals: 90 degreesToRadians tan negated
 ]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testTranslate1 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t translateBy: 200 @ 50 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation translateBy: 200 @ 50 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first translation x
+		equals: 200.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first translation y
+		equals: 50
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testTranslate2 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t translateBy: -200 @ 50 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation translateBy: -200 @ 50 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first translation x
+		equals: -200.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first translation y
+		equals: 50
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testTranslate3 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t translateBy: 0 @ 0 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation isIdentity.
+	
+]
