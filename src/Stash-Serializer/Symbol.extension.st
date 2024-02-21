@@ -10,11 +10,3 @@ Symbol >> asStashProperty [
 Symbol >> isStashGetter [
 ^ true
 ]
-
-{ #category : #'*Stash-Serializer' }
-Symbol >> onlyGetOnStash [
-
-	^ StashOnlyGetter new
-		  context: self;
-		  yourself
-]
