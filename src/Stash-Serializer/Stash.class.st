@@ -46,6 +46,14 @@ Stash >> initialize [
 		         StashContructGeneralObjectsStep new }
 ]
 
+{ #category : #private }
+Stash >> materialize: aString [
+
+	^ self class compiler
+		             source: aString;
+		             evaluate.
+]
+
 { #category : #'instance creation' }
 Stash >> newTagFor: aStashObject [
 

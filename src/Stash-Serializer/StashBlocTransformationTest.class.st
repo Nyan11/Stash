@@ -5,6 +5,341 @@ Class {
 }
 
 { #category : #tests }
+StashBlocTransformationTest >> testOrigin1 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t rotateBy: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation rotateBy: 90 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin
+		equals: BlAffineTransformationCenterOrigin defaultInstance
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testOrigin2 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t | t centerOrigin. t rotateBy: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation rotateBy: 90 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin
+		equals: BlAffineTransformationCenterOrigin defaultInstance
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testOrigin3 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t |
+		          t topLeftOrigin.
+		          t rotateBy: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation topLeftOrigin.
+      transformation rotateBy: 90 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin
+		equals: BlAffineTransformationTopLeftOrigin new
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testOrigin4 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t |
+		          t topLeftOrigin.
+		          t rotateBy: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation topLeftOrigin.
+      transformation rotateBy: 90 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin
+		equals: BlAffineTransformationTopLeftOrigin new.
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testOrigin5 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t |
+		          t rightCenterOrigin.
+		          t rotateBy: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation rightCenterOrigin.
+      transformation rotateBy: 90 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin
+		equals: BlAffineTransformationRightCenterOrigin new
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testOrigin6 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t |
+		          t normalizedOrigin: 0.5 @ 0.5.
+		          t rotateBy: 90 ].
+	source := Stash new serialize: object.
+	self assert: source equals:'BlElement new
+   transformDo: [:transformation |  transformation normalizedOrigin: 0.5 @ 0.5.
+      transformation rotateBy: 90 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin class
+		equals: BlAffineTransformationNormalizedPositionOrigin.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin position
+		equals: 0.5 @0.5
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testOrigin7 [
+
+	| object source newObject |
+	object := BlElement new transformDo: [ :t |
+		          t normalizedOrigin: 0.5 @ 0.5.
+		          t rotateBy: 90.
+		          t normalizedOrigin: 0.5 @ 0.
+		          t rotateBy: 80.
+		          t normalizedOrigin: 0 @ 0.5.
+		          t rotateBy: 70 ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation normalizedOrigin: 0.5 @ 0.5.
+      transformation rotateBy: 90.
+      transformation normalizedOrigin: 0.5 @ 0.
+      transformation rotateBy: 80.
+      transformation normalizedOrigin: 0 @ 0.5.
+      transformation rotateBy: 70 ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 3.
+	"First"
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first angle
+		equals: 90.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin class
+		equals: BlAffineTransformationNormalizedPositionOrigin.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first origin position
+		equals: 0.5 @ 0.5.
+	"Second"
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations second angle
+		equals: 80.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations second axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations second origin class
+		equals: BlAffineTransformationNormalizedPositionOrigin.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations second origin position
+		equals: 0.5 @ 0.
+	"Third"
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations last angle
+		equals: 70.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations last axis
+		equals: BlVector zAxis.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations last origin class
+		equals: BlAffineTransformationNormalizedPositionOrigin.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations last origin position
+		equals: 0 @ 0.5.
+]
+
+{ #category : #tests }
 StashBlocTransformationTest >> testReflection1 [
 
 	| object source newObject |

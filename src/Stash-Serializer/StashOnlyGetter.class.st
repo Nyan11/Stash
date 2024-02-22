@@ -5,9 +5,3 @@ Class {
 	#classTraits : 'TStashPropertyGetter classTrait',
 	#category : #'Stash-Serializer-stash'
 }
-
-{ #category : #testing }
-StashOnlyGetter >> isStashGetter [
-
-	^ true
-]

@@ -4,19 +4,19 @@ Extension { #name : #BlShearTransformation }
 BlShearTransformation >> allSetterAndGettersForMyStash [
 
 	self coefficient = (0 @ 0) ifTrue: [
-		^ {[ :e | 'shearBy: 0 @ 0' ] onlySetOnStash} ].
+		^ { ([ :transform | 'shearBy: 0 @ 0' ] -> self) onlySetOnStash } ].
 	self coefficient x = 0 ifTrue: [
-		^ {[ :e |
-		  'skewY: <1p>' expandMacrosWith:
-			  self coefficient y negated arcTan radiansToDegrees ]
-			  onlySetOnStash} ].
+		^ { ([ :transform |
+		   'skewY: <1p>' expandMacrosWith:
+			   transform coefficient y negated arcTan radiansToDegrees ]
+		   -> self) onlySetOnStash } ].
 	self coefficient y = 0 ifTrue: [
-		^ {[ :e |
-		  'skewX: <1p>' expandMacrosWith:
-			  self coefficient x negated arcTan radiansToDegrees ]
-			  onlySetOnStash} ].
-	^ {[ :e |
-	  'shearBy: <1p> @ <2p>'
-		  expandMacrosWith: self coefficient x
-		  with: self coefficient y ] onlySetOnStash}
+		^ { ([ :transform |
+		   'skewX: <1p>' expandMacrosWith:
+			   transform coefficient x negated arcTan radiansToDegrees ]
+		   -> self) onlySetOnStash } ].
+	^ { ([ :transform |
+	   'shearBy: <1p> @ <2p>'
+		   expandMacrosWith: transform coefficient x
+		   with: transform coefficient y ] -> self) onlySetOnStash }
 ]

@@ -4,7 +4,7 @@ Extension { #name : #BlReflectionTransformation }
 BlReflectionTransformation >> allSetterAndGettersForMyStash [
 
 	self reflection = (BlVector x: -1 y: 1) ifTrue: [
-		^ { #flipY onlySetOnStash } ].
+		^ { (#flipY -> self) onlySetOnStash } ].
 	self reflection = (BlVector x: 1 y: -1) ifTrue: [
-		^ { #flipX onlySetOnStash } ]
+		^ { (#flipX -> self) onlySetOnStash } ]
 ]

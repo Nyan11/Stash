@@ -3,6 +3,12 @@ Trait {
 	#category : #'Stash-Serializer-stash'
 }
 
+{ #category : #testing }
+TStashPropertySetter >> isStashSetter [
+
+	^ true
+]
+
 { #category : #resolving }
 TStashPropertySetter >> setter [
 

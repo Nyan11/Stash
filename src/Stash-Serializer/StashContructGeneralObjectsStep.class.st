@@ -102,10 +102,27 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 StashContructGeneralObjectsStep >> constructBlTransformation: aStashObject on: aStash [
 
 	aStash addOnSourceCode: '[ :transformation |<r>'.
-	aStashObject allSetters do: [ :aProperty |
+
+	"Default origin"
+	(aStashObject allSettersFor: aStashObject defaultOrigin
+		 ) do: [
+		:aProperty |
 		aStash addOnSourceCode: 'transformation '.
 		self setProperty: aProperty ofObject: aStashObject object on: aStash.
 		aStash addOnSourceCode: '.<r>' ].
+
+	"Custom origin"
+	aStashObject allSettersOriginsExceptDefault: [ :origin |
+		aStash addOnSourceCode: 'transformation '.
+		aStash addOnSourceCode: origin asStashMethodForTransformationBloc.
+		aStash addOnSourceCode: '.<r>'.
+		(aStashObject allSettersFor: origin) do: [ :aProperty |
+			aStash addOnSourceCode: 'transformation '.
+			self
+				setProperty: aProperty
+				ofObject: aStashObject object
+				on: aStash.
+			aStash addOnSourceCode: '.<r>' ] ].
 	aStash addOnSourceCode: ']'
 ]
 

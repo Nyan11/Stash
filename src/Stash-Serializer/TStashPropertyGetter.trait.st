@@ -10,3 +10,9 @@ TStashPropertyGetter >> getter [
 	self context isBlock ifTrue: [ ^ self context ].
 	^ self context value
 ]
+
+{ #category : #testing }
+TStashPropertyGetter >> isStashGetter [
+
+	^ true
+]
