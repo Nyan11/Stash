@@ -49,10 +49,10 @@ BlElement >> allSetterAndGettersForMyStashTransformation: settersAndGetters [
 { #category : #'*Stash-Serializer' }
 BlElement >> allSetterAndGettersForMyStashUserData: settersAndGetters [
 
-	self id == nil ifFalse: [ 
-		self elementId class = BlElementIndexedId ifTrue: [ settersAndGetters add: #elementId ] ifFalse: [ settersAndGetters add: #id ]
-		 ].
-	
+	self userData associationsDo: [ :asso |
+		(StashBlElementUserData uniqueInstance setterAndGetterBlockFor:
+			 asso key) ifNotNil: [ :block | 
+			settersAndGetters addAll: (block value: asso value)  ] ]
 ]
 
 { #category : #'*Stash-Serializer' }
