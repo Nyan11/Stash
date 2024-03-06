@@ -24,6 +24,22 @@ StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: a
 
 ]
 
+{ #category : #actions }
+StashContructGeneralObjectsStep >> constructBlAttributeRope: aStashObject on: aStash [
+
+	aStash addOnSourceCode: aStashObject constructorOrTag.
+	aStashObject isPropertiesSet ifTrue: [ ^ self ].
+
+	aStashObject propertiesAreSet.
+	aStash addOnSourceCode: '<r>'.
+	self
+		setProperty: #attributes asStashProperty
+		ofObject: aStashObject object
+		on: aStash.
+	aStash addOnSourceCode: '<r>'.
+	self setProperty: #rope asStashProperty ofObject: aStashObject object on: aStash
+]
+
 { #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on: aStash [
 	"horizontal - vertical"
