@@ -10,7 +10,10 @@ BaselineOfStashSerialization >> baseline: spec [
 	<baseline>
 	spec for: #common do: [
 		self dependencies: spec.
-		spec package: #'Stash-Serializer' with: [ spec requires: #(  #Bloc  ) ] ]
+		spec package: #'Stash-Serialization'.
+		spec
+			package: #'Stash-Serialization-Bloc'
+			with: [ spec requires: #(  #'Stash-Serialization' #Bloc ) ] ]
 ]
 
 { #category : #baselines }
