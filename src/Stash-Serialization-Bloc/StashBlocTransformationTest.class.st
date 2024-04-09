@@ -5,6 +5,77 @@ Class {
 }
 
 { #category : #tests }
+StashBlocTransformationTest >> testMatrix1 [
+
+	| matrix object source newObject |
+	matrix := BlMatrix2D new.
+	object := BlElement new transformDo: [ :t | t matrix: matrix ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation topLeftOrigin.
+      transformation matrix: BlMatrix2D new ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first matrix
+		equals: matrix
+]
+
+{ #category : #tests }
+StashBlocTransformationTest >> testMatrix2 [
+
+	| matrix object source newObject |
+	matrix := BlMatrix2D new
+		          x: 1;
+		          y: 2;
+		          sx: 3;
+		          sy: 4;
+		          shx: 5;
+		          shy: 6.
+	object := BlElement new transformDo: [ :t | t matrix: matrix ].
+	source := Stash new serialize: object.
+	self assert: source equals: 'BlElement new
+   transformDo: [:transformation |  transformation topLeftOrigin.
+      transformation matrix: (BlMatrix2D new
+               x: 1;
+               y: 2;
+               shx: 5;
+               shy: 6;
+               sx: 3;
+               sy: 4;
+               yourself) ];
+   yourself'.
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert:
+		newObject transformation asElementTransformation
+			affineTransformation hasTransformations.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations size
+		equals: 1.
+	self
+		assert:
+			newObject transformation asElementTransformation
+				affineTransformation transformations first matrix
+		equals: matrix
+]
+
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin1 [
 
 	| object source newObject |
