@@ -1,16 +1,18 @@
 Class {
-	#name : #StashBlTransformation,
-	#superclass : #StashObject,
-	#category : #'Stash-Serialization-Bloc-stash-objects'
+	#name : 'StashBlTransformation',
+	#superclass : 'StashObject',
+	#category : 'Stash-Serialization-Bloc-stash-objects',
+	#package : 'Stash-Serialization-Bloc',
+	#tag : 'stash-objects'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StashBlTransformation >> allSettersFor: aBlAffineTransformationOrigin [
 
 	^ self allSetters select: [ :each | each context value origin = aBlAffineTransformationOrigin ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StashBlTransformation >> allSettersOriginsExceptDefault: aFullBlockClosure [
 
 	| origins currentOrigin |
@@ -25,7 +27,7 @@ StashBlTransformation >> allSettersOriginsExceptDefault: aFullBlockClosure [
 	origins
 ]
 
-{ #category : #'stash - step' }
+{ #category : 'stash - step' }
 StashBlTransformation >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
 	aStashContructGeneralObjectsStep
@@ -33,7 +35,7 @@ StashBlTransformation >> constructForGeneralObjectStep: aStashContructGeneralObj
 		on: aStash
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StashBlTransformation >> defaultOrigin [
 
 	^ BlAffineTransformationCenterOrigin defaultInstance

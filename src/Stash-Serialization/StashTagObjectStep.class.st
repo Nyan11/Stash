@@ -1,10 +1,12 @@
 Class {
-	#name : #StashTagObjectStep,
-	#superclass : #StashStep,
-	#category : #'Stash-Serialization-stash-steps'
+	#name : 'StashTagObjectStep',
+	#superclass : 'StashStep',
+	#category : 'Stash-Serialization-stash-steps',
+	#package : 'Stash-Serialization',
+	#tag : 'stash-steps'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 StashTagObjectStep >> runOn: aStash [
 
 	aStash identityDictionary do: [ :each |

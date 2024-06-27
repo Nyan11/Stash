@@ -1,6 +1,6 @@
-Extension { #name : #BlLayoutConstraints }
+Extension { #name : 'BlLayoutConstraints' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlLayoutConstraints >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
@@ -10,7 +10,7 @@ BlLayoutConstraints >> allSetterAndGettersForMyStash [
 	^ settersAndGetters
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlLayoutConstraints >> asStashObject [
 
 	^ StashBlLayoutConstraints new

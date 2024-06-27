@@ -1,6 +1,6 @@
-Extension { #name : #StashContructGeneralObjectsStep }
+Extension { #name : 'StashContructGeneralObjectsStep' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 StashContructGeneralObjectsStep >> constructBlAttributeRope: aStashObject on: aStash [
 
 	aStash addOnSourceCode: aStashObject constructorOrTag.
@@ -16,7 +16,7 @@ StashContructGeneralObjectsStep >> constructBlAttributeRope: aStashObject on: aS
 	self setProperty: #rope asStashProperty ofObject: aStashObject object on: aStash
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on: aStash [
 	"horizontal - vertical"
 
@@ -90,7 +90,7 @@ StashContructGeneralObjectsStep >> constructBlLayoutConstraints: aStashObject on
 	aStash addOnSourceCode: ']'
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 StashContructGeneralObjectsStep >> constructBlTransformation: aStashObject on: aStash [
 
 	aStash addOnSourceCode: '[ :transformation |<r>'.

@@ -1,6 +1,6 @@
-Extension { #name : #BlRoundedRectangleGeometry }
+Extension { #name : 'BlRoundedRectangleGeometry' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlRoundedRectangleGeometry >> allSetterAndGettersForMyStash [
 
 	(self cornerRadii topLeft = self cornerRadii bottomRight and: [
@@ -11,7 +11,7 @@ BlRoundedRectangleGeometry >> allSetterAndGettersForMyStash [
 	^ { #cornerRadii }
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlRoundedRectangleGeometry >> asStashContructor [
 
 	(self cornerRadii topLeft = self cornerRadii bottomRight and: [
@@ -24,7 +24,7 @@ BlRoundedRectangleGeometry >> asStashContructor [
 	^ 'BlRoundedRectangleGeometry'
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlRoundedRectangleGeometry >> asStashObject [
 
 	^ StashObjectWithBuilder new

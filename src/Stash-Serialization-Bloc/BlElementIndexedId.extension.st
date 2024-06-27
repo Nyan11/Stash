@@ -1,6 +1,6 @@
-Extension { #name : #BlElementIndexedId }
+Extension { #name : 'BlElementIndexedId' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElementIndexedId >> allSetterAndGettersForMyStash [
 
 	^ { #index . #prefixId }

@@ -1,6 +1,6 @@
-Extension { #name : #BlAffineTransformationCenterOrigin }
+Extension { #name : 'BlAffineTransformationCenterOrigin' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlAffineTransformationCenterOrigin >> asStashMethodForTransformationBloc [
 
 	^ #centerOrigin

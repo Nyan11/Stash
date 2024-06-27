@@ -1,6 +1,6 @@
-Extension { #name : #BlShearTransformation }
+Extension { #name : 'BlShearTransformation' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlShearTransformation >> allSetterAndGettersForMyStash [
 
 	self coefficient = (0 @ 0) ifTrue: [

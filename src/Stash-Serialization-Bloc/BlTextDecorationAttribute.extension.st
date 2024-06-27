@@ -1,6 +1,6 @@
-Extension { #name : #BlTextDecorationAttribute }
+Extension { #name : 'BlTextDecorationAttribute' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlTextDecorationAttribute >> allSetterAndGettersForMyStash [
 
 	^ { #decoration }

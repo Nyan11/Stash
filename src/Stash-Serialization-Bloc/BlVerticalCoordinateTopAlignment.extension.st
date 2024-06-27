@@ -1,6 +1,6 @@
-Extension { #name : #BlVerticalCoordinateTopAlignment }
+Extension { #name : 'BlVerticalCoordinateTopAlignment' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlVerticalCoordinateTopAlignment >> asStashSelector [
 
 

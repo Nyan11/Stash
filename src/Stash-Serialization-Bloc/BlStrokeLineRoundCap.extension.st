@@ -1,6 +1,6 @@
-Extension { #name : #BlStrokeLineRoundCap }
+Extension { #name : 'BlStrokeLineRoundCap' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlStrokeLineRoundCap >> asStashContructor [
 
 	^ 'BlStrokeLineCap round'

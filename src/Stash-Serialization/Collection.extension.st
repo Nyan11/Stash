@@ -1,12 +1,12 @@
-Extension { #name : #Collection }
+Extension { #name : 'Collection' }
 
-{ #category : #'*Stash-Serialization' }
+{ #category : '*Stash-Serialization' }
 Collection >> allGettersForMyStash [
 
 	^ {  }
 ]
 
-{ #category : #'*Stash-Serialization' }
+{ #category : '*Stash-Serialization' }
 Collection >> asStashObject [
 
 	^ StashCollection new
@@ -15,7 +15,7 @@ Collection >> asStashObject [
 		  yourself
 ]
 
-{ #category : #'*Stash-Serialization' }
+{ #category : '*Stash-Serialization' }
 Collection >> shouldBeTagged [
 
 	^ false

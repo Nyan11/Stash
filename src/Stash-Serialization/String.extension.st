@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*Stash-Serialization' }
+{ #category : '*Stash-Serialization' }
 String >> asStashObject [
 
 	^ StashObject new

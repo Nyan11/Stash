@@ -1,6 +1,6 @@
 Class {
-	#name : #StashBlElementUserData,
-	#superclass : #Object,
+	#name : 'StashBlElementUserData',
+	#superclass : 'Object',
 	#instVars : [
 		'setterAndGetterBlockDictionnary'
 	],
@@ -8,10 +8,12 @@ Class {
 		'uniqueInstance',
 		'setterAndGetterBlocks'
 	],
-	#category : #'Stash-Serialization-Bloc-stash-bloc-utility'
+	#category : 'Stash-Serialization-Bloc-stash-bloc-utility',
+	#package : 'Stash-Serialization-Bloc',
+	#tag : 'stash-bloc-utility'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 StashBlElementUserData class >> reset [
 
 	<script>
@@ -19,7 +21,7 @@ StashBlElementUserData class >> reset [
 	setterAndGetterBlocks := nil.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StashBlElementUserData class >> setterAndGetterBlocks [
 
 	setterAndGetterBlocks ifNil: [
@@ -34,7 +36,7 @@ StashBlElementUserData class >> setterAndGetterBlocks [
 	^ setterAndGetterBlocks
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StashBlElementUserData class >> uniqueInstance [
 
 	uniqueInstance ifNil: [
@@ -46,19 +48,19 @@ StashBlElementUserData class >> uniqueInstance [
 	^ uniqueInstance
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 StashBlElementUserData >> initialize [
 
 	setterAndGetterBlockDictionnary := Dictionary new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StashBlElementUserData >> setterAndGetterBlockDictionnary [
 
 	^	setterAndGetterBlockDictionnary
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 StashBlElementUserData >> setterAndGetterBlockFor: aSymbol [
 
 	^ self setterAndGetterBlockDictionnary at: aSymbol ifAbsent: [ nil ]

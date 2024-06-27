@@ -1,6 +1,6 @@
-Extension { #name : #Cursor }
+Extension { #name : 'Cursor' }
 
-{ #category : #'*Stash-Serialization' }
+{ #category : '*Stash-Serialization' }
 Cursor >> asStashContructor [
 
 	| selectedCursors |

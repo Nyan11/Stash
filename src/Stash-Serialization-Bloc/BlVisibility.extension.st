@@ -1,6 +1,6 @@
-Extension { #name : #BlVisibility }
+Extension { #name : 'BlVisibility' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlVisibility >> shouldBeTagged [
 
 	^ false.

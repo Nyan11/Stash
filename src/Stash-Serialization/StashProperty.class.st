@@ -1,32 +1,34 @@
 Class {
-	#name : #StashProperty,
-	#superclass : #Object,
+	#name : 'StashProperty',
+	#superclass : 'Object',
 	#instVars : [
 		'context'
 	],
-	#category : #'Stash-Serialization-stash'
+	#category : 'Stash-Serialization-stash',
+	#package : 'Stash-Serialization',
+	#tag : 'stash'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 StashProperty >> asStashProperty [
 
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StashProperty >> context [
 
 	^ context
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StashProperty >> context: anObject [
 
 	context := anObject.
 	self verifyContext
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 StashProperty >> getter [
 
 	^ StashPropertyErrorCannotGet new
@@ -34,19 +36,19 @@ StashProperty >> getter [
 		  signal
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 StashProperty >> isStashGetter [
 
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 StashProperty >> isStashSetter [
 
 	^ false
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 StashProperty >> setter [
 
 	^ StashPropertyErrorCannotSet new
@@ -54,7 +56,7 @@ StashProperty >> setter [
 		  signal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 StashProperty >> verifyContext [
 	"context is either a symbol, or an association"
 

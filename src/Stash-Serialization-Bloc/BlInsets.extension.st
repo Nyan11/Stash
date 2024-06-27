@@ -1,6 +1,6 @@
-Extension { #name : #BlInsets }
+Extension { #name : 'BlInsets' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlInsets >> asStashContructor [
 
 	self isUniform ifTrue: [

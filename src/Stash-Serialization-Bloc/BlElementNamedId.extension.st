@@ -1,6 +1,6 @@
-Extension { #name : #BlElementNamedId }
+Extension { #name : 'BlElementNamedId' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElementNamedId >> allSetterAndGettersForMyStash [
 
 	^ { #identifier }

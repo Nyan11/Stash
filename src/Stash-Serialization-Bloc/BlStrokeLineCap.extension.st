@@ -1,6 +1,6 @@
-Extension { #name : #BlStrokeLineCap }
+Extension { #name : 'BlStrokeLineCap' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlStrokeLineCap >> shouldBeTagged [
 
 	^ false

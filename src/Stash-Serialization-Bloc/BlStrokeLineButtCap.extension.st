@@ -1,6 +1,6 @@
-Extension { #name : #BlStrokeLineButtCap }
+Extension { #name : 'BlStrokeLineButtCap' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlStrokeLineButtCap >> asStashContructor [
 
 	^ 'BlStrokeLineCap butt'

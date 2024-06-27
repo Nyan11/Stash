@@ -1,6 +1,6 @@
-Extension { #name : #BlLayoutCommonConstraints }
+Extension { #name : 'BlLayoutCommonConstraints' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlLayoutCommonConstraints >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |

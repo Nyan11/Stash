@@ -1,6 +1,6 @@
-Extension { #name : #BlHorizontalCoordinateRightAlignment }
+Extension { #name : 'BlHorizontalCoordinateRightAlignment' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlHorizontalCoordinateRightAlignment >> asStashSelector [
 
 	^ 'alignRightAt: '

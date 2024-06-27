@@ -1,6 +1,6 @@
-Extension { #name : #BlFontSizeDefaultAttribute }
+Extension { #name : 'BlFontSizeDefaultAttribute' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlFontSizeDefaultAttribute >> allSetterAndGettersForMyStash [
 
 	^ { #size }

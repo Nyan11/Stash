@@ -1,5 +1,7 @@
 Class {
-	#name : #StashPropertyErrorWrongContext,
-	#superclass : #StashPropertyError,
-	#category : #'Stash-Serialization-stash'
+	#name : 'StashPropertyErrorWrongContext',
+	#superclass : 'StashPropertyError',
+	#category : 'Stash-Serialization-stash',
+	#package : 'Stash-Serialization',
+	#tag : 'stash'
 }

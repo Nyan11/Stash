@@ -1,6 +1,6 @@
-Extension { #name : #BlReflectionTransformation }
+Extension { #name : 'BlReflectionTransformation' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlReflectionTransformation >> allSetterAndGettersForMyStash [
 
 	self reflection = (BlVector x: -1 y: 1) ifTrue: [

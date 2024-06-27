@@ -1,10 +1,11 @@
 Class {
-	#name : #BaselineOfStashSerialization,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfStashSerialization
+	#name : 'BaselineOfStashSerialization',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfStashSerialization',
+	#package : 'BaselineOfStashSerialization'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfStashSerialization >> baseline: spec [
 
 	<baseline>
@@ -16,10 +17,10 @@ BaselineOfStashSerialization >> baseline: spec [
 			with: [ spec requires: #(  #'Stash-Serialization' #Bloc ) ] ]
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfStashSerialization >> dependencies: spec [
 
 	spec
 		baseline: #Bloc
-		with: [ spec repository: 'github://pharo-graphics/Bloc:dev-1.0/src' ].
+		with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ]
 ]

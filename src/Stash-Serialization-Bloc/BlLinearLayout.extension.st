@@ -1,6 +1,6 @@
-Extension { #name : #BlLinearLayout }
+Extension { #name : 'BlLinearLayout' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlLinearLayout >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
@@ -22,7 +22,7 @@ BlLinearLayout >> allSetterAndGettersForMyStash [
 	^ settersAndGetters
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlLinearLayout >> asStashContructor [
 
 	self isVertical ifTrue: [ ^ 'BlLinearLayout vertical' ].

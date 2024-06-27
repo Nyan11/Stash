@@ -1,6 +1,6 @@
-Extension { #name : #BlBorder }
+Extension { #name : 'BlBorder' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlBorder >> allSetterAndGettersForMyStash [
 
 	| defaults settersAndGetters |
@@ -31,7 +31,7 @@ BlBorder >> allSetterAndGettersForMyStash [
 	^ settersAndGetters
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlBorder >> asStashObject [
 
 	^ StashObjectWithBuilder new

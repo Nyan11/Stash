@@ -1,6 +1,6 @@
-Extension { #name : #BlElement }
+Extension { #name : 'BlElement' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
@@ -13,10 +13,12 @@ BlElement >> allSetterAndGettersForMyStash [
 	self allSetterAndGettersForMyStashConstraints: settersAndGetters.
 	self allSetterAndGettersForMyStashTransformation: settersAndGetters.
 
+	settersAndGetters addAll: self allSetterAndGettersForMyStashForMyTraits.
+
 	^ settersAndGetters
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashChildren: settersAndGetters [
 
 	self children ifNotEmpty: [
@@ -24,14 +26,14 @@ BlElement >> allSetterAndGettersForMyStashChildren: settersAndGetters [
 	
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashConstraints: settersAndGetters [
 
 	(constraints allSetterAndGettersForMyStash) ifNotEmpty: [
 		settersAndGetters add: #constraintsDo: -> #constraints ]
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashLayout: settersAndGetters [
 
 	self layout == self defaultLayout ifFalse: [
@@ -39,14 +41,14 @@ BlElement >> allSetterAndGettersForMyStashLayout: settersAndGetters [
 	
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashTransformation: settersAndGetters [
 
 	self transformation isIdentity ifFalse: [
 		settersAndGetters add: #transformDo: -> #transformation ]
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashUserData: settersAndGetters [
 
 	self userData associationsDo: [ :asso |
@@ -55,7 +57,7 @@ BlElement >> allSetterAndGettersForMyStashUserData: settersAndGetters [
 			settersAndGetters addAll: (block value: asso value)  ] ]
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashVisuals: settersAndGetters [
 
 	self background == BlElementVisuals defaultBackground ifFalse: [

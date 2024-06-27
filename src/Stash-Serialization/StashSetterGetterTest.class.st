@@ -1,18 +1,20 @@
 Class {
-	#name : #StashSetterGetterTest,
-	#superclass : #TestCase,
-	#category : #'Stash-Serialization-test-cases'
+	#name : 'StashSetterGetterTest',
+	#superclass : 'TestCase',
+	#category : 'Stash-Serialization-test-cases',
+	#package : 'Stash-Serialization',
+	#tag : 'test-cases'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject1 [
 
 	| object source newObject |
-	object := StashTesSetterGetter1 new
+	object := StashTestSetterGetter1 new
 		          name: 'test1';
 		          yourself.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter1 new
+	self assert: source equals: 'StashTestSetterGetter1 new
    name: ''test1'';
    yourself'.
 
@@ -22,15 +24,15 @@ StashSetterGetterTest >> testObject1 [
 	self assert: newObject name equals: 'test1'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject2 [
 
 	| object source newObject |
-	object := StashTesSetterGetter1 new
+	object := StashTestSetterGetter1 new
 		          name: 'test1';
 		          yourself.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter1 new
+	self assert: source equals: 'StashTestSetterGetter1 new
    name: ''test1'';
    yourself'.
 
@@ -40,13 +42,13 @@ StashSetterGetterTest >> testObject2 [
 	self assert: newObject name equals: 'test1'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject3 [
 
 	| object source newObject |
-	object := StashTesSetterGetter1 new.
+	object := StashTestSetterGetter1 new.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter1 new
+	self assert: source equals: 'StashTestSetterGetter1 new
    name: nil;
    yourself'.
 
@@ -56,15 +58,15 @@ StashSetterGetterTest >> testObject3 [
 	self assert: newObject name equals: nil
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject4 [
 
 	| object source newObject |
-	object := StashTesSetterGetter1 new name:
-		          (StashTesSetterGetter1 new name: 'test').
+	object := StashTestSetterGetter1 new name:
+		          (StashTestSetterGetter1 new name: 'test').
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter1 new
-   name: (StashTesSetterGetter1 new
+	self assert: source equals: 'StashTestSetterGetter1 new
+   name: (StashTestSetterGetter1 new
          name: ''test'';
          yourself);
    yourself'.
@@ -75,17 +77,17 @@ StashSetterGetterTest >> testObject4 [
 	self assert: newObject name name equals: 'test'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject5 [
 
 	| object source newObject |
-	object := StashTesSetterGetter1 new.
+	object := StashTestSetterGetter1 new.
 	object name: object.
 	source := Stash new serialize: object.
-	self assert: source equals: '| stashtessettergetter11 |
-stashtessettergetter11 := StashTesSetterGetter1 new.
-stashtessettergetter11
-   name: stashtessettergetter11;
+	self assert: source equals: '| stashtestsettergetter11 |
+stashtestsettergetter11 := StashTestSetterGetter1 new.
+stashtestsettergetter11
+   name: stashtestsettergetter11;
    yourself'.
 
 	newObject := self class compiler
@@ -94,13 +96,13 @@ stashtessettergetter11
 	self assert: newObject name equals: newObject
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject6 [
 
 	| object source newObject |
-	object := StashTesSetterGetter2 new.
+	object := StashTestSetterGetter2 new.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter2 new
+	self assert: source equals: 'StashTestSetterGetter2 new
    name: nil;
    yourself'.
 
@@ -110,15 +112,15 @@ StashSetterGetterTest >> testObject6 [
 	self assert: newObject name equals: nil
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject7 [
 
 	| object source newObject |
-	object := StashTesSetterGetter2 new
+	object := StashTestSetterGetter2 new
 		          name: 'test1';
 		          yourself.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter2 new
+	self assert: source equals: 'StashTestSetterGetter2 new
    name: ''test1'';
    yourself'.
 
@@ -128,13 +130,13 @@ StashSetterGetterTest >> testObject7 [
 	self assert: newObject name equals: 'test1'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject8 [
 
 	| object source newObject |
-	object := StashTesSetterGetter3 new.
+	object := StashTestSetterGetter3 new.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter3 new
+	self assert: source equals: 'StashTestSetterGetter3 new
    name: nil;
    yourself'.
 
@@ -144,15 +146,15 @@ StashSetterGetterTest >> testObject8 [
 	self assert: newObject name equals: nil
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 StashSetterGetterTest >> testObject9 [
 
 	| object source newObject |
-	object := StashTesSetterGetter3 new
+	object := StashTestSetterGetter3 new
 		          name: 'test1';
 		          yourself.
 	source := Stash new serialize: object.
-	self assert: source equals: 'StashTesSetterGetter3 new
+	self assert: source equals: 'StashTestSetterGetter3 new
    name: ''test1'';
    yourself'.
 

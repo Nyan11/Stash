@@ -1,6 +1,6 @@
-Extension { #name : #BlTranslationTransformation }
+Extension { #name : 'BlTranslationTransformation' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlTranslationTransformation >> allSetterAndGettersForMyStash [
 
 	^ { ([ :transform |

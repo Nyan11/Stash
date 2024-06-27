@@ -1,6 +1,6 @@
-Extension { #name : #BlFlowLayout }
+Extension { #name : 'BlFlowLayout' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlFlowLayout >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
@@ -12,7 +12,7 @@ BlFlowLayout >> allSetterAndGettersForMyStash [
 	^ settersAndGetters
 ]
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlFlowLayout >> asStashContructor [
 
 	self orientation isVertical ifTrue: [ ^ 'BlFlowLayout vertical' ].

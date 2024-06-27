@@ -1,6 +1,6 @@
-Extension { #name : #BlPolygonGeometry }
+Extension { #name : 'BlPolygonGeometry' }
 
-{ #category : #'*Stash-Serialization-Bloc' }
+{ #category : '*Stash-Serialization-Bloc' }
 BlPolygonGeometry >> allSetterAndGettersForMyStash [
 
 	^ { #vertices }

@@ -1,10 +1,12 @@
 Class {
-	#name : #StashConstructTagObjectsStep,
-	#superclass : #StashStep,
-	#category : #'Stash-Serialization-stash-steps'
+	#name : 'StashConstructTagObjectsStep',
+	#superclass : 'StashStep',
+	#category : 'Stash-Serialization-stash-steps',
+	#package : 'Stash-Serialization',
+	#tag : 'stash-steps'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 StashConstructTagObjectsStep >> runOn: aStash [
 
 	aStash taggedObject
