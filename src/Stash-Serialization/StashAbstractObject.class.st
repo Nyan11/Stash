@@ -28,6 +28,12 @@ StashAbstractObject >> constructForGeneralObjectStep: aStashContructGeneralObjec
 	self shouldBeImplemented
 ]
 
+{ #category : 'accessing' }
+StashAbstractObject >> constructor [
+
+	^ self object asStashContructor 
+]
+
 { #category : 'as yet unclassified' }
 StashAbstractObject >> constructorOrTag [
 

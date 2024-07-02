@@ -28,6 +28,12 @@ StashObjectWithBuilder >> constructForGeneralObjectStep: aStashContructGeneralOb
 	aStashContructGeneralObjectsStep constructObjectWithBuilder: self on: aStash
 ]
 
+{ #category : 'accessing' }
+StashObjectWithBuilder >> constructor [
+
+	^ self builder asStashContructor
+]
+
 { #category : 'as yet unclassified' }
 StashObjectWithBuilder >> constructorOrTag [
 

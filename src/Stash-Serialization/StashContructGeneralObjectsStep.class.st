@@ -51,6 +51,7 @@ StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: 
 	aStash addOnSourceCode: aStashObject constructorOrTag.
 	aStashObject isPropertiesSet ifTrue: [
 		aStashObject methodToBuild ifNotNil: [
+			aStash addOnSourceCode: Character space.
 			aStash addOnSourceCode: aStashObject methodToBuild ].
 		^ self ].
 	self setPropertiesOf: aStashObject on: aStash.

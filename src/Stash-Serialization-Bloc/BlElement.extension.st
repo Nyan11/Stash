@@ -21,9 +21,9 @@ BlElement >> allSetterAndGettersForMyStash [
 { #category : '*Stash-Serialization-Bloc' }
 BlElement >> allSetterAndGettersForMyStashChildren: settersAndGetters [
 
+	self shouldSerializedChildren ifFalse: [ ^ self ].
 	self children ifNotEmpty: [
-		settersAndGetters add: #addChildren: -> #children ].
-	
+		settersAndGetters add: #addChildren: -> #children ]
 ]
 
 { #category : '*Stash-Serialization-Bloc' }

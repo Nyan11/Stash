@@ -13,7 +13,7 @@ StashConstructTagObjectsStep >> runOn: aStash [
 		do: [ :each |
 			aStash addOnSourceCode: each tag.
 			aStash addOnSourceCode: ' := '.
-			aStash addOnSourceCode: each object asStashContructor.
+			aStash addOnSourceCode: each constructor.
 			aStash addOnSourceCode: '.' ]
 		separatedBy: [ aStash addOnSourceCode: '<r>' ]
 ]
