@@ -5,8 +5,9 @@ BlFlowLayout >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
-	(verticalAlignment == self defaultVerticalAlignment and: [ horizontalAlignment == self defaultHorizontalAlignment ]) ifFalse: [
-		self  allSetterAndGettersForMyStashAlignement: settersAndGetters].
+	(verticalAlignment == self defaultVerticalAlignment and: [
+		 horizontalAlignment == self defaultHorizontalAlignment ]) ifFalse: [
+		settersAndGetters addAll: self allSetterAndGettersForMyStashForMyTraits ].
 	self direction == self defaultDirection ifFalse: [
 		settersAndGetters add: #direction ].
 	^ settersAndGetters

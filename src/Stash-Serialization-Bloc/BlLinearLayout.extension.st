@@ -7,7 +7,7 @@ BlLinearLayout >> allSetterAndGettersForMyStash [
 	settersAndGetters := OrderedCollection new.
 	(verticalAlignment == self defaultVerticalAlignment and: [
 		 horizontalAlignment == self defaultHorizontalAlignment ]) ifFalse: [
-		self allSetterAndGettersForMyStashAlignement: settersAndGetters ].
+		settersAndGetters addAll: self allSetterAndGettersForMyStashForMyTraits ].
 	cellSpacing == 0.0 ifFalse: [ settersAndGetters add: #cellSpacing ].
 	interspace == 0.0 ifFalse: [ settersAndGetters add: #interspace ].
 	self direction == self defaultDirection ifFalse: [
