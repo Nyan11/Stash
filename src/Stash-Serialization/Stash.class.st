@@ -49,7 +49,7 @@ Stash >> initialize [
 
 	uuid := 0.
 	stream := String new writeStream.
-	dictionary := Dictionary new.
+	dictionary := IdentityDictionary new.
 	taggedObject := OrderedCollection new.
 	steps := {
 		         StashPrepareObjectStep new.
