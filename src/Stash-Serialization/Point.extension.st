@@ -7,3 +7,9 @@ Point >> asStashObject [
 		  object: self;
 		  yourself
 ]
+
+{ #category : '*Stash-Serialization' }
+Point >> shouldBeTagged [
+
+	^ false
+]

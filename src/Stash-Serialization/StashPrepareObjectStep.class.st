@@ -10,13 +10,13 @@ Class {
 StashPrepareObjectStep >> prepareObject: anObject on: aStash [
 
 	| reference |
-	aStash identityDictionary
+	aStash
 		at: anObject
 		ifPresent: [ :stashObject |
 			stashObject increaseOccurences.
 			^ self ]
 		ifAbsentPut: [ reference := anObject asStashObject ].
-	reference nextInstances do: [:each | 
+	reference nextInstances do: [ :each |
 		self prepareObject: each on: aStash ]
 ]
 

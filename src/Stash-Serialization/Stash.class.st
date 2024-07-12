@@ -4,10 +4,10 @@ Class {
 	#instVars : [
 		'rootObject',
 		'steps',
-		'identityDictionary',
 		'taggedObject',
 		'stream',
-		'uuid'
+		'uuid',
+		'dictionary'
 	],
 	#category : 'Stash-Serialization-stash',
 	#package : 'Stash-Serialization',
@@ -28,9 +28,20 @@ Stash >> addTaggedObject: aStashObject [
 ]
 
 { #category : 'accessing' }
-Stash >> identityDictionary [
+Stash >> at: anObject [
 
-	^ identityDictionary
+	^ dictionary at: anObject
+]
+
+{ #category : 'accessing' }
+Stash >> at: anObject ifPresent: aBlockPresent ifAbsentPut: aBlockAbsent [ 
+	dictionary at: anObject ifPresent: aBlockPresent ifAbsentPut: aBlockAbsent
+]
+
+{ #category : 'accessing' }
+Stash >> do: aBlock [
+
+	dictionary do: aBlock
 ]
 
 { #category : 'private' }
@@ -38,7 +49,7 @@ Stash >> initialize [
 
 	uuid := 0.
 	stream := String new writeStream.
-	identityDictionary := IdentityDictionary new.
+	dictionary := Dictionary new.
 	taggedObject := OrderedCollection new.
 	steps := {
 		         StashPrepareObjectStep new.

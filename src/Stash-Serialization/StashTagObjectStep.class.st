@@ -9,6 +9,6 @@ Class {
 { #category : 'actions' }
 StashTagObjectStep >> runOn: aStash [
 
-	aStash identityDictionary do: [ :each |
+	aStash do: [ :each |
 		each shouldBeTagged ifTrue: [ aStash addTaggedObject: each ] ]
 ]

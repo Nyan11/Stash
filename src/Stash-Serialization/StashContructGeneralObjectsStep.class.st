@@ -75,7 +75,7 @@ StashContructGeneralObjectsStep >> constructPoint: aStashAssociation on: aStash 
 StashContructGeneralObjectsStep >> nextInstance: anObject on: aStash [
 
 	| reference |
-	reference := aStash identityDictionary at: anObject.
+	reference := aStash at: anObject.
 	aStash addOnSourceCode: '('.
 	self nextReference: reference on: aStash.
 	aStash addOnSourceCode: ')'

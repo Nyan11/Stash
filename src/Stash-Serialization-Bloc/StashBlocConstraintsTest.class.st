@@ -154,9 +154,11 @@ StashBlocConstraintsTest >> testMarginAndPadding [
 			           bottom: 3
 			           left: 2).
 	source := Stash new serialize: object.
-	self assert: source equals: 'BlElement new
-   constraintsDo: [:constraints |  constraints padding: (BlInsets top: 1.0 right: 4.0 bottom: 3.0 left: 2.0).
-      constraints margin: (BlInsets top: 1.0 right: 4.0 bottom: 3.0 left: 2.0) ];
+	self assert: source equals: '| blinsets1 |
+blinsets1 := BlInsets top: 1.0 right: 4.0 bottom: 3.0 left: 2.0.
+BlElement new
+   constraintsDo: [:constraints |  constraints padding: blinsets1.
+      constraints margin: blinsets1 ];
    yourself'.
 	newObject := self class compiler
 		             source: source;

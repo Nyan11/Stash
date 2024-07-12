@@ -14,7 +14,12 @@ BaselineOfStashSerialization >> baseline: spec [
 		spec package: #'Stash-Serialization'.
 		spec
 			package: #'Stash-Serialization-Bloc'
-			with: [ spec requires: #(  #'Stash-Serialization' #Bloc ) ] ]
+			with: [ spec requires: #( #'Stash-Serialization'
+			   #Bloc ) ].
+		spec
+			package: #'Stash-Serialization-Toplo'
+			with: [ spec requires: #( #'Stash-Serialization' #'Stash-Serialization-Bloc'
+			   #Toplo ) ] ]
 ]
 
 { #category : 'baselines' }
@@ -22,5 +27,8 @@ BaselineOfStashSerialization >> dependencies: spec [
 
 	spec
 		baseline: #Bloc
-		with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ]
+		with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ].
+	spec
+		baseline: 'Toplo'
+		with: [ spec repository: 'github://pharo-graphics/Toplo:master/src' ].
 ]
