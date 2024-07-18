@@ -12,8 +12,11 @@ BlElement >> allSetterAndGettersForMyStash [
 	self allSetterAndGettersForMyStashLayout: settersAndGetters.
 	self allSetterAndGettersForMyStashConstraints: settersAndGetters.
 	self allSetterAndGettersForMyStashTransformation: settersAndGetters.
-
+	
 	settersAndGetters addAll: self allSetterAndGettersForMyStashForMyTraits.
+
+	"Toplo processing"
+	self userData at: #toStyleStore ifPresent: [ settersAndGetters addAll: self allToploSetterAndGettersForMyStash ].
 
 	^ settersAndGetters
 ]
