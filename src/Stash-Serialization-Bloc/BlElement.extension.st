@@ -16,6 +16,7 @@ BlElement >> allSetterAndGettersForMyStash [
 	settersAndGetters addAll: self allSetterAndGettersForMyStashForMyTraits.
 
 	"Toplo processing"
+	self flag:'labordep: dirty but working, to refactor'.
 	self userData at: #toStyleStore ifPresent: [ settersAndGetters addAll: self allToploSetterAndGettersForMyStash ].
 
 	^ settersAndGetters
