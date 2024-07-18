@@ -30,5 +30,5 @@ BaselineOfStashSerialization >> dependencies: spec [
 		with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ].
 	spec
 		baseline: 'Toplo'
-		with: [ spec repository: 'github://pharo-graphics/Toplo:master/src' ].
+		with: [ spec repository: 'github://pharo-graphics/Toplo:dev/src' ].
 ]
