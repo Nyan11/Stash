@@ -15,8 +15,12 @@ Object >> allSetterAndGettersForMyStash [
 { #category : '*Stash-Serialization' }
 Object >> allSetterAndGettersForMyStashForMyTraits [
 
-	^ self class allTraits flatCollect: [ :traits |
-		  traits localMethodDict
+	| traits |
+	traits := Set new.
+	traits addAll: self class allTraits.
+	self class allSuperclassesDo: [ :class | traits addAll: class allTraits].
+	^ traits flatCollect: [ :trait |
+		  trait localMethodDict
 			  at: #allSetterAndGettersOfTraitForMyStash:
 			  ifPresent: [ :method |
 			  method valueWithReceiver: self arguments: { self } ]
