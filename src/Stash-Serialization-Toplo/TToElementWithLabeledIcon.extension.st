@@ -1,6 +1,6 @@
-Extension { #name : 'TToElementWithLabeledIcon' }
+Extension { #name : #TToElementWithLabeledIcon }
 
-{ #category : '*Stash-Serialization-Toplo' }
+{ #category : #'*Stash-Serialization-Toplo' }
 TToElementWithLabeledIcon >> allSetterAndGettersOfTraitForMyStash: aToElement [
 
 	| settersAndGetters |

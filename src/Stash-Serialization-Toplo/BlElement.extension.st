@@ -1,6 +1,6 @@
-Extension { #name : 'BlElement' }
+Extension { #name : #BlElement }
 
-{ #category : '*Stash-Serialization-Toplo' }
+{ #category : #'*Stash-Serialization-Toplo' }
 BlElement >> allSetterAndGettersForMyStashStamp: settersAndGetters [
 
 	self allStamps isEmpty ifTrue: [ ^ settersAndGetters ].
@@ -9,7 +9,7 @@ BlElement >> allSetterAndGettersForMyStashStamp: settersAndGetters [
 	^ settersAndGetters
 ]
 
-{ #category : '*Stash-Serialization-Toplo' }
+{ #category : #'*Stash-Serialization-Toplo' }
 BlElement >> allToploSetterAndGettersForMyStash [
 
 	| settersAndGetters |

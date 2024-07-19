@@ -1,6 +1,6 @@
-Extension { #name : 'ToLabel' }
+Extension { #name : #ToLabel }
 
-{ #category : '*Stash-Serialization-Toplo' }
+{ #category : #'*Stash-Serialization-Toplo' }
 ToLabel >> allSetterAndGettersForMyStash [
 
 	^ super allSetterAndGettersForMyStash , { #text }

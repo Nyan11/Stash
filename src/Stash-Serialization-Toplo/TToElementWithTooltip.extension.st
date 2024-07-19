@@ -1,6 +1,6 @@
-Extension { #name : 'TToElementWithTooltip' }
+Extension { #name : #TToElementWithTooltip }
 
-{ #category : '*Stash-Serialization-Toplo' }
+{ #category : #'*Stash-Serialization-Toplo' }
 TToElementWithTooltip >> allSetterAndGettersOfTraitForMyStash: aToElement [
 
 	self hasTooltip ifFalse: [ ^ {  } ].
