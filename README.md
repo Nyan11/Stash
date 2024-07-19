@@ -6,6 +6,32 @@ Any object is composed of setters and getters, in Stash you define the setters a
 
 Unlike Pharo's native source code generation (storeOn:, etc.), Stash also generate a readable code (as writed by a human) and manage references between objects to prevent cyclics problems. 
 
+# Principles
+
+Stash go through five differents steps:
+
+## 1 - Finding objects references
+
+Using the getters to reference all objects and count the occurences they appears in the graph of element (cyclic references management).
+
+## 2 - Name attribution of referenced objects
+
+During this step Stash will name each objects.
+Objects that need to be referenced are given unique name. 
+For example if an object appears more than two times, Stash will create a variable in the futur source code to contains it.
+
+## 3 - Writing variables in the source-code
+
+Stash write variables between "pipes" ||.
+
+## 4 - Variable attribution
+
+During this step, Stash affect variables with referenced objects.
+
+## 5 - Writing the source-code
+
+This step generate all the expected source-code.
+
 # Usage example
 
 ## Serialization of an object
