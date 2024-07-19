@@ -1,11 +1,19 @@
 Extension { #name : #BlFlowLayoutConstraints }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlFlowLayoutConstraints >> allSetterAndGettersForMyStash [
+BlFlowLayoutConstraints >> stashAccessorsNewLine [
 
-	| collection |
-	collection := super allSetterAndGettersForMyStash asOrderedCollection.
-	newLine ifTrue: [ collection add: #newLine: -> #isNewLine ].
-	weight == 0 ifFalse: [ collection add: #weight ].
-	^ collection
+	<stashAccessors>
+	newLine ifTrue: [ ^ { #newLine: -> #isNewLine } ].
+	^ {  }
+
+]
+
+{ #category : #'*Stash-Serialization-Bloc' }
+BlFlowLayoutConstraints >> stashAccessorsWeight [
+
+	<stashAccessors>
+	weight == 0 ifFalse: [ ^ { #weight } ].
+	^ {  }
+
 ]

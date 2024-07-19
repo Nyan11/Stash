@@ -1,21 +1,30 @@
 Extension { #name : #BlElement }
 
 { #category : #'*Stash-Serialization-Toplo' }
-BlElement >> allSetterAndGettersForMyStashStamp: settersAndGetters [
+BlElement >> allSetterAndGettersForMyStashAllStamps [
 
-	self allStamps isEmpty ifTrue: [ ^ settersAndGetters ].
-	self allStamps do: [ :each | settersAndGetters add: #addStamp: -> [ :e | each ] ].
+	<stashAccessors>
+	self allStamps isEmpty ifTrue: [ ^ {  } ].
+	^ self toStyleStore stampIndex allProperties collect: [ :assoc | | setter getter |
+		setter := [ :element | 'addStamp: <1p> withValue:' expandMacrosWith: assoc value name ].
+		getter := [ :element | assoc value value ].
+		setter -> getter
+		 ]
 
-	^ settersAndGetters
+	
 ]
 
 { #category : #'*Stash-Serialization-Toplo' }
-BlElement >> allToploSetterAndGettersForMyStash [
+BlElement >> allSetterAndGettersForMyStashAllTokens [
 
-	| settersAndGetters |
-	settersAndGetters := OrderedCollection new.
+	<stashAccessors>
+	self ensuredToStyleStore.
+	self toStyleStore tokenPropertyIndex isEmpty ifTrue: [ ^ {  } ].
+	^ self toStyleStore tokenPropertyIndex allProperties collect: [ :assoc | | setter getter |
+		setter := [ :element | 'addTokenNamed: <1p> withValue:' expandMacrosWith: assoc value name ].
+		getter := [ :element | assoc value value ].
+		setter -> getter
+		 ]
 
-	self allSetterAndGettersForMyStashStamp: settersAndGetters.
-
-	^ settersAndGetters
+	
 ]

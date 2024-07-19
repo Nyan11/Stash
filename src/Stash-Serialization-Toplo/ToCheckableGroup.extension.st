@@ -1,7 +1,8 @@
 Extension { #name : #ToCheckableGroup }
 
 { #category : #'*Stash-Serialization-Toplo' }
-ToCheckableGroup >> allSetterAndGettersForMyStash [
+ToCheckableGroup >> stashAccessorsForCheckableGroup [
 
-	^ super allSetterAndGettersForMyStash, { #registerAll: -> #registeredCheckables }
+	<stashAccessors>
+	^ { #registerAll: -> #registeredCheckables }
 ]

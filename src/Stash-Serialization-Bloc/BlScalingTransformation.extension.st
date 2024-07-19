@@ -1,8 +1,9 @@
 Extension { #name : #BlScalingTransformation }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlScalingTransformation >> allSetterAndGettersForMyStash [
+BlScalingTransformation >> stashAccessors [
 
+	<stashAccessors>
 	self scale x = self scale y ifTrue: [
 		^ { ([ :transform |
 		  'scaleBy: <1s>' expandMacrosWith: transform scale x asStashContructor ] -> self)

@@ -1,7 +1,8 @@
 Extension { #name : #BlFontFamilyDefaultAttribute }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlFontFamilyDefaultAttribute >> allSetterAndGettersForMyStash [
+BlFontFamilyDefaultAttribute >> stashAccessors [
 
+	<stashAccessors>
 	^ { #name }
 ]

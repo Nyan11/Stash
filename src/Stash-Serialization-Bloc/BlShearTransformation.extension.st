@@ -1,8 +1,9 @@
 Extension { #name : #BlShearTransformation }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlShearTransformation >> allSetterAndGettersForMyStash [
+BlShearTransformation >> stashAccessors [
 
+	<stashAccessors>
 	self coefficient = (0 @ 0) ifTrue: [
 		^ { ([ :transform | 'shearBy: 0 @ 0' ] -> self) onlySetOnStash } ].
 	self coefficient x = 0 ifTrue: [

@@ -1,7 +1,8 @@
 Extension { #name : #ToLabel }
 
 { #category : #'*Stash-Serialization-Toplo' }
-ToLabel >> allSetterAndGettersForMyStash [
+ToLabel >> stashAccessorsForText [
 
-	^ super allSetterAndGettersForMyStash , { #text }
+	<stashAccessors>
+	^ { #text }
 ]

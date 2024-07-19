@@ -1,10 +1,10 @@
 Extension { #name : #BlLinearLayoutConstraints }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlLinearLayoutConstraints >> allSetterAndGettersForMyStash [
+BlLinearLayoutConstraints >> stashAccessorsWeight [
 
-	| collection |
-	collection := super allSetterAndGettersForMyStash asOrderedCollection.
-	weight = 1 ifFalse: [ collection add: #weight ].
-	^ collection
+	<stashAccessors>
+	weight = 1 ifFalse: [ ^ { #weight } ].
+	^ {  }
+
 ]

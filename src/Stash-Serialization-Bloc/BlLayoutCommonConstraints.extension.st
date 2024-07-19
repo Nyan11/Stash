@@ -1,11 +1,10 @@
 Extension { #name : #BlLayoutCommonConstraints }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlLayoutCommonConstraints >> allSetterAndGettersForMyStash [
-
+BlLayoutCommonConstraints >> stashAccessorsForCommonConstraints [
+	<stashAccessors>
 	| settersAndGetters |
-	settersAndGetters := super allSetterAndGettersForMyStash
-		                     asOrderedCollection.
+	settersAndGetters := OrderedCollection new.
 	
 	self flow allSetterAndGettersForMyStash ifNotEmpty: [
 		settersAndGetters add: #flow onlyGetOnStash ].

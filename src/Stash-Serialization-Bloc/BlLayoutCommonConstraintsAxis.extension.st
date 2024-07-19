@@ -1,8 +1,9 @@
 Extension { #name : #BlLayoutCommonConstraintsAxis }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlLayoutCommonConstraintsAxis >> allSetterAndGettersForMyStash [
+BlLayoutCommonConstraintsAxis >> stashAccessors [
 
+	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 	self resizer isMatchParent ifTrue: [

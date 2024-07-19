@@ -1,7 +1,8 @@
 Extension { #name : #ToImage }
 
 { #category : #'*Stash-Serialization-Toplo' }
-ToImage >> allSetterAndGettersForMyStash [
+ToImage >> stashAccessorsForInnerImage [
 
-	^ super allSetterAndGettersForMyStash , { #innerImage }
+	<stashAccessors>
+	^ { #innerImage }
 ]

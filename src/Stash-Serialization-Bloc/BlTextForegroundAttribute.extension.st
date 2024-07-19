@@ -1,7 +1,8 @@
 Extension { #name : #BlTextForegroundAttribute }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlTextForegroundAttribute >> allSetterAndGettersForMyStash [
+BlTextForegroundAttribute >> stashAccessors [
 
+	<stashAccessors>
 	^ { #paint }
 ]

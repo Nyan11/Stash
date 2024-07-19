@@ -3,6 +3,8 @@ Extension { #name : #BlLinearLayout }
 { #category : #'*Stash-Serialization-Bloc' }
 BlLinearLayout >> allSetterAndGettersForMyStash [
 
+	"We ovverride this method to take into account the default value of alignment"
+	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 	(verticalAlignment == self defaultVerticalAlignment and: [

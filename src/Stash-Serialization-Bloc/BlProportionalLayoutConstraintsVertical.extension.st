@@ -1,8 +1,9 @@
 Extension { #name : #BlProportionalLayoutConstraintsVertical }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlProportionalLayoutConstraintsVertical >> allSetterAndGettersForMyStash [
+BlProportionalLayoutConstraintsVertical >> stashAccessors [
 
+	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 

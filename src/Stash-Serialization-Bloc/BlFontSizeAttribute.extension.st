@@ -1,7 +1,8 @@
 Extension { #name : #BlFontSizeAttribute }
 
 { #category : #'*Stash-Serialization-Bloc' }
-BlFontSizeAttribute >> allSetterAndGettersForMyStash [
+BlFontSizeAttribute >> stashAccessors [
 
+	<stashAccessors>
 	^ { #size }
 ]
