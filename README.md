@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/github/license/Nyan11/Stash.svg)](./LICENSE)
+[![Pharo 12 CI](https://github.com/Nyan11/Stash/actions/workflows/Pharo12CI.yml/badge.svg)](https://github.com/Nyan11/Stash/actions/workflows/Pharo12CI.yml)
+
 # Stash
 
 Stash is a serializer for Pharo that generate source-code.
