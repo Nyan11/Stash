@@ -1,6 +1,6 @@
-Extension { #name : 'BlRotationTransformation' }
+Extension { #name : #BlRotationTransformation }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlRotationTransformation >> allSetterAndGettersForMyStash [
 
 	| allSetterAndGettersForMyStash |

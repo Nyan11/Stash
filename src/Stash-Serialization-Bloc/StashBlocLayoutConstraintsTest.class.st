@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocLayoutConstraintsTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocLayoutConstraintsTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow1 [
 
 	| object source newObject |
@@ -21,7 +19,7 @@ StashBlocLayoutConstraintsTest >> testFlow1 [
 	self assert: newObject constraints flow isNewLine
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow2 [
 
 	| object source newObject |
@@ -34,7 +32,7 @@ StashBlocLayoutConstraintsTest >> testFlow2 [
 	self deny: newObject constraints flow isNewLine
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow3 [
 
 	| object source newObject |
@@ -49,7 +47,7 @@ StashBlocLayoutConstraintsTest >> testFlow3 [
 	self assert: newObject constraints flow weight equals: 30.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow4 [
 
 	| object source newObject |
@@ -65,7 +63,7 @@ StashBlocLayoutConstraintsTest >> testFlow4 [
 		equals: BlElementAlignment horizontal start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow5 [
 
 	| object source newObject |
@@ -83,7 +81,7 @@ StashBlocLayoutConstraintsTest >> testFlow5 [
 		equals: BlElementAlignment horizontal center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow6 [
 
 	| object source newObject |
@@ -101,7 +99,7 @@ StashBlocLayoutConstraintsTest >> testFlow6 [
 		equals: BlElementAlignment horizontal end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow7 [
 
 	| object source newObject |
@@ -117,7 +115,7 @@ StashBlocLayoutConstraintsTest >> testFlow7 [
 		equals: BlElementAlignment vertical start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow8 [
 
 	| object source newObject |
@@ -135,7 +133,7 @@ StashBlocLayoutConstraintsTest >> testFlow8 [
 		equals: BlElementAlignment vertical center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFlow9 [
 
 	| object source newObject |
@@ -153,7 +151,7 @@ StashBlocLayoutConstraintsTest >> testFlow9 [
 		equals: BlElementAlignment vertical end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame1 [
 
 	| object source newObject |
@@ -169,7 +167,7 @@ StashBlocLayoutConstraintsTest >> testFrame1 [
 		equals: BlElementAlignment horizontal start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame10 [
 
 	| object source newObject |
@@ -194,7 +192,7 @@ StashBlocLayoutConstraintsTest >> testFrame10 [
 		equals: BlElementAlignment vertical center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame11 [
 
 	| object source newObject |
@@ -212,7 +210,7 @@ StashBlocLayoutConstraintsTest >> testFrame11 [
 		equals: BlElementAlignment vertical end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame12 [
 
 	| object source newObject |
@@ -237,7 +235,7 @@ StashBlocLayoutConstraintsTest >> testFrame12 [
 		equals: BlElementAlignment vertical end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame13 [
 
 	| object source newObject |
@@ -265,7 +263,7 @@ StashBlocLayoutConstraintsTest >> testFrame13 [
 	self assert: newObject constraints frame vertical weight equals: 0.2
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame2 [
 
 	| object source newObject |
@@ -290,7 +288,7 @@ StashBlocLayoutConstraintsTest >> testFrame2 [
 		equals: BlElementAlignment horizontal start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame3 [
 
 	| object source newObject |
@@ -308,7 +306,7 @@ StashBlocLayoutConstraintsTest >> testFrame3 [
 		equals: BlElementAlignment horizontal center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame4 [
 
 	| object source newObject |
@@ -333,7 +331,7 @@ StashBlocLayoutConstraintsTest >> testFrame4 [
 		equals: BlElementAlignment horizontal center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame5 [
 
 	| object source newObject |
@@ -351,7 +349,7 @@ StashBlocLayoutConstraintsTest >> testFrame5 [
 		equals: BlElementAlignment horizontal end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame6 [
 
 	| object source newObject |
@@ -376,7 +374,7 @@ StashBlocLayoutConstraintsTest >> testFrame6 [
 		equals: BlElementAlignment horizontal end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame7 [
 
 	| object source newObject |
@@ -392,7 +390,7 @@ StashBlocLayoutConstraintsTest >> testFrame7 [
 		equals: BlElementAlignment vertical start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame8 [
 
 	| object source newObject |
@@ -417,7 +415,7 @@ StashBlocLayoutConstraintsTest >> testFrame8 [
 		equals: BlElementAlignment vertical start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testFrame9 [
 
 	| object source newObject |
@@ -435,7 +433,7 @@ StashBlocLayoutConstraintsTest >> testFrame9 [
 		equals: BlElementAlignment vertical center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear1 [
 
 	| object source newObject |
@@ -450,7 +448,7 @@ StashBlocLayoutConstraintsTest >> testLinear1 [
 	self assert: newObject constraints linear weight equals: 30.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear2 [
 
 	| object source newObject |
@@ -466,7 +464,7 @@ StashBlocLayoutConstraintsTest >> testLinear2 [
 		equals: BlElementAlignment horizontal start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear3 [
 
 	| object source newObject |
@@ -484,7 +482,7 @@ StashBlocLayoutConstraintsTest >> testLinear3 [
 		equals: BlElementAlignment horizontal center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear4 [
 
 	| object source newObject |
@@ -502,7 +500,7 @@ StashBlocLayoutConstraintsTest >> testLinear4 [
 		equals: BlElementAlignment horizontal end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear5 [
 
 	| object source newObject |
@@ -518,7 +516,7 @@ StashBlocLayoutConstraintsTest >> testLinear5 [
 		equals: BlElementAlignment vertical start
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear6 [
 
 	| object source newObject |
@@ -536,7 +534,7 @@ StashBlocLayoutConstraintsTest >> testLinear6 [
 		equals: BlElementAlignment vertical center
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testLinear7 [
 
 	| object source newObject |
@@ -554,7 +552,7 @@ StashBlocLayoutConstraintsTest >> testLinear7 [
 		equals: BlElementAlignment vertical end
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testProportional1 [
 
 	| object source newObject |
@@ -571,7 +569,7 @@ StashBlocLayoutConstraintsTest >> testProportional1 [
 	self assert: newObject constraints proportional horizontal right equals: 0.3.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutConstraintsTest >> testProportional2 [
 
 	| object source newObject |

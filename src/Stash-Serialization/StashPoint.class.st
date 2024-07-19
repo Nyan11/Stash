@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashPoint',
-	#superclass : 'StashAbstractObject',
-	#category : 'Stash-Serialization-stash-objects',
-	#package : 'Stash-Serialization',
-	#tag : 'stash-objects'
+	#name : #StashPoint,
+	#superclass : #StashAbstractObject,
+	#category : #'Stash-Serialization-stash-objects'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashPoint >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
 	aStashContructGeneralObjectsStep
@@ -14,7 +12,7 @@ StashPoint >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on
 		on: aStash
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashPoint >> nextInstances [
 
 	^ { self object x . self object y }

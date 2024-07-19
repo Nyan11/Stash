@@ -1,6 +1,6 @@
-Extension { #name : 'BlScalingTransformation' }
+Extension { #name : #BlScalingTransformation }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlScalingTransformation >> allSetterAndGettersForMyStash [
 
 	self scale x = self scale y ifTrue: [

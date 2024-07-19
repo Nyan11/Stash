@@ -1,6 +1,6 @@
-Extension { #name : 'Form' }
+Extension { #name : #Form }
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Form >> asStashContructor [
 
 	| stream |

@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocTransformationTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocTransformationTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testMatrix1 [
 
 	| matrix object source newObject |
@@ -35,7 +33,7 @@ StashBlocTransformationTest >> testMatrix1 [
 		equals: matrix
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testMatrix2 [
 
 	| matrix object source newObject |
@@ -77,7 +75,7 @@ StashBlocTransformationTest >> testMatrix2 [
 		equals: matrix
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin1 [
 
 	| object source newObject |
@@ -114,7 +112,7 @@ StashBlocTransformationTest >> testOrigin1 [
 		equals: BlAffineTransformationCenterOrigin defaultInstance
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin2 [
 
 	| object source newObject |
@@ -151,7 +149,7 @@ StashBlocTransformationTest >> testOrigin2 [
 		equals: BlAffineTransformationCenterOrigin defaultInstance
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin3 [
 
 	| object source newObject |
@@ -191,7 +189,7 @@ StashBlocTransformationTest >> testOrigin3 [
 		equals: BlAffineTransformationTopLeftOrigin new
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin4 [
 
 	| object source newObject |
@@ -231,7 +229,7 @@ StashBlocTransformationTest >> testOrigin4 [
 		equals: BlAffineTransformationTopLeftOrigin new.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin5 [
 
 	| object source newObject |
@@ -271,7 +269,7 @@ StashBlocTransformationTest >> testOrigin5 [
 		equals: BlAffineTransformationRightCenterOrigin new
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin6 [
 
 	| object source newObject |
@@ -316,7 +314,7 @@ StashBlocTransformationTest >> testOrigin6 [
 		equals: 0.5 @0.5
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testOrigin7 [
 
 	| object source newObject |
@@ -412,7 +410,7 @@ StashBlocTransformationTest >> testOrigin7 [
 		equals: 0 @ 0.5.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testReflection1 [
 
 	| object source newObject |
@@ -441,7 +439,7 @@ StashBlocTransformationTest >> testReflection1 [
 	
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testReflection2 [
 
 	| object source newObject |
@@ -468,7 +466,7 @@ StashBlocTransformationTest >> testReflection2 [
 		equals: (BlVector x: -1 y: 1)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testReflection3 [
 
 	| object source newObject |
@@ -501,7 +499,7 @@ StashBlocTransformationTest >> testReflection3 [
 		equals: (BlVector x: -1 y: 1)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testRotation1 [
 
 	| object source newObject |
@@ -533,7 +531,7 @@ StashBlocTransformationTest >> testRotation1 [
 		equals: BlVector zAxis
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testRotation2 [
 
 	| object source newObject |
@@ -565,7 +563,7 @@ StashBlocTransformationTest >> testRotation2 [
 		equals: BlVector zAxis
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testRotation3 [
 
 	| object source newObject |
@@ -598,7 +596,7 @@ StashBlocTransformationTest >> testRotation3 [
 		equals: BlVector yAxis
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testScale1 [
 
 	| object source newObject |
@@ -630,7 +628,7 @@ StashBlocTransformationTest >> testScale1 [
 		equals: 2
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testScale2 [
 
 	| object source newObject |
@@ -662,7 +660,7 @@ StashBlocTransformationTest >> testScale2 [
 		equals: 3
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testScale3 [
 
 	| object source newObject |
@@ -675,7 +673,7 @@ StashBlocTransformationTest >> testScale3 [
 	self assert: newObject transformation isIdentity
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testShear1 [
 
 	| object source newObject |
@@ -703,7 +701,7 @@ StashBlocTransformationTest >> testShear1 [
 	
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testShear2 [
 
 	| object source newObject |
@@ -730,7 +728,7 @@ StashBlocTransformationTest >> testShear2 [
 		equals: 0.5 @ 0.5
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testShear3 [
 
 	| object source newObject |
@@ -762,7 +760,7 @@ StashBlocTransformationTest >> testShear3 [
 		equals: 90 degreesToRadians tan negated
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testShear4 [
 
 	| object source newObject |
@@ -794,7 +792,7 @@ StashBlocTransformationTest >> testShear4 [
 		equals: 90 degreesToRadians tan negated
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testTranslate1 [
 
 	| object source newObject |
@@ -826,7 +824,7 @@ StashBlocTransformationTest >> testTranslate1 [
 		equals: 50
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testTranslate2 [
 
 	| object source newObject |
@@ -858,7 +856,7 @@ StashBlocTransformationTest >> testTranslate2 [
 		equals: 50
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocTransformationTest >> testTranslate3 [
 
 	| object source newObject |

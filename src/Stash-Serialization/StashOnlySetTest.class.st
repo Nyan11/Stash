@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashOnlySetTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#name : #StashOnlySetTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashOnlySetTest >> testSetOnly1 [
 
 	| object source newObject |
@@ -22,7 +20,7 @@ StashOnlySetTest >> testSetOnly1 [
 	self deny: newObject state
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashOnlySetTest >> testSetOnly2 [
 
 	| object source newObject |
@@ -38,7 +36,7 @@ StashOnlySetTest >> testSetOnly2 [
 	self assert: newObject state
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashOnlySetTest >> testSetOnly3 [
 
 	| object source newObject |
@@ -52,7 +50,7 @@ StashOnlySetTest >> testSetOnly3 [
 	self deny: newObject state
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashOnlySetTest >> testSetOnly4 [
 
 	| object source newObject |
@@ -68,7 +66,7 @@ StashOnlySetTest >> testSetOnly4 [
 	self assert: newObject state
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashOnlySetTest >> testSetOnly5 [
 
 	| object source newObject |
@@ -82,7 +80,7 @@ StashOnlySetTest >> testSetOnly5 [
 	self deny: newObject state
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashOnlySetTest >> testSetOnly6 [
 
 	| object source newObject |

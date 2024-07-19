@@ -1,6 +1,6 @@
-Extension { #name : 'BlFlowLayoutConstraintsHorizontal' }
+Extension { #name : #BlFlowLayoutConstraintsHorizontal }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFlowLayoutConstraintsHorizontal >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |

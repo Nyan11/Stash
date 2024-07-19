@@ -1,6 +1,6 @@
-Extension { #name : 'Trait' }
+Extension { #name : #Trait }
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Trait >> allSetterAndGettersOfTraitForMyStash: anObject [
 
 	^ {  }

@@ -1,6 +1,6 @@
-Extension { #name : 'BlFrameLayoutConstraintsVertical' }
+Extension { #name : #BlFrameLayoutConstraintsVertical }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFrameLayoutConstraintsVertical >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |

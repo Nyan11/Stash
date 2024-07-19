@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocVisualsTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocVisualsTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBackground1 [
 
 	| object source |
@@ -15,7 +13,7 @@ StashBlocVisualsTest >> testBlElementBackground1 [
 	self assert: source equals: 'BlElement new'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBackground2 [
 
 	| object source newObject |
@@ -29,7 +27,7 @@ StashBlocVisualsTest >> testBlElementBackground2 [
 	self assert: object background paint color equals: newObject background paint color
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBackground3 [
 
 	| object source newObject |
@@ -49,7 +47,7 @@ StashBlocVisualsTest >> testBlElementBackground3 [
 			(1 -> Color blue) }.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBackground4 [
 
 	| object source newObject |
@@ -78,7 +76,21 @@ StashBlocVisualsTest >> testBlElementBackground4 [
 			self assert: newObject background paint outerRadius equals: 200.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
+StashBlocVisualsTest >> testBlElementBackground5 [
+
+	| object source newObject |
+	object := BlElement new
+		          background: Color transparent;
+		          yourself.
+	source := Stash new serialize: object.
+		newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: object background paint color equals: newObject background paint color
+]
+
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder1 [
 
 	| object source newObject |
@@ -97,7 +109,7 @@ StashBlocVisualsTest >> testBlElementBorder1 [
 	self assert: newObject border paint color equals:  Color red
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder10 [
 
 	| object source newObject |
@@ -134,7 +146,7 @@ StashBlocVisualsTest >> testBlElementBorder10 [
 	self assert: newObject border style miterLimit equals: 2.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder11 [
 
 	| object source newObject |
@@ -170,7 +182,7 @@ StashBlocVisualsTest >> testBlElementBorder11 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder12 [
 
 	| object source newObject |
@@ -207,7 +219,7 @@ StashBlocVisualsTest >> testBlElementBorder12 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder13 [
 
 	| object source newObject |
@@ -246,7 +258,7 @@ StashBlocVisualsTest >> testBlElementBorder13 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder2 [
 
 	| object source newObject |
@@ -277,7 +289,7 @@ StashBlocVisualsTest >> testBlElementBorder2 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder3 [
 
 	| object source newObject |
@@ -311,7 +323,7 @@ StashBlocVisualsTest >> testBlElementBorder3 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder4 [
 
 	| object source newObject |
@@ -346,7 +358,7 @@ StashBlocVisualsTest >> testBlElementBorder4 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder5 [
 
 	| object source newObject |
@@ -382,7 +394,7 @@ StashBlocVisualsTest >> testBlElementBorder5 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder6 [
 
 	| object source newObject |
@@ -418,7 +430,7 @@ StashBlocVisualsTest >> testBlElementBorder6 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder7 [
 
 	| object source newObject |
@@ -454,7 +466,7 @@ StashBlocVisualsTest >> testBlElementBorder7 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder8 [
 
 	| object source newObject |
@@ -489,7 +501,7 @@ StashBlocVisualsTest >> testBlElementBorder8 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementBorder9 [
 
 	| object source newObject |
@@ -525,7 +537,7 @@ StashBlocVisualsTest >> testBlElementBorder9 [
 	self assert: newObject border style miterLimit equals: 4.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementClipChildren1 [
 
 	| object source newObject |
@@ -538,7 +550,7 @@ StashBlocVisualsTest >> testBlElementClipChildren1 [
 	self assert: newObject clipChildren
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementClipChildren2 [
 
 	| object source newObject |
@@ -553,7 +565,7 @@ StashBlocVisualsTest >> testBlElementClipChildren2 [
 	self deny: newObject clipChildren
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementEffect1 [
 
 	| object source newObject |
@@ -568,7 +580,7 @@ StashBlocVisualsTest >> testBlElementEffect1 [
 	self assert: newObject effect class equals: BlNullEffect
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementEffect2 [
 
 	| object source newObject |
@@ -590,7 +602,7 @@ StashBlocVisualsTest >> testBlElementEffect2 [
 	self assert: newObject effect offset equals: 10 @ 20
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementEffect3 [
 
 	| object source newObject |
@@ -608,7 +620,7 @@ StashBlocVisualsTest >> testBlElementEffect3 [
 	self assert: newObject effect offset equals: 5 @ 41
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementElevation1 [
 
 	| object source newObject |
@@ -623,7 +635,7 @@ StashBlocVisualsTest >> testBlElementElevation1 [
 	self assert: newObject elevation elevation equals: 1
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementElevation2 [
 
 	| object source newObject |
@@ -638,7 +650,7 @@ StashBlocVisualsTest >> testBlElementElevation2 [
 	self assert: newObject elevation elevation equals: 4
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocusability1 [
 
 	| object source newObject |
@@ -655,7 +667,7 @@ StashBlocVisualsTest >> testBlElementFocusability1 [
 	self assert: newObject focusability equals: BlFocusability after
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocusability2 [
 
 	| object source newObject |
@@ -670,7 +682,7 @@ StashBlocVisualsTest >> testBlElementFocusability2 [
 	self assert: newObject focusability equals: BlFocusability before
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocusability3 [
 
 	| object source newObject |
@@ -687,7 +699,7 @@ StashBlocVisualsTest >> testBlElementFocusability3 [
 	self assert: newObject focusability equals: BlFocusability block
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocusability4 [
 
 	| object source newObject |
@@ -704,7 +716,7 @@ StashBlocVisualsTest >> testBlElementFocusability4 [
 	self assert: newObject focusability equals: BlFocusability ignore
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocusability5 [
 
 	| object source newObject |
@@ -721,7 +733,7 @@ StashBlocVisualsTest >> testBlElementFocusability5 [
 	self assert: newObject focusability equals: BlFocusability none
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocused1 [
 
 	| object source newObject |
@@ -734,7 +746,7 @@ StashBlocVisualsTest >> testBlElementFocused1 [
 	self assert: newObject focused equals: false
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementFocused2 [
 
 	| object source newObject |
@@ -749,7 +761,7 @@ StashBlocVisualsTest >> testBlElementFocused2 [
 	self assert: newObject focused equals: true
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry1 [
 
 	| object source newObject |
@@ -764,7 +776,7 @@ StashBlocVisualsTest >> testBlElementGeometry1 [
 	self assert: newObject geometry equals: BlRectangleGeometry new
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry10 [
 
 	| object source newObject |
@@ -796,7 +808,7 @@ StashBlocVisualsTest >> testBlElementGeometry10 [
 	self assert: newObject geometry cornerRadii bottomLeft equals: 4
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry11 [
 
 	| object source newObject |
@@ -812,7 +824,7 @@ StashBlocVisualsTest >> testBlElementGeometry11 [
 	self assert: newObject geometry isTop
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry12 [
 
 	| object source newObject |
@@ -828,7 +840,7 @@ StashBlocVisualsTest >> testBlElementGeometry12 [
 	self assert: newObject geometry isLeft
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry13 [
 
 	| object source newObject |
@@ -844,7 +856,7 @@ StashBlocVisualsTest >> testBlElementGeometry13 [
 	self assert: newObject geometry isRight
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry14 [
 
 	| object source newObject |
@@ -860,7 +872,7 @@ StashBlocVisualsTest >> testBlElementGeometry14 [
 	self assert: newObject geometry isBottom
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry15 [
 
 	| object source newObject |
@@ -876,7 +888,7 @@ StashBlocVisualsTest >> testBlElementGeometry15 [
 	self assert: newObject geometry isRight
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry2 [
 
 	| object source newObject |
@@ -904,7 +916,7 @@ StashBlocVisualsTest >> testBlElementGeometry2 [
 	self assert: newObject geometry outerRadius equals: 0.7
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry3 [
 
 	| object source newObject |
@@ -931,7 +943,7 @@ StashBlocVisualsTest >> testBlElementGeometry3 [
 				           (35 @ 40) }
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry4 [
 
 	| object source newObject |
@@ -946,7 +958,7 @@ StashBlocVisualsTest >> testBlElementGeometry4 [
 	self assert: newObject geometry class equals: BlCircleGeometry
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry5 [
 
 	| object source newObject |
@@ -961,7 +973,7 @@ StashBlocVisualsTest >> testBlElementGeometry5 [
 	self assert: newObject geometry class equals: BlEllipseGeometry
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry6 [
 
 	| object source newObject |
@@ -981,7 +993,7 @@ StashBlocVisualsTest >> testBlElementGeometry6 [
 	self assert: newObject geometry to equals: 100 @ 100
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry7 [
 
 	| object source newObject |
@@ -1013,7 +1025,7 @@ StashBlocVisualsTest >> testBlElementGeometry7 [
 			(160 @ 198) }
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry8 [
 
 	| object source newObject |
@@ -1028,7 +1040,7 @@ StashBlocVisualsTest >> testBlElementGeometry8 [
 	self assert: newObject geometry class equals: BlSquareGeometry
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementGeometry9 [
 
 	| object source newObject |
@@ -1044,7 +1056,7 @@ StashBlocVisualsTest >> testBlElementGeometry9 [
 	self assert: newObject geometry equals: (BlRoundedRectangleGeometry cornerRadius: 4)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementMouseCursor1 [
 
 	| object source newObject |
@@ -1057,7 +1069,7 @@ StashBlocVisualsTest >> testBlElementMouseCursor1 [
 	self assert: newObject mouseCursor equals: nil
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementMouseCursor2 [
 
 	| object source newObject |
@@ -1072,7 +1084,7 @@ StashBlocVisualsTest >> testBlElementMouseCursor2 [
 	self assert: newObject mouseCursor equals: Cursor webLink
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementOpacity1 [
 
 	| object source newObject |
@@ -1085,7 +1097,7 @@ StashBlocVisualsTest >> testBlElementOpacity1 [
 	self assert: newObject opacity equals: 1.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementOpacity2 [
 
 	| object source newObject |
@@ -1100,7 +1112,7 @@ StashBlocVisualsTest >> testBlElementOpacity2 [
 	self assert: newObject opacity equals: 0.2
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementOutskirst1 [
 
 	| object source newObject |
@@ -1113,7 +1125,7 @@ StashBlocVisualsTest >> testBlElementOutskirst1 [
 	self assert: newObject outskirts class equals: BlOutskirtsInside
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementOutskirst2 [
 
 	| object source newObject |
@@ -1128,7 +1140,7 @@ StashBlocVisualsTest >> testBlElementOutskirst2 [
 	self assert: newObject outskirts class equals: BlOutskirtsCentered
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementOutskirst3 [
 
 	| object source newObject |
@@ -1143,7 +1155,7 @@ StashBlocVisualsTest >> testBlElementOutskirst3 [
 	self assert: newObject outskirts class equals: BlOutskirtsOutside
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementVisibility1 [
 
 	| object source newObject |
@@ -1156,7 +1168,7 @@ StashBlocVisualsTest >> testBlElementVisibility1 [
 	self assert: newObject visibility isVisible.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementVisibility2 [
 
 	| object source newObject |
@@ -1171,7 +1183,7 @@ StashBlocVisualsTest >> testBlElementVisibility2 [
 	self assert: newObject visibility isHidden
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocVisualsTest >> testBlElementVisibility3 [
 
 	| object source newObject |

@@ -1,27 +1,25 @@
 Class {
-	#name : 'StashCollection',
-	#superclass : 'StashAbstractObject',
+	#name : #StashCollection,
+	#superclass : #StashAbstractObject,
 	#instVars : [
 		'classType'
 	],
-	#category : 'Stash-Serialization-stash-objects',
-	#package : 'Stash-Serialization',
-	#tag : 'stash-objects'
+	#category : #'Stash-Serialization-stash-objects'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashCollection >> classType [
 
 	^ classType
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashCollection >> classType: anObject [
 
 	classType := anObject
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashCollection >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
 	aStashContructGeneralObjectsStep
@@ -29,7 +27,7 @@ StashCollection >> constructForGeneralObjectStep: aStashContructGeneralObjectsSt
 		on: aStash
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashCollection >> nextInstances [
 
 	^ self object

@@ -1,6 +1,6 @@
-Extension { #name : 'BlElevation' }
+Extension { #name : #BlElevation }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlElevation >> asStashContructor [
 
 	^ self class printString , ' elevation: ' , self elevation printString

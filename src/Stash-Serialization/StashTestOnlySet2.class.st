@@ -1,15 +1,13 @@
 Class {
-	#name : 'StashTestOnlySet2',
-	#superclass : 'Object',
+	#name : #StashTestOnlySet2,
+	#superclass : #Object,
 	#instVars : [
 		'state'
 	],
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashTestOnlySet2 >> allSetterAndGettersForMyStash [
 
 	self state ifFalse: [ ^ {  } ].
@@ -19,25 +17,25 @@ StashTestOnlySet2 >> allSetterAndGettersForMyStash [
 		   ifFalse: [ #stateFalse ] ] onlySetOnStash }
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 StashTestOnlySet2 >> initialize [
 
 	state := false.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashTestOnlySet2 >> state [
 
 	^ state
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashTestOnlySet2 >> stateFalse [
 
 	state := false
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashTestOnlySet2 >> stateTrue [
 
 	state := true.

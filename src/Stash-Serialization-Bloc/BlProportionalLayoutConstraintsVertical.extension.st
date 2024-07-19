@@ -1,6 +1,6 @@
-Extension { #name : 'BlProportionalLayoutConstraintsVertical' }
+Extension { #name : #BlProportionalLayoutConstraintsVertical }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlProportionalLayoutConstraintsVertical >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |

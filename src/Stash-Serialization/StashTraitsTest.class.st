@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashTraitsTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#name : #StashTraitsTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTraitsTest >> testTraits1 [
 
 	| object source newObject |
@@ -23,7 +21,7 @@ StashTraitsTest >> testTraits1 [
 	self assert: newObject test2 equals: 'world'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTraitsTest >> testTraits2 [
 
 	| object source newObject |

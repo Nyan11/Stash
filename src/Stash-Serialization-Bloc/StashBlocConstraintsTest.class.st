@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocConstraintsTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocConstraintsTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testAccountTransformation [
 
 	| object source newObject |
@@ -22,7 +20,7 @@ StashBlocConstraintsTest >> testAccountTransformation [
 	self assert: newObject constraints shouldAccountTransformation
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testHorizontal1 [
 
 	| object source newObject |
@@ -38,7 +36,7 @@ StashBlocConstraintsTest >> testHorizontal1 [
 	self assert: newObject constraints horizontal resizer isMatchParent
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testHorizontal2 [
 
 	| object source newObject |
@@ -54,7 +52,7 @@ StashBlocConstraintsTest >> testHorizontal2 [
 	self assert: newObject constraints horizontal resizer isFitContent
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testHorizontal3 [
 
 	| object source newObject |
@@ -69,7 +67,7 @@ StashBlocConstraintsTest >> testHorizontal3 [
 	self assert: newObject constraints horizontal resizer size equals: 50.0.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testHorizontal4 [
 
 	| object source newObject |
@@ -88,7 +86,7 @@ StashBlocConstraintsTest >> testHorizontal4 [
 		equals: 500.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMargin1 [
 
 
@@ -102,7 +100,7 @@ StashBlocConstraintsTest >> testMargin1 [
 	self assert: newObject margin equals: BlInsets empty
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMargin2 [
 
 	| object source newObject |
@@ -117,7 +115,7 @@ StashBlocConstraintsTest >> testMargin2 [
 	self assert: newObject margin equals: (BlInsets all: 5)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMargin3 [
 
 	| object source newObject |
@@ -140,7 +138,7 @@ StashBlocConstraintsTest >> testMargin3 [
 			 left: 2)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMarginAndPadding [
 
 	| object source newObject |
@@ -173,7 +171,7 @@ StashBlocConstraintsTest >> testMarginAndPadding [
 			 left: 2)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMaxHeight1 [
 
 	| object source newObject |
@@ -186,7 +184,7 @@ StashBlocConstraintsTest >> testMaxHeight1 [
 	self assert: newObject constraints maxHeight equals: Float infinity
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMaxHeight2 [
 
 	| object source newObject |
@@ -202,7 +200,7 @@ StashBlocConstraintsTest >> testMaxHeight2 [
 	self assert: newObject constraints maxHeight equals: 500
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMaxWidth1 [
 
 	| object source newObject |
@@ -216,7 +214,7 @@ StashBlocConstraintsTest >> testMaxWidth1 [
 	self assert: newObject constraints maxWidth equals: Float infinity
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMaxWidth2 [
 
 	| object source newObject |
@@ -231,7 +229,7 @@ StashBlocConstraintsTest >> testMaxWidth2 [
 	self assert: newObject constraints maxWidth equals: 500
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMinHeight1 [
 
 	| object source newObject |
@@ -244,7 +242,7 @@ StashBlocConstraintsTest >> testMinHeight1 [
 	self assert: newObject constraints minHeight equals: 0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMinHeight2 [
 
 	| object source newObject |
@@ -259,7 +257,7 @@ StashBlocConstraintsTest >> testMinHeight2 [
 	self assert: newObject constraints minHeight equals: 10
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMinWidth1 [
 
 	| object source newObject |
@@ -272,7 +270,7 @@ StashBlocConstraintsTest >> testMinWidth1 [
 	self assert: newObject constraints minWidth equals: 0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testMinWidth2 [
 
 	| object source newObject |
@@ -287,7 +285,7 @@ StashBlocConstraintsTest >> testMinWidth2 [
 	self assert: newObject constraints minWidth equals: 10
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testPadding1 [
 
 	| object source newObject |
@@ -300,7 +298,7 @@ StashBlocConstraintsTest >> testPadding1 [
 	self assert: newObject padding equals: BlInsets empty
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testPadding2 [
 
 	| object source newObject |
@@ -315,7 +313,7 @@ StashBlocConstraintsTest >> testPadding2 [
 	self assert: newObject padding equals: (BlInsets all: 5)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testPadding3 [
 
 	| object source newObject |
@@ -338,7 +336,7 @@ StashBlocConstraintsTest >> testPadding3 [
 			 left: 2)
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testPosition1 [
 
 	| object source newObject |
@@ -351,7 +349,7 @@ StashBlocConstraintsTest >> testPosition1 [
 	self assert: newObject constraints position equals: 0 @ 0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testPosition2 [
 
 	| object source newObject |
@@ -364,7 +362,7 @@ StashBlocConstraintsTest >> testPosition2 [
 	self assert: newObject constraints position equals: 0 @ 0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testPosition3 [
 
 	| object source newObject |
@@ -379,7 +377,7 @@ StashBlocConstraintsTest >> testPosition3 [
 	self assert: newObject constraints position equals: 10 @ 10
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testVertical1 [
 
 	| object source newObject |
@@ -395,7 +393,7 @@ StashBlocConstraintsTest >> testVertical1 [
 	self assert: newObject constraints vertical resizer isMatchParent
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testVertical2 [
 
 	| object source newObject |
@@ -411,7 +409,7 @@ StashBlocConstraintsTest >> testVertical2 [
 	self assert: newObject constraints vertical resizer isFitContent
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testVertical3 [
 
 	| object source newObject |
@@ -428,7 +426,7 @@ StashBlocConstraintsTest >> testVertical3 [
 		equals: 50.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocConstraintsTest >> testVertical4 [
 
 	| object source newObject |

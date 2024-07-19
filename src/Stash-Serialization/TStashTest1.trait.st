@@ -1,29 +1,27 @@
 Trait {
-	#name : 'TStashTest1',
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#name : #TStashTest1,
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 TStashTest1 >> allSetterAndGettersOfTraitForMyStash: anObject [
 
 	^ { #test1 }
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 TStashTest1 >> model1 [
 
 	^ self shouldBeImplemented
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 TStashTest1 >> test1 [
 
 	^ self model1 test
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 TStashTest1 >> test1: anObject [
 
 	self model1 test: anObject

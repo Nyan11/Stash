@@ -1,6 +1,6 @@
-Extension { #name : 'BlSimpleShadowEffect' }
+Extension { #name : #BlSimpleShadowEffect }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlSimpleShadowEffect >> asStashContructor [
 
 	self flag: #ToFix. "Not correct"

@@ -1,7 +1,8 @@
-Extension { #name : 'BlColorPaint' }
+Extension { #name : #BlColorPaint }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlColorPaint >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlColorPaint >> stashAccessors [
 
-	^ { (#color) }
+	<stashAccessors>
+	^ { #color }
 ]

@@ -1,11 +1,9 @@
 Trait {
-	#name : 'TStashPropertyGetter',
-	#category : 'Stash-Serialization-stash',
-	#package : 'Stash-Serialization',
-	#tag : 'stash'
+	#name : #TStashPropertyGetter,
+	#category : #'Stash-Serialization-stash'
 }
 
-{ #category : 'resolving' }
+{ #category : #resolving }
 TStashPropertyGetter >> getter [
 
 	self context isSymbol ifTrue: [ ^ self context ].
@@ -13,7 +11,7 @@ TStashPropertyGetter >> getter [
 	^ self context value
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 TStashPropertyGetter >> isStashGetter [
 
 	^ true

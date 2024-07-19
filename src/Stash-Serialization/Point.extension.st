@@ -1,6 +1,6 @@
-Extension { #name : 'Point' }
+Extension { #name : #Point }
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Point >> asStashObject [
 
 	^ StashPoint new
@@ -8,7 +8,7 @@ Point >> asStashObject [
 		  yourself
 ]
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Point >> shouldBeTagged [
 
 	^ false

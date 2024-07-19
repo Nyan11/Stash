@@ -1,7 +1,8 @@
-Extension { #name : 'BlPaintBackground' }
+Extension { #name : #BlPaintBackground }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlPaintBackground >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlPaintBackground >> stashBackgroundPaint [
 
-	^ super allSetterAndGettersForMyStash , { (#paint) }
+	<stashAccessors>
+	^ { (#paint) }
 ]

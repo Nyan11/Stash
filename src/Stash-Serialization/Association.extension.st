@@ -1,6 +1,6 @@
-Extension { #name : 'Association' }
+Extension { #name : #Association }
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Association >> asStashObject [
 
 	^ StashAssociation new
@@ -8,13 +8,13 @@ Association >> asStashObject [
 		  yourself
 ]
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Association >> isStashGetter [
 
 	^ true
 ]
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Association >> isStashSetter [
 
 	^ true

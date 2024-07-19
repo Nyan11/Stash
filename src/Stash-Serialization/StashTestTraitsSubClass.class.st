@@ -1,7 +1,5 @@
 Class {
-	#name : 'StashTestTraitsSubClass',
-	#superclass : 'StashTestTraits',
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#name : #StashTestTraitsSubClass,
+	#superclass : #StashTestTraits,
+	#category : #'Stash-Serialization-test-cases'
 }

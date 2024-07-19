@@ -1,6 +1,6 @@
-Extension { #name : 'BlStrokeLineMiterJoin' }
+Extension { #name : #BlStrokeLineMiterJoin }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlStrokeLineMiterJoin >> asStashContructor [
 
 	^ 'BlStrokeLineJoin miter'

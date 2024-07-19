@@ -1,6 +1,6 @@
-Extension { #name : 'BlFrameLayoutConstraintsHorizontal' }
+Extension { #name : #BlFrameLayoutConstraintsHorizontal }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFrameLayoutConstraintsHorizontal >> allSetterAndGettersForMyStash [
 
 	| settersAndGetters |

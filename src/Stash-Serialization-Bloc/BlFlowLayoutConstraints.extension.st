@@ -1,6 +1,6 @@
-Extension { #name : 'BlFlowLayoutConstraints' }
+Extension { #name : #BlFlowLayoutConstraints }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFlowLayoutConstraints >> allSetterAndGettersForMyStash [
 
 	| collection |

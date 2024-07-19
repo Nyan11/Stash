@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashTagVariablesStep',
-	#superclass : 'StashStep',
-	#category : 'Stash-Serialization-stash-steps',
-	#package : 'Stash-Serialization',
-	#tag : 'stash-steps'
+	#name : #StashTagVariablesStep,
+	#superclass : #StashStep,
+	#category : #'Stash-Serialization-stash-steps'
 }
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashTagVariablesStep >> runOn: aStash [
 
 	aStash addOnSourceCode: '| '.

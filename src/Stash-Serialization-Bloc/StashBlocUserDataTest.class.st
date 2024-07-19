@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocUserDataTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocUserDataTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocUserDataTest >> testId1 [
 
 	| object source newObject |
@@ -21,7 +19,7 @@ StashBlocUserDataTest >> testId1 [
 	self assert: newObject id equals: #toto
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocUserDataTest >> testId2 [
 
 	| object source newObject |
@@ -34,7 +32,7 @@ StashBlocUserDataTest >> testId2 [
 	self assert: newObject id equals: nil
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocUserDataTest >> testId3 [
 
 	| object source newObject |

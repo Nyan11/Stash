@@ -1,6 +1,6 @@
-Extension { #name : 'BlRopedText' }
+Extension { #name : #BlRopedText }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlRopedText >> allSetterAndGettersForMyStash [
 
 	^ { #rope }

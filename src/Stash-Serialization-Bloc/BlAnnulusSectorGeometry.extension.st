@@ -1,7 +1,8 @@
-Extension { #name : 'BlAnnulusSectorGeometry' }
+Extension { #name : #BlAnnulusSectorGeometry }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlAnnulusSectorGeometry >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlAnnulusSectorGeometry >> stashAccessors [
 
+	<stashAccessors>
 	^ {#startAngle .#endAngle .#innerRadius .#outerRadius}
 ]

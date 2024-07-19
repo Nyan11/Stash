@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashPrepareObjectStep',
-	#superclass : 'StashStep',
-	#category : 'Stash-Serialization-stash-steps',
-	#package : 'Stash-Serialization',
-	#tag : 'stash-steps'
+	#name : #StashPrepareObjectStep,
+	#superclass : #StashStep,
+	#category : #'Stash-Serialization-stash-steps'
 }
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashPrepareObjectStep >> prepareObject: anObject on: aStash [
 
 	| reference |
@@ -20,7 +18,7 @@ StashPrepareObjectStep >> prepareObject: anObject on: aStash [
 		self prepareObject: each on: aStash ]
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashPrepareObjectStep >> runOn: aStash [
 
 	self prepareObject: aStash rootObject on: aStash

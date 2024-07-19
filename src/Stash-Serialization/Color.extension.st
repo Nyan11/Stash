@@ -1,6 +1,6 @@
-Extension { #name : 'Color' }
+Extension { #name : #Color }
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Color >> asStashContructor [
 
 	^ 'Color r: <1p> g: <2p> b: <3p> alpha: <4p>'
@@ -10,7 +10,7 @@ Color >> asStashContructor [
 		  with: self alpha 
 ]
 
-{ #category : '*Stash-Serialization' }
+{ #category : #'*Stash-Serialization' }
 Color >> shouldBeTagged [
 
 	^ false

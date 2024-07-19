@@ -1,7 +1,8 @@
-Extension { #name : 'BlBezierCurveGeometry' }
+Extension { #name : #BlBezierCurveGeometry }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlBezierCurveGeometry >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlBezierCurveGeometry >> stashAccessors [
 
+	<stashAccessors>
 	^ { #controlPoints }
 ]

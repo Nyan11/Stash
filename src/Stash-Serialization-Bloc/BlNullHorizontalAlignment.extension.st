@@ -1,6 +1,6 @@
-Extension { #name : 'BlNullHorizontalAlignment' }
+Extension { #name : #BlNullHorizontalAlignment }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlNullHorizontalAlignment >> asStashSelector [
 
 	^ #alignNone

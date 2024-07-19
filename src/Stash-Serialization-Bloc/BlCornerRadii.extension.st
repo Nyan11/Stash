@@ -1,7 +1,8 @@
-Extension { #name : 'BlCornerRadii' }
+Extension { #name : #BlCornerRadii }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlCornerRadii >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlCornerRadii >> stashAccessors [
 
+	<stashAccessors>
 	^ { #topLeft .#topRight .#bottomLeft .#bottomRight }
 ]
