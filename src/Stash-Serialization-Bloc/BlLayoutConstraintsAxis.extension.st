@@ -1,6 +1,6 @@
-Extension { #name : 'BlLayoutConstraintsAxis' }
+Extension { #name : #BlLayoutConstraintsAxis }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlLayoutConstraintsAxis >> shouldBeTagged [
 
 	^ false

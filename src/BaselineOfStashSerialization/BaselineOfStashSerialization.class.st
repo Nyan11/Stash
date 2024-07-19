@@ -1,11 +1,10 @@
 Class {
-	#name : 'BaselineOfStashSerialization',
-	#superclass : 'BaselineOf',
-	#category : 'BaselineOfStashSerialization',
-	#package : 'BaselineOfStashSerialization'
+	#name : #BaselineOfStashSerialization,
+	#superclass : #BaselineOf,
+	#category : #BaselineOfStashSerialization
 }
 
-{ #category : 'baselines' }
+{ #category : #baselines }
 BaselineOfStashSerialization >> baseline: spec [
 
 	<baseline>
@@ -22,7 +21,7 @@ BaselineOfStashSerialization >> baseline: spec [
 			   #Toplo ) ] ]
 ]
 
-{ #category : 'baselines' }
+{ #category : #baselines }
 BaselineOfStashSerialization >> dependencies: spec [
 
 	spec
@@ -30,5 +29,5 @@ BaselineOfStashSerialization >> dependencies: spec [
 		with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ].
 	spec
 		baseline: 'Toplo'
-		with: [ spec repository: 'github://pharo-graphics/Toplo:master/src' ].
+		with: [ spec repository: 'github://pharo-graphics/Toplo:dev/src' ].
 ]

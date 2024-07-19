@@ -1,9 +1,10 @@
-Extension { #name : 'BlLinearGradientPaint' }
+Extension { #name : #BlLinearGradientPaint }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlLinearGradientPaint >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlLinearGradientPaint >> stashBlLinearGradientPaintAccessors [
 
-	^ super allSetterAndGettersForMyStash , {
+	<stashAccessors>
+	^ {
 		  (#start).
 		  (#end) }
 ]

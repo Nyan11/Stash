@@ -1,7 +1,8 @@
-Extension { #name : 'BlFontWeightAttribute' }
+Extension { #name : #BlFontWeightAttribute }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlFontWeightAttribute >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlFontWeightAttribute >> stashAccessors [
 
+	<stashAccessors>
 	^ { #weight }
 ]

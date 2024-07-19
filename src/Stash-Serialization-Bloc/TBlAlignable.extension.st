@@ -1,6 +1,6 @@
-Extension { #name : 'TBlAlignable' }
+Extension { #name : #TBlAlignable }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 TBlAlignable >> allSetterAndGettersOfTraitForMyStash: anObject [
 
 	^ { ([ :alignement |

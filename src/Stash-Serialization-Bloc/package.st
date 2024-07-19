@@ -1,1 +1,1 @@
-Package { #name : 'Stash-Serialization-Bloc' }
+Package { #name : #'Stash-Serialization-Bloc' }

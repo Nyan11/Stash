@@ -1,8 +1,9 @@
-Extension { #name : 'BlLinearLayoutConstraintsVertical' }
+Extension { #name : #BlLinearLayoutConstraintsVertical }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlLinearLayoutConstraintsVertical >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlLinearLayoutConstraintsVertical >> stashAccessors [
 
+	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 	self alignment = BlElementAlignment start vertical ifFalse: [

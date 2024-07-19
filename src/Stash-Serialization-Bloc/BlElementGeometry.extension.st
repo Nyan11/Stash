@@ -1,6 +1,6 @@
-Extension { #name : 'BlElementGeometry' }
+Extension { #name : #BlElementGeometry }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlElementGeometry >> shouldBeTagged [
 
 	^ false

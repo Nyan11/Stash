@@ -1,6 +1,6 @@
-Extension { #name : 'BlVerticalCenterAlignment' }
+Extension { #name : #BlVerticalCenterAlignment }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlVerticalCenterAlignment >> asStashSelector [
 
 	^ #alignCenter

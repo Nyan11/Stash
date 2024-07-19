@@ -1,8 +1,9 @@
-Extension { #name : 'BlLinearLayoutConstraintsHorizontal' }
+Extension { #name : #BlLinearLayoutConstraintsHorizontal }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlLinearLayoutConstraintsHorizontal >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlLinearLayoutConstraintsHorizontal >> stashAccessors [
 
+	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 	self alignment = BlElementAlignment start horizontal ifFalse: [

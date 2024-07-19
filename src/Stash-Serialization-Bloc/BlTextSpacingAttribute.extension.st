@@ -1,7 +1,8 @@
-Extension { #name : 'BlTextSpacingAttribute' }
+Extension { #name : #BlTextSpacingAttribute }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlTextSpacingAttribute >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlTextSpacingAttribute >> stashAccessors [
 
+	<stashAccessors>
 	^ { #spacing }
 ]

@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashSetterGetterTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#name : #StashSetterGetterTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject1 [
 
 	| object source newObject |
@@ -24,7 +22,7 @@ StashSetterGetterTest >> testObject1 [
 	self assert: newObject name equals: 'test1'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject2 [
 
 	| object source newObject |
@@ -42,7 +40,7 @@ StashSetterGetterTest >> testObject2 [
 	self assert: newObject name equals: 'test1'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject3 [
 
 	| object source newObject |
@@ -58,7 +56,7 @@ StashSetterGetterTest >> testObject3 [
 	self assert: newObject name equals: nil
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject4 [
 
 	| object source newObject |
@@ -77,7 +75,7 @@ StashSetterGetterTest >> testObject4 [
 	self assert: newObject name name equals: 'test'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject5 [
 
 	| object source newObject |
@@ -96,7 +94,7 @@ stashtestsettergetter11
 	self assert: newObject name equals: newObject
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject6 [
 
 	| object source newObject |
@@ -112,7 +110,7 @@ StashSetterGetterTest >> testObject6 [
 	self assert: newObject name equals: nil
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject7 [
 
 	| object source newObject |
@@ -130,7 +128,7 @@ StashSetterGetterTest >> testObject7 [
 	self assert: newObject name equals: 'test1'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject8 [
 
 	| object source newObject |
@@ -146,7 +144,7 @@ StashSetterGetterTest >> testObject8 [
 	self assert: newObject name equals: nil
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashSetterGetterTest >> testObject9 [
 
 	| object source newObject |

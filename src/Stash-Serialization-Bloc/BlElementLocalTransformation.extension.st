@@ -1,7 +1,8 @@
-Extension { #name : 'BlElementLocalTransformation' }
+Extension { #name : #BlElementLocalTransformation }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlElementLocalTransformation >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlElementLocalTransformation >> stashAccessors [
 
+	<stashAccessors>
 	^ self affineTransformation allSetterAndGettersForMyStash
 ]

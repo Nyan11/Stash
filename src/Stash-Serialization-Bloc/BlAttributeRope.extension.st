@@ -1,20 +1,12 @@
-Extension { #name : 'BlAttributeRope' }
+Extension { #name : #BlAttributeRope }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlAttributeRope >> allSetterAndGettersForMyStash [
-
-	^ {
-		  #attributes.
-		  #rope }
-]
-
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlAttributeRope >> asStashContructor [
 
 	^ self class printString
 ]
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlAttributeRope >> asStashObject [
 
 	^ StashBlAttributeRope new
@@ -22,4 +14,13 @@ BlAttributeRope >> asStashObject [
 		rope: self rope;
 		attributes: self attributes;
 		  yourself
+]
+
+{ #category : #'*Stash-Serialization-Bloc' }
+BlAttributeRope >> stashAccessors [
+
+	<stashAccessors>
+	^ {
+		  #attributes.
+		  #rope }
 ]

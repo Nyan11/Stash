@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#name : #StashTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testArray1 [
 
 	| object source |
@@ -15,7 +13,7 @@ StashTest >> testArray1 [
 	self assert: source equals: '{}'.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testArray2 [
 
 	| object source newObject |
@@ -29,7 +27,7 @@ StashTest >> testArray2 [
 3}
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testArray3 [
 
 	| object source |
@@ -39,7 +37,7 @@ StashTest >> testArray3 [
 	self assert: source equals: '{Object new}'.
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testAssociation1 [
 
 	| object source |
@@ -48,7 +46,7 @@ StashTest >> testAssociation1 [
 	self assert: source equals: 'Object new -> Object new'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testAssociation2 [
 
 	| object source |
@@ -57,7 +55,7 @@ StashTest >> testAssociation2 [
 	self assert: source equals: '1 -> 2'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testColor1 [
 
 	| object source newObject |
@@ -71,7 +69,7 @@ StashTest >> testColor1 [
 	self assert: newObject equals: Color red
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testColor2 [
 
 	| object source newObject |
@@ -85,7 +83,7 @@ StashTest >> testColor2 [
 	self assert: newObject equals: Color blue
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testColor3 [
 
 	| object source newObject |
@@ -98,7 +96,7 @@ StashTest >> testColor3 [
 		self assert: newObject equals: object ]
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testColor4 [
 
 	| object source newObject |
@@ -111,37 +109,37 @@ StashTest >> testColor4 [
 	self assert: newObject alpha equals: object alpha
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testLiteral1 [
 
 	self assert: (Stash new serialize: 1) equals: '1'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testLiteral2 [
 
 	self assert: (Stash new serialize: true) equals: 'true'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testLiteral3 [
 
 	self assert: (Stash new serialize: 'hello') equals: '''hello'''
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testLiteral4 [
 
 	self assert: (Stash new serialize: #world) equals: '#world'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testObject1 [
 
 	self assert: (Stash new serialize: Object new) equals: 'Object new'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testPoint1 [
 
 	| object source |
@@ -150,7 +148,7 @@ StashTest >> testPoint1 [
 	self assert: source equals: '6 @ 7'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashTest >> testPoint2 [
 
 	| object source |

@@ -1,6 +1,6 @@
-Extension { #name : 'BlBottomAlignment' }
+Extension { #name : #BlBottomAlignment }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlBottomAlignment >> asStashSelector [
 
 	^ #alignBottom

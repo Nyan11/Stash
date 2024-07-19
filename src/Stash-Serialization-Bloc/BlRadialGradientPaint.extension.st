@@ -1,9 +1,10 @@
-Extension { #name : 'BlRadialGradientPaint' }
+Extension { #name : #BlRadialGradientPaint }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlRadialGradientPaint >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlRadialGradientPaint >> stashBlRadialGradientPaintAccessors [
 
-	^ super allSetterAndGettersForMyStash , {
+	<stashAccessors>
+	^ {
 		  (#innerCenter).
 		  (#innerRadius).
 		  (#outerCenter).

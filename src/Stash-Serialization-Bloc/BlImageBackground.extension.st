@@ -1,7 +1,8 @@
-Extension { #name : 'BlImageBackground' }
+Extension { #name : #BlImageBackground }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlImageBackground >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlImageBackground >> stashBackgroundImage [
 
-	^ super allSetterAndGettersForMyStash , { #image }
+	<stashAccessors>
+	^ { (#image) }
 ]

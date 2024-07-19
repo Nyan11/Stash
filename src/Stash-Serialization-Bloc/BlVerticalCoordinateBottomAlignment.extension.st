@@ -1,6 +1,6 @@
-Extension { #name : 'BlVerticalCoordinateBottomAlignment' }
+Extension { #name : #BlVerticalCoordinateBottomAlignment }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlVerticalCoordinateBottomAlignment >> asStashSelector [
 
 		^ 'alignBottomAt: ', (self coordinate printString)

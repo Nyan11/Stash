@@ -1,21 +1,19 @@
 Class {
-	#name : 'StashTestTraitsModel',
-	#superclass : 'Object',
+	#name : #StashTestTraitsModel,
+	#superclass : #Object,
 	#instVars : [
 		'test'
 	],
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashTestTraitsModel >> test [
 
 	^ test
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashTestTraitsModel >> test: anObject [
 
 	test := anObject

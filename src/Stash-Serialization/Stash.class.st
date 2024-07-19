@@ -1,6 +1,6 @@
 Class {
-	#name : 'Stash',
-	#superclass : 'Object',
+	#name : #Stash,
+	#superclass : #Object,
 	#instVars : [
 		'rootObject',
 		'steps',
@@ -9,42 +9,40 @@ Class {
 		'uuid',
 		'dictionary'
 	],
-	#category : 'Stash-Serialization-stash',
-	#package : 'Stash-Serialization',
-	#tag : 'stash'
+	#category : #'Stash-Serialization-stash'
 }
 
-{ #category : 'adding' }
+{ #category : #adding }
 Stash >> addOnSourceCode: aString [
 
 	stream << aString
 ]
 
-{ #category : 'adding' }
+{ #category : #adding }
 Stash >> addTaggedObject: aStashObject [
 
 	self taggedObject add: aStashObject.
 	aStashObject tag: (self newTagFor: aStashObject)
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 Stash >> at: anObject [
 
 	^ dictionary at: anObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 Stash >> at: anObject ifPresent: aBlockPresent ifAbsentPut: aBlockAbsent [ 
 	dictionary at: anObject ifPresent: aBlockPresent ifAbsentPut: aBlockAbsent
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 Stash >> do: aBlock [
 
 	dictionary do: aBlock
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 Stash >> initialize [
 
 	uuid := 0.
@@ -59,7 +57,7 @@ Stash >> initialize [
 		         StashContructGeneralObjectsStep new }
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 Stash >> materialize: aString [
 
 	^ self class compiler
@@ -67,32 +65,32 @@ Stash >> materialize: aString [
 		             evaluate.
 ]
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 Stash >> newTagFor: aStashObject [
 
 	^ aStashObject object class printString asLowercase
 	  , self nextUUID printString
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 Stash >> nextUUID [
 
 	^ uuid := uuid + 1
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 Stash >> rootObject [
 
 	^ rootObject
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 Stash >> rootObject: anObject [
 
 	rootObject := anObject
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 Stash >> run [
 
 	self steps do: [ :step | step runOn: self ].
@@ -100,7 +98,7 @@ Stash >> run [
 	
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 Stash >> serialize: anObject [
 
 	self rootObject: anObject.
@@ -108,7 +106,7 @@ Stash >> serialize: anObject [
 	^ self sourceCode
 ]
 
-{ #category : 'adding' }
+{ #category : #adding }
 Stash >> sourceCode [
 
 	
@@ -117,13 +115,13 @@ Stash >> sourceCode [
 	^ RBSimpleFormatter format: expr
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 Stash >> steps [
 
 	^ steps
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 Stash >> taggedObject [
 
 	^ taggedObject

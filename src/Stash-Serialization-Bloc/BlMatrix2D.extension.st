@@ -1,6 +1,6 @@
-Extension { #name : 'BlMatrix2D' }
+Extension { #name : #BlMatrix2D }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlMatrix2D >> asStashContructor [
 
 	self isIdentity ifTrue: [ ^ 'BlMatrix2D new' ].

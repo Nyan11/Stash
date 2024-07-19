@@ -1,7 +1,8 @@
-Extension { #name : 'BlBackground' }
+Extension { #name : #BlBackground }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlBackground >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlBackground >> stashBackgroundOpacity [
 
+	<stashAccessors>
 	^ { (#opacity) }
 ]

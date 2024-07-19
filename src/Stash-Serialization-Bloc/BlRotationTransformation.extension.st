@@ -1,8 +1,9 @@
-Extension { #name : 'BlRotationTransformation' }
+Extension { #name : #BlRotationTransformation }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlRotationTransformation >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlRotationTransformation >> stashAccessors [
 
+	<stashAccessors>
 	| allSetterAndGettersForMyStash |
 	allSetterAndGettersForMyStash := OrderedCollection new.
 	allSetterAndGettersForMyStash add: ([ :e | self angle ]) onlyGetOnStash.

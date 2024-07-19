@@ -1,21 +1,19 @@
 Class {
-	#name : 'StashPropertyError',
-	#superclass : 'Error',
+	#name : #StashPropertyError,
+	#superclass : #Error,
 	#instVars : [
 		'context'
 	],
-	#category : 'Stash-Serialization-stash',
-	#package : 'Stash-Serialization',
-	#tag : 'stash'
+	#category : #'Stash-Serialization-stash'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashPropertyError >> context [
 
 	^ context
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashPropertyError >> context: anObject [
 
 	context := anObject

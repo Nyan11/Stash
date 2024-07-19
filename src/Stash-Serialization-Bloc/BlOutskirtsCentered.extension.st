@@ -1,6 +1,6 @@
-Extension { #name : 'BlOutskirtsCentered' }
+Extension { #name : #BlOutskirtsCentered }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlOutskirtsCentered >> asStashContructor [
 
 	^ 'BlOutskirts centered'

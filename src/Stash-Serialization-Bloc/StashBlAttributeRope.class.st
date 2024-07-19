@@ -1,28 +1,26 @@
 Class {
-	#name : 'StashBlAttributeRope',
-	#superclass : 'StashObject',
+	#name : #StashBlAttributeRope,
+	#superclass : #StashObject,
 	#instVars : [
 		'rope',
 		'attributes'
 	],
-	#category : 'Stash-Serialization-Bloc-stash-objects',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'stash-objects'
+	#category : #'Stash-Serialization-Bloc-stash-objects'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashBlAttributeRope >> attributes [
 
 	^ attributes
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashBlAttributeRope >> attributes: anObject [
 
 	attributes := anObject
 ]
 
-{ #category : 'stash - step' }
+{ #category : #'stash - step' }
 StashBlAttributeRope >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
 	aStashContructGeneralObjectsStep
@@ -30,13 +28,13 @@ StashBlAttributeRope >> constructForGeneralObjectStep: aStashContructGeneralObje
 		on: aStash
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashBlAttributeRope >> rope [
 
 	^ rope
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashBlAttributeRope >> rope: anObject [
 
 	rope := anObject

@@ -1,1 +1,1 @@
-Package { #name : 'Stash-Serialization-Toplo' }
+Package { #name : #'Stash-Serialization-Toplo' }

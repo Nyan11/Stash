@@ -1,19 +1,17 @@
 Class {
-	#name : 'StashBlLayoutConstraints',
-	#superclass : 'StashObject',
-	#category : 'Stash-Serialization-Bloc-stash-objects',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'stash-objects'
+	#name : #StashBlLayoutConstraints,
+	#superclass : #StashObject,
+	#category : #'Stash-Serialization-Bloc-stash-objects'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> allHorizontalSetters [
 
 	^ self object horizontal allSetterAndGettersForMyStash collect: [ :each | each asStashProperty ] thenSelect: [ :each |
 		  each isStashSetter ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> allHorizontalSettersFor: aLayoutConstraints [
 
 	^ aLayoutConstraints horizontal allSetterAndGettersForMyStash
@@ -21,7 +19,7 @@ StashBlLayoutConstraints >> allHorizontalSettersFor: aLayoutConstraints [
 		  thenSelect: [ :each | each isStashSetter ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> allLayoutSettersAndNames [
 
 	| layouts |
@@ -33,7 +31,7 @@ StashBlLayoutConstraints >> allLayoutSettersAndNames [
 				   thenSelect: [ :each | each isStashSetter ]) ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> allVerticalSetters [
 
 	^ self object vertical allSetterAndGettersForMyStash
@@ -41,7 +39,7 @@ StashBlLayoutConstraints >> allVerticalSetters [
 		  thenSelect: [ :each | each isStashSetter ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> allVerticalSettersFor: aLayoutConstraints [
 
 	^ aLayoutConstraints vertical allSetterAndGettersForMyStash
@@ -49,7 +47,7 @@ StashBlLayoutConstraints >> allVerticalSettersFor: aLayoutConstraints [
 		  thenSelect: [ :each | each isStashSetter ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep on: aStash [
 
 	aStashContructGeneralObjectsStep
@@ -57,7 +55,7 @@ StashBlLayoutConstraints >> constructForGeneralObjectStep: aStashContructGeneral
 		on: aStash
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> getInstanceForHorizontalWith: anObject [
 
 	anObject setter isBlock
@@ -65,7 +63,7 @@ StashBlLayoutConstraints >> getInstanceForHorizontalWith: anObject [
 		ifFalse: [ ^ anObject setter ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> getInstanceForVerticalWith: anObject [
 
 	anObject setter isBlock
@@ -73,20 +71,20 @@ StashBlLayoutConstraints >> getInstanceForVerticalWith: anObject [
 		ifFalse: [ ^ anObject setter ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashBlLayoutConstraints >> nextInstances [
 
 	^ super nextInstances, { self object horizontal . self object vertical } 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashBlLayoutConstraints >> object: anObject [
 
 	object := anObject.
 	(anObject allSetterAndGettersForMyStash isEmpty and: [ anObject horizontal allSetterAndGettersForMyStash isEmpty and: [anObject vertical allSetterAndGettersForMyStash isEmpty  ] ]) ifTrue: [ self propertiesAreSet ]
 ]
 
-{ #category : 'asserting' }
+{ #category : #asserting }
 StashBlLayoutConstraints >> shouldBeTagged [
 
 	^ false

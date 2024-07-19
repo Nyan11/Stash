@@ -1,17 +1,15 @@
 Trait {
-	#name : 'TStashPropertySetter',
-	#category : 'Stash-Serialization-stash',
-	#package : 'Stash-Serialization',
-	#tag : 'stash'
+	#name : #TStashPropertySetter,
+	#category : #'Stash-Serialization-stash'
 }
 
-{ #category : 'testing' }
+{ #category : #testing }
 TStashPropertySetter >> isStashSetter [
 
 	^ true
 ]
 
-{ #category : 'resolving' }
+{ #category : #resolving }
 TStashPropertySetter >> setter [
 
 	self context isSymbol ifTrue: [ ^ self context ].

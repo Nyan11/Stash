@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashContructGeneralObjectsStep',
-	#superclass : 'StashStep',
-	#category : 'Stash-Serialization-stash-steps',
-	#package : 'Stash-Serialization',
-	#tag : 'stash-steps'
+	#name : #StashContructGeneralObjectsStep,
+	#superclass : #StashStep,
+	#category : #'Stash-Serialization-stash-steps'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> addTag: aTag on: aStash [
 
 
@@ -14,7 +12,7 @@ StashContructGeneralObjectsStep >> addTag: aTag on: aStash [
 	
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: aStash [
 
 	aStashAssociation propertiesAreSet.
@@ -26,7 +24,7 @@ StashContructGeneralObjectsStep >> constructAssociation: aStashAssociation on: a
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructCollection: aStashCollection on: aStash [
 
 	aStashCollection propertiesAreSet.
@@ -36,7 +34,7 @@ StashContructGeneralObjectsStep >> constructCollection: aStashCollection on: aSt
 	
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashContructGeneralObjectsStep >> constructObject: aStashObject on: aStash [
 
 	aStash addOnSourceCode: aStashObject constructorOrTag.
@@ -45,7 +43,7 @@ StashContructGeneralObjectsStep >> constructObject: aStashObject on: aStash [
 	aStash addOnSourceCode: ';yourself'
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: aStash [
 
 	aStash addOnSourceCode: aStashObject constructorOrTag.
@@ -60,7 +58,7 @@ StashContructGeneralObjectsStep >> constructObjectWithBuilder: aStashObject on: 
 		aStash addOnSourceCode: aStashObject methodToBuild ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashContructGeneralObjectsStep >> constructPoint: aStashAssociation on: aStash [
 
 	aStashAssociation propertiesAreSet.
@@ -71,7 +69,7 @@ StashContructGeneralObjectsStep >> constructPoint: aStashAssociation on: aStash 
 	aStash addOnSourceCode: ')'
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashContructGeneralObjectsStep >> nextInstance: anObject on: aStash [
 
 	| reference |
@@ -81,19 +79,19 @@ StashContructGeneralObjectsStep >> nextInstance: anObject on: aStash [
 	aStash addOnSourceCode: ')'
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashContructGeneralObjectsStep >> nextReference: aStashObject on: aStash [
 	"Double dispatch to easily add more different objects"
 	aStashObject constructForGeneralObjectStep: self on: aStash
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashContructGeneralObjectsStep >> runOn: aStash [
 
 	self nextInstance: aStash rootObject on: aStash
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 StashContructGeneralObjectsStep >> setPropertiesOf: aStashObject on: aStash [
 
 	aStashObject propertiesAreSet.
@@ -104,7 +102,7 @@ StashContructGeneralObjectsStep >> setPropertiesOf: aStashObject on: aStash [
 		separatedBy: [ aStash addOnSourceCode: ';<r>' ]
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 StashContructGeneralObjectsStep >> setProperty: aStashProperty ofObject: anObject on: aStash [
 
 	| argument |

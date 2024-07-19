@@ -1,8 +1,10 @@
-Extension { #name : 'BlFlowLayout' }
+Extension { #name : #BlFlowLayout }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFlowLayout >> allSetterAndGettersForMyStash [
 
+	"We ovverride this method to take into account the default value of alignment"
+	<stashAccessors>
 	| settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 	(verticalAlignment == self defaultVerticalAlignment and: [
@@ -13,7 +15,7 @@ BlFlowLayout >> allSetterAndGettersForMyStash [
 	^ settersAndGetters
 ]
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFlowLayout >> asStashContructor [
 
 	self orientation isVertical ifTrue: [ ^ 'BlFlowLayout vertical' ].

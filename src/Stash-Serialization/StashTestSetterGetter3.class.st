@@ -1,27 +1,25 @@
 Class {
-	#name : 'StashTestSetterGetter3',
-	#superclass : 'Object',
+	#name : #StashTestSetterGetter3,
+	#superclass : #Object,
 	#instVars : [
 		'name'
 	],
-	#category : 'Stash-Serialization-test-cases',
-	#package : 'Stash-Serialization',
-	#tag : 'test-cases'
+	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 StashTestSetterGetter3 >> allSetterAndGettersForMyStash [
 
 	^ { (#name: -> [ :obj | obj name ]) }
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashTestSetterGetter3 >> name [
 
 	^ name
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 StashTestSetterGetter3 >> name: anObject [
 
 	name := anObject

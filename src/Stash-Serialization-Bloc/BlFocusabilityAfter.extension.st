@@ -1,6 +1,6 @@
-Extension { #name : 'BlFocusabilityAfter' }
+Extension { #name : #BlFocusabilityAfter }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlFocusabilityAfter >> asStashContructor [
 
 	^ 'BlFocusability after'

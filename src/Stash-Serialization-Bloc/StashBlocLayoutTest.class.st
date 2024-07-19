@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocLayoutTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocLayoutTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlBasicLayout [
 
 	| object source newObject |
@@ -19,7 +17,7 @@ StashBlocLayoutTest >> testBlBasicLayout [
 	self assert: newObject layout class equals: BlBasicLayout
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout1 [
 
 	| object source newObject |
@@ -35,7 +33,7 @@ StashBlocLayoutTest >> testBlFlowLayout1 [
 	self assert: newObject layout orientation isVertical
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout10 [
 
 	| object source newObject |
@@ -54,7 +52,7 @@ StashBlocLayoutTest >> testBlFlowLayout10 [
 	self assert: newObject layout isAlignBottomCenter
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout11 [
 
 	| object source newObject |
@@ -73,7 +71,7 @@ StashBlocLayoutTest >> testBlFlowLayout11 [
 	self assert: newObject layout isAlignBottomRight
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout2 [
 
 	| object source newObject |
@@ -89,7 +87,7 @@ StashBlocLayoutTest >> testBlFlowLayout2 [
 	self assert: newObject layout orientation isHorizontal
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout3 [
 
 	| object source newObject |
@@ -106,7 +104,7 @@ StashBlocLayoutTest >> testBlFlowLayout3 [
 	self assert: newObject layout isAlignTopLeft
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout4 [
 
 	| object source newObject |
@@ -125,7 +123,7 @@ StashBlocLayoutTest >> testBlFlowLayout4 [
 	self assert: newObject layout isAlignTopCenter
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout5 [
 
 	| object source newObject |
@@ -144,7 +142,7 @@ StashBlocLayoutTest >> testBlFlowLayout5 [
 	self assert: newObject layout isAlignTopRight
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout6 [
 
 	| object source newObject |
@@ -162,7 +160,7 @@ StashBlocLayoutTest >> testBlFlowLayout6 [
 	self assert: newObject layout isAlignCenterLeft
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout7 [
 
 	| object source newObject |
@@ -181,7 +179,7 @@ StashBlocLayoutTest >> testBlFlowLayout7 [
 	self assert: newObject layout isAlignCenter
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout8 [
 
 	| object source newObject |
@@ -199,7 +197,7 @@ StashBlocLayoutTest >> testBlFlowLayout8 [
 	self assert: newObject layout isAlignCenterRight
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFlowLayout9 [
 
 	| object source newObject |
@@ -218,7 +216,7 @@ StashBlocLayoutTest >> testBlFlowLayout9 [
 	self assert: newObject layout isAlignBottomLeft
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlFrameLayout [
 
 	| object source newObject |
@@ -233,7 +231,7 @@ StashBlocLayoutTest >> testBlFrameLayout [
 	self assert: newObject layout class equals: BlFrameLayout
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout1 [
 
 	| object source newObject |
@@ -251,7 +249,7 @@ StashBlocLayoutTest >> testBlLinearLayout1 [
 	self assert: newObject layout interspace equals: 0.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout2 [
 
 	| object source newObject |
@@ -269,7 +267,7 @@ StashBlocLayoutTest >> testBlLinearLayout2 [
 	self assert: newObject layout interspace equals: 0.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout3 [
 
 	| object source newObject |
@@ -290,7 +288,7 @@ StashBlocLayoutTest >> testBlLinearLayout3 [
 	self assert: newObject layout interspace equals: 0.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout4 [
 
 	| object source newObject |
@@ -311,7 +309,7 @@ StashBlocLayoutTest >> testBlLinearLayout4 [
 	self assert: newObject layout interspace equals: 3.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout5 [
 
 	| object source newObject |
@@ -329,7 +327,7 @@ StashBlocLayoutTest >> testBlLinearLayout5 [
 	self assert: newObject layout interspace equals: 0.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout6 [
 
 	| object source newObject |
@@ -349,7 +347,7 @@ StashBlocLayoutTest >> testBlLinearLayout6 [
 	self assert: newObject layout interspace equals: 0.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout7 [
 
 	| object source newObject |
@@ -370,7 +368,7 @@ StashBlocLayoutTest >> testBlLinearLayout7 [
 	self assert: newObject layout interspace equals: 0.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlLinearLayout8 [
 
 	| object source newObject |
@@ -392,7 +390,7 @@ StashBlocLayoutTest >> testBlLinearLayout8 [
 	self assert: newObject layout weightSum equals: 800.0
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocLayoutTest >> testBlProportionalLayout [
 
 	| object source newObject |

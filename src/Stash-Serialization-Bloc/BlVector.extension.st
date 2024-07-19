@@ -1,6 +1,6 @@
-Extension { #name : 'BlVector' }
+Extension { #name : #BlVector }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlVector >> shouldBeTagged [
 
 	^ false

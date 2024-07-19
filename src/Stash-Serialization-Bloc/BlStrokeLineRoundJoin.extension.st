@@ -1,6 +1,6 @@
-Extension { #name : 'BlStrokeLineRoundJoin' }
+Extension { #name : #BlStrokeLineRoundJoin }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlStrokeLineRoundJoin >> asStashContructor [
 
 	^ 'BlStrokeLineJoin round'

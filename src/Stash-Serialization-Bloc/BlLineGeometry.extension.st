@@ -1,7 +1,8 @@
-Extension { #name : 'BlLineGeometry' }
+Extension { #name : #BlLineGeometry }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlLineGeometry >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlLineGeometry >> stashAccessors [
 
+	<stashAccessors>
 	^ { #from . #to }
 ]

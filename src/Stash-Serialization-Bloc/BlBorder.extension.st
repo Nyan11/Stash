@@ -1,8 +1,19 @@
-Extension { #name : 'BlBorder' }
+Extension { #name : #BlBorder }
 
-{ #category : '*Stash-Serialization-Bloc' }
-BlBorder >> allSetterAndGettersForMyStash [
+{ #category : #'*Stash-Serialization-Bloc' }
+BlBorder >> asStashObject [
 
+	^ StashObjectWithBuilder new
+		  builder: BlBorderBuilder new;
+		methodToBuild: #build;
+		  object: self;
+		  yourself
+]
+
+{ #category : #'*Stash-Serialization-Bloc' }
+BlBorder >> stashAccessors [
+
+	<stashAccessors>
 	| defaults settersAndGetters |
 	settersAndGetters := OrderedCollection new.
 	defaults := BlBorderBuilder new.
@@ -29,14 +40,4 @@ BlBorder >> allSetterAndGettersForMyStash [
 		settersAndGetters add: #opacity ].
 
 	^ settersAndGetters
-]
-
-{ #category : '*Stash-Serialization-Bloc' }
-BlBorder >> asStashObject [
-
-	^ StashObjectWithBuilder new
-		  builder: BlBorderBuilder new;
-		methodToBuild: #build;
-		  object: self;
-		  yourself
 ]

@@ -1,12 +1,10 @@
 Class {
-	#name : 'StashBlocChildrenTest',
-	#superclass : 'TestCase',
-	#category : 'Stash-Serialization-Bloc-test-cases',
-	#package : 'Stash-Serialization-Bloc',
-	#tag : 'test-cases'
+	#name : #StashBlocChildrenTest,
+	#superclass : #TestCase,
+	#category : #'Stash-Serialization-Bloc-test-cases'
 }
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocChildrenTest >> testBlElementChildren1 [
 
 	| object source |
@@ -17,7 +15,7 @@ StashBlocChildrenTest >> testBlElementChildren1 [
 		equals: 'BlElement new'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocChildrenTest >> testBlElementChildren2 [
 
 	| object source |
@@ -32,7 +30,7 @@ StashBlocChildrenTest >> testBlElementChildren2 [
    yourself'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocChildrenTest >> testBlElementChildren3 [
 
 	| object source |
@@ -49,7 +47,7 @@ StashBlocChildrenTest >> testBlElementChildren3 [
    yourself'
 ]
 
-{ #category : 'tests' }
+{ #category : #tests }
 StashBlocChildrenTest >> testBlElementChildren4 [
 
 	| object source |

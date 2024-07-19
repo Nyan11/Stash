@@ -1,6 +1,6 @@
-Extension { #name : 'BlTriangleGeometry' }
+Extension { #name : #BlTriangleGeometry }
 
-{ #category : '*Stash-Serialization-Bloc' }
+{ #category : #'*Stash-Serialization-Bloc' }
 BlTriangleGeometry >> asStashContructor [
 
 	self isTop ifTrue: [ ^ 'BlTriangleGeometry new beTop' ].
