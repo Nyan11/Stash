@@ -11,7 +11,7 @@ Object >> allSetterAndGettersForMyStash [
 
 	| pragmas |
 	pragmas := Pragma allNamed: #stashAccessors from: self class to: Object.
-	^ pragmas flatCollect: [ :p | p method valueWithReceiver: self ].
+	^ pragmas flatCollect: [ :p | p method receiver: self withArguments: #(  ) executeMethod: p method ].
 ]
 
 { #category : #'*Stash-Serialization' }
