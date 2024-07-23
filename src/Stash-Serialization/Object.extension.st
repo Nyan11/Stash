@@ -31,7 +31,7 @@ Object >> allSetterAndGettersForMyStashForMyTraits [
 ]
 
 { #category : #'*Stash-Serialization' }
-Object >> asStashContructor [
+Object >> asStashConstructor [
 
 	self isLiteral ifTrue: [ ^ self printString ].
 	^ self class printString , ' new'

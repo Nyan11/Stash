@@ -56,6 +56,27 @@ StashTest >> testAssociation2 [
 ]
 
 { #category : #tests }
+StashTest >> testClass1 [
+
+	| object source |
+	object := Object.
+	source := Stash new serialize: object.
+	self assert: source equals: 'Object'
+]
+
+{ #category : #tests }
+StashTest >> testClass2 [
+
+	| object source |
+	object := { Object . Object }.
+	source := Stash new serialize: object.
+	self assert: source equals: '| objectclass1 |
+objectclass1 := Object.
+{objectclass1 . 
+objectclass1}'
+]
+
+{ #category : #tests }
 StashTest >> testColor1 [
 
 	| object source newObject |

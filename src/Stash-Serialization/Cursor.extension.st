@@ -1,7 +1,7 @@
 Extension { #name : #Cursor }
 
 { #category : #'*Stash-Serialization' }
-Cursor >> asStashContructor [
+Cursor >> asStashConstructor [
 
 	| selectedCursors |
 	self flag: #danger. "Working but uses class pool to access the correct values."
