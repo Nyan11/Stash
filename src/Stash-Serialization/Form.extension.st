@@ -1,7 +1,7 @@
 Extension { #name : #Form }
 
 { #category : #'*Stash-Serialization' }
-Form >> asStashContructor [
+Form >> asStashConstructor [
 
 	| stream |
 	stream := String new writeStream.

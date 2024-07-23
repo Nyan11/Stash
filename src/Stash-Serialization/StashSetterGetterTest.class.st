@@ -100,10 +100,10 @@ StashSetterGetterTest >> testObject5 [
 	object := StashTestSetterGetter1 new.
 	object name: object.
 	source := Stash new serialize: object.
-	self assert: source equals: '| stashtestsettergetter11 |
-stashtestsettergetter11 := StashTestSetterGetter1 new.
-stashtestsettergetter11
-   name: stashtestsettergetter11;
+	self assert: source equals: '| stashtestsettergetter1 |
+stashtestsettergetter1 := StashTestSetterGetter1 new.
+stashtestsettergetter1
+   name: stashtestsettergetter1;
    yourself'.
 
 	newObject := self class compiler

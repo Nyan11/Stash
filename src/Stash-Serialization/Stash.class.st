@@ -68,7 +68,7 @@ Stash >> materialize: aString [
 { #category : #'instance creation' }
 Stash >> newTagFor: aStashObject [
 
-	^ aStashObject object class printString asLowercase
+	^ aStashObject object class printString asLowercase onlyLetters
 	  , self nextUUID printString
 ]
 
