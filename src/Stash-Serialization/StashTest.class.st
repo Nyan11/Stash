@@ -65,6 +65,41 @@ StashTest >> testBlockClosure1 [
 ]
 
 { #category : #tests }
+StashTest >> testBlockClosure10 [
+
+	| object source |
+	object := [ [ Object ] ].
+	source := Stash new serialize: object.
+	self assert: source equals: '[ [ Object ] ]'
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure11 [
+
+	| object source outerContext |
+	outerContext := 1.
+	object := [ :a | [ a + outerContext ] ].
+	[ source := Stash new serialize: object ]
+		on: StashCannotSerializeBlockClosure
+		do: [
+			self assert: true.
+			^ self ].
+	self fail
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure12 [
+
+	| object source newObject |
+	object := [ :a | [ :b | b + a ] value: a ].
+	source := Stash new serialize: object.
+	self assert: (object value: 5) equals: 10.
+	self assert: source equals: '[:a |  [:b |  b + a ] value: a ]'.
+	newObject := Stash new materialize: source.
+	self assert: (newObject value: 5) equals: 10
+]
+
+{ #category : #tests }
 StashTest >> testBlockClosure2 [
 
 	| object source |
@@ -120,6 +155,45 @@ innerContext := 1.
 a + a + innerContext ]'.
 	newObject := Stash new materialize: source.
 	self assert: (newObject value: 5) equals: 11
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure7 [
+
+	| object source newObject |
+	object := [ Color red ].
+	source := Stash new serialize: object.
+	self assert: (object value) equals: Color red.
+	self assert: source equals: '[ Color red ]'.
+	newObject := Stash new materialize: source.
+	self assert: (object value) equals: Color red.
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure8 [
+
+	| object source newObject |
+	object := [ | b c | c := Color red. #test . b := Object . 'tetet' . c].
+	source := Stash new serialize: object.
+	self assert: object value equals: Color red.
+	self assert: source equals: '[ | b c |
+c := Color red.
+#test.
+b := Object.
+''tetet''.
+c ]'.
+	newObject := Stash new materialize: source.
+	self assert: object value equals: Color red
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure9 [
+
+	| object source |
+	object := [ [  ] ].
+	source := Stash new serialize: object.
+	self assert: source equals: '[ [  ] ]'.
+
 ]
 
 { #category : #tests }
