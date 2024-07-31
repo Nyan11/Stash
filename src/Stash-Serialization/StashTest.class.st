@@ -56,6 +56,147 @@ StashTest >> testAssociation2 [
 ]
 
 { #category : #tests }
+StashTest >> testBlockClosure1 [
+
+	| object source |
+	object := [  ].
+	source := Stash new serialize: object.
+	self assert: source equals: '[  ]'
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure10 [
+
+	| object source |
+	object := [ [ Object ] ].
+	source := Stash new serialize: object.
+	self assert: source equals: '[ [ Object ] ]'
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure11 [
+
+	| object source outerContext |
+	outerContext := 1.
+	object := [ :a | [ a + outerContext ] ].
+	[ source := Stash new serialize: object ]
+		on: StashCannotSerializeBlockClosure
+		do: [
+			self assert: true.
+			^ self ].
+	self fail
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure12 [
+
+	| object source newObject |
+	object := [ :a | [ :b | b + a ] value: a ].
+	source := Stash new serialize: object.
+	self assert: (object value: 5) equals: 10.
+	self assert: source equals: '[:a |  [:b |  b + a ] value: a ]'.
+	newObject := Stash new materialize: source.
+	self assert: (newObject value: 5) equals: 10
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure2 [
+
+	| object source |
+	object := [ :a :b :c |  ].
+	source := Stash new serialize: object.
+	self assert: source equals: '[:a :b :c |   ]'
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure3 [
+
+	| object source newObject |
+	object := [ :a | a + 1 ].
+	source := Stash new serialize: object.
+	self assert: (object value: 5) equals: 6.
+	self assert: source equals: '[:a |  a + 1 ]'.
+	newObject := Stash new materialize: source.
+	self assert: (newObject value: 5) equals: 6.
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure4 [
+
+	| object source outerContext |
+	outerContext := 1.
+	object := [ :a | a + outerContext ].
+	[source := Stash new serialize: object] on: StashCannotSerializeBlockClosure do: [ self assert: true. ^ self ].
+self fail.
+
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure5 [
+
+	| object source newObject |
+	object := [ :a | a + a + 1 ].
+	source := Stash new serialize: object.
+	self assert: (object value: 5) equals: 11.
+	self assert: source equals: '[:a |  a + a + 1 ]'.
+	newObject := Stash new materialize: source.
+	self assert: (newObject value: 5) equals: 11
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure6 [
+
+	| object source newObject |
+	object := [ :a | | innerContext | innerContext := 1 . a + a + innerContext ].
+	source := Stash new serialize: object.
+	self assert: (object value: 5) equals: 11.
+	self assert: source equals: '[:a |  | innerContext |
+innerContext := 1.
+a + a + innerContext ]'.
+	newObject := Stash new materialize: source.
+	self assert: (newObject value: 5) equals: 11
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure7 [
+
+	| object source newObject |
+	object := [ Color red ].
+	source := Stash new serialize: object.
+	self assert: (object value) equals: Color red.
+	self assert: source equals: '[ Color red ]'.
+	newObject := Stash new materialize: source.
+	self assert: (object value) equals: Color red.
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure8 [
+
+	| object source newObject |
+	object := [ | b c | c := Color red. #test . b := Object . 'tetet' . c].
+	source := Stash new serialize: object.
+	self assert: object value equals: Color red.
+	self assert: source equals: '[ | b c |
+c := Color red.
+#test.
+b := Object.
+''tetet''.
+c ]'.
+	newObject := Stash new materialize: source.
+	self assert: object value equals: Color red
+]
+
+{ #category : #tests }
+StashTest >> testBlockClosure9 [
+
+	| object source |
+	object := [ [  ] ].
+	source := Stash new serialize: object.
+	self assert: source equals: '[ [  ] ]'.
+
+]
+
+{ #category : #tests }
 StashTest >> testClass1 [
 
 	| object source |

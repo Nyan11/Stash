@@ -1,5 +1,5 @@
 Class {
 	#name : #StashPropertyErrorCannotGet,
-	#superclass : #StashPropertyError,
+	#superclass : #StashError,
 	#category : #'Stash-Serialization-stash'
 }
