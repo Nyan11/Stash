@@ -1,5 +1,5 @@
 Class {
-	#name : #StashPropertyError,
+	#name : #StashError,
 	#superclass : #Error,
 	#instVars : [
 		'context'
@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #accessing }
-StashPropertyError >> context [
+StashError >> context [
 
 	^ context
 ]
 
 { #category : #accessing }
-StashPropertyError >> context: anObject [
+StashError >> context: anObject [
 
 	context := anObject
 ]
