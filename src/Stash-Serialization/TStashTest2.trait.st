@@ -15,13 +15,13 @@ TStashTest2 >> model2 [
 	^ self shouldBeImplemented
 ]
 
-{ #category : #tests }
+{ #category : #'as yet unclassified' }
 TStashTest2 >> test2 [
 
 	^ self model2 test
 ]
 
-{ #category : #tests }
+{ #category : #'as yet unclassified' }
 TStashTest2 >> test2: anObject [
 
 	self model2 test: anObject

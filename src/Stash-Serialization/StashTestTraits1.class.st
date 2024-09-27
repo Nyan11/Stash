@@ -1,5 +1,5 @@
 Class {
-	#name : #StashTestTraits,
+	#name : #StashTestTraits1,
 	#superclass : #Object,
 	#traits : 'TStashTest1 + TStashTest2 + TStashTest3',
 	#classTraits : 'TStashTest1 classTrait + TStashTest2 classTrait + TStashTest3 classTrait',
@@ -11,20 +11,20 @@ Class {
 }
 
 { #category : #initialization }
-StashTestTraits >> initialize [
+StashTestTraits1 >> initialize [
 
 	model1 := StashTestTraitsModel new.
 	model2 := StashTestTraitsModel new.
 ]
 
 { #category : #tests }
-StashTestTraits >> model1 [
+StashTestTraits1 >> model1 [
 
 	^ model1
 ]
 
 { #category : #'as yet unclassified' }
-StashTestTraits >> model2 [
+StashTestTraits1 >> model2 [
 
 	^ model2
 ]
