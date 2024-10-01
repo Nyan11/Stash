@@ -1,8 +1,8 @@
 Class {
-	#name : #StashTestTraits2,
+	#name : #StashTestTraits,
 	#superclass : #Object,
-	#traits : 'TStashTest4',
-	#classTraits : 'TStashTest4 classTrait',
+	#traits : 'TStashTest',
+	#classTraits : 'TStashTest classTrait',
 	#instVars : [
 		'model4'
 	],
@@ -10,13 +10,13 @@ Class {
 }
 
 { #category : #initialization }
-StashTestTraits2 >> initialize [
+StashTestTraits >> initialize [
 
 	model4 := StashTestTraitsModel new.
 ]
 
 { #category : #'as yet unclassified' }
-StashTestTraits2 >> model4 [
+StashTestTraits >> model4 [
 
 	^ model4
 ]

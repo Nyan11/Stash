@@ -7,20 +7,22 @@ Class {
 	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : #'as yet unclassified' }
-StashTestOnlySet2 >> allSetterAndGettersForMyStash [
-
-	self state ifFalse: [ ^ {  } ].
-	^ { [ :testObject |
-	   testObject state
-		   ifTrue: [ #stateTrue ]
-		   ifFalse: [ #stateFalse ] ] onlySetOnStash }
-]
-
 { #category : #initialization }
 StashTestOnlySet2 >> initialize [
 
 	state := false.
+]
+
+{ #category : #'as yet unclassified' }
+StashTestOnlySet2 >> stashAccessors [
+
+	<stashAccessors>
+
+	self state ifFalse: [ ^ {  } ].
+	^ { [ :testObject |
+	  testObject state
+		  ifTrue: [ #stateTrue ]
+		  ifFalse: [ #stateFalse ] ] onlySetOnStash }
 ]
 
 { #category : #accessing }

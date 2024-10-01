@@ -1,29 +1,29 @@
 Trait {
-	#name : #TStashTest4,
+	#name : #TStashTest,
 	#category : #'Stash-Serialization-test-cases'
 }
 
 { #category : #'as yet unclassified' }
-TStashTest4 >> model4 [
+TStashTest >> model4 [
 
 	^ self shouldBeImplemented
 ]
 
 { #category : #'as yet unclassified' }
-TStashTest4 >> stashAccessorsForTraitsWithPragmas [
+TStashTest >> stashAccessorsForTraitsWithPragmas [
 
 	<stashAccessors>
 	^ { #test4 }
 ]
 
 { #category : #tests }
-TStashTest4 >> test4 [
+TStashTest >> test4 [
 
 	^ self model4 test
 ]
 
 { #category : #tests }
-TStashTest4 >> test4: anObject [
+TStashTest >> test4: anObject [
 
 	self model4 test: anObject
 ]

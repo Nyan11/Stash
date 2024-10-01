@@ -7,12 +7,6 @@ Class {
 	#category : #'Stash-Serialization-test-cases'
 }
 
-{ #category : #'as yet unclassified' }
-StashTestSetterGetter2 >> allSetterAndGettersForMyStash [
-
-	^ { #name }
-]
-
 { #category : #accessing }
 StashTestSetterGetter2 >> name [
 
@@ -23,4 +17,12 @@ StashTestSetterGetter2 >> name [
 StashTestSetterGetter2 >> name: anObject [
 
 	name := anObject
+]
+
+{ #category : #'as yet unclassified' }
+StashTestSetterGetter2 >> stashAccessors [
+
+	<stashAccessors>
+
+	^ { #name }
 ]
