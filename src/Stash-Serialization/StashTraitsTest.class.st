@@ -8,41 +8,7 @@ Class {
 StashTraitsTest >> testTraits1 [
 
 	| object source newObject |
-	object := StashTestTraits1 new
-		          test1: 'hello';
-		          test2: 'world';
-		          yourself.
-	source := Stash new serialize: object.
-
-	newObject := self class compiler
-		             source: source;
-		             evaluate.
-	self assert: newObject test1 equals: 'hello'.
-	self assert: newObject test2 equals: 'world'
-]
-
-{ #category : #tests }
-StashTraitsTest >> testTraits2 [
-
-	| object source newObject |
-	object := StashTestTraits1SubClass new
-		          test1: 'hello';
-		          test2: 'world';
-		          yourself.
-	source := Stash new serialize: object.
-	
-	newObject := self class compiler
-		             source: source;
-		             evaluate.
-	self assert: newObject test1 equals: 'hello'.
-	self assert: newObject test2 equals: 'world'
-]
-
-{ #category : #tests }
-StashTraitsTest >> testTraits3 [
-
-	| object source newObject |
-	object := StashTestTraits2 new
+	object := StashTestTraits new
 		          test4: 'hello';
 		          yourself.
 	source := Stash new serialize: object.
@@ -54,10 +20,10 @@ StashTraitsTest >> testTraits3 [
 ]
 
 { #category : #tests }
-StashTraitsTest >> testTraits4 [
+StashTraitsTest >> testTraits2 [
 
 	| object source newObject |
-	object := StashTestTraits2SubClass new
+	object := StashTestTraitsSubClass new
 		          test4: 'hello';
 		          yourself.
 	source := Stash new serialize: object.
