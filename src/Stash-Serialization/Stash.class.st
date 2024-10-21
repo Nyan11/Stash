@@ -111,7 +111,7 @@ Stash >> sourceCode [
 
 	
 	| expr |
-	expr := RBParser parseExpression: stream contents expandMacros..
+	expr := RBParser parseExpression: stream contents expandMacros.
 	^ RBSimpleFormatter format: expr
 ]
 

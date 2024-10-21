@@ -91,6 +91,57 @@ StashContructGeneralObjectsStep >> runOn: aStash [
 	self nextInstance: aStash rootObject on: aStash
 ]
 
+{ #category : #initialization }
+StashContructGeneralObjectsStep >> setMonoArgumentProperty: aStashProperty ofObject: anObject on: aStash [
+
+	aStashProperty setter isBlock
+		ifTrue: [
+		aStash addOnSourceCode: (aStashProperty setter value: anObject) ]
+		ifFalse: [ aStash addOnSourceCode: aStashProperty setter ].
+
+	"If property is a getter we put the get value as an argument."
+	aStashProperty isStashGetter ifFalse: [ ^ self ].
+
+	aStashProperty getter isBlock ifTrue: [
+		self
+			nextInstance: (aStashProperty getter value: anObject)
+			on: aStash.
+		^ self ].
+	aStashProperty getter isSymbol ifTrue: [
+		self
+			nextInstance: (anObject perform: aStashProperty getter)
+			on: aStash.
+		^ self ]
+]
+
+{ #category : #initialization }
+StashContructGeneralObjectsStep >> setMultiArgumentsProperty: aStashProperty ofObject: anObject on: aStash [
+
+	| setter getters count |
+	setter := aStashProperty setter isBlock
+		          ifTrue: [ aStashProperty setter value: anObject ]
+		          ifFalse: [ aStashProperty setter ].
+	getters := aStashProperty getter isCollection ifTrue: [
+		           aStashProperty getter collect: [ :each |
+			           each isBlock ifTrue: [ each value: anObject ]
+			           ifFalse: [ anObject perform: each ] ] ].
+	"setter is 'message: arg1 message: arg2'"
+
+	"setter is 'arg1 message arg2'"
+	setter last = $: ifFalse: [
+		self nextInstance: getters first on: aStash.
+		aStash addOnSourceCode: setter.
+		self nextInstance: getters last on: aStash.
+		^ self ].
+
+	count := 1.
+	(($: split: setter) select: #isNotEmpty thenCollect: [ :each | each asSymbol asMutator]) do: [
+		:each |
+		aStash addOnSourceCode: each.
+		self nextInstance: (getters at: count) on: aStash.
+		count := count + 1 ]
+]
+
 { #category : #actions }
 StashContructGeneralObjectsStep >> setPropertiesOf: aStashObject on: aStash [
 
@@ -105,16 +156,15 @@ StashContructGeneralObjectsStep >> setPropertiesOf: aStashObject on: aStash [
 { #category : #initialization }
 StashContructGeneralObjectsStep >> setProperty: aStashProperty ofObject: anObject on: aStash [
 
-	| argument |
-	aStashProperty setter isBlock
-		ifTrue: [
-		aStash addOnSourceCode: (aStashProperty setter value: anObject) ]
-		ifFalse: [ aStash addOnSourceCode: aStashProperty setter ].
+	aStashProperty isMultiArguments ifFalse: [
+		self
+			setMonoArgumentProperty: aStashProperty
+			ofObject: anObject
+			on: aStash.
+		^ self ].
+	self
+		setMultiArgumentsProperty: aStashProperty
+		ofObject: anObject
+		on: aStash.
 
-
-	"If property is a getter we put the get value as an argument."
-	aStashProperty isStashGetter ifFalse: [ ^ self ].
-	
-	argument := aStashProperty getter isBlock ifTrue: [  aStashProperty getter value: anObject ] ifFalse: [  anObject perform: aStashProperty getter].
-	self nextInstance: argument on: aStash
 ]

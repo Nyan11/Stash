@@ -5,3 +5,9 @@ Class {
 	#classTraits : 'TStashPropertySetter classTrait + TStashPropertyGetter classTrait',
 	#category : #'Stash-Serialization-stash'
 }
+
+{ #category : #testing }
+StashSetterGetter >> isMultiArguments [
+
+	^ self context value isString not and: [ self context value isCollection ]
+]
