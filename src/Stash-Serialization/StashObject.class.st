@@ -40,14 +40,16 @@ StashObject >> constructForGeneralObjectStep: aStashContructGeneralObjectsStep o
 StashObject >> getInstanceWith: aStashGetter [
 
 	aStashGetter getter isBlock ifTrue: [ ^ aStashGetter getter value: self object ].
-	^ self object perform: aStashGetter getter
+	aStashGetter getter isString ifTrue: [ ^ self object perform: aStashGetter getter ].
+	^ aStashGetter getter collect: [ :each |
+			each isBlock ifTrue: [ each value: self object ] ifFalse: [ self object perform: each ]
+			 ] .
 ]
 
 { #category : #'as yet unclassified' }
 StashObject >> nextInstances [
 
-	^ self allGetters collect: [ :each |
-		  self getInstanceWith: each ]
+	^ self allGetters collect: [ :each | self getInstanceWith: each ]
 ]
 
 { #category : #accessing }

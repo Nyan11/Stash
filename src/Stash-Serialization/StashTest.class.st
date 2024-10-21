@@ -272,6 +272,65 @@ StashTest >> testColor4 [
 ]
 
 { #category : #tests }
+StashTest >> testDictionary1 [
+
+	| object source |
+	object := Dictionary new.
+	source := Stash new serialize: object.
+	self assert: source equals: 'Dictionary new'
+]
+
+{ #category : #tests }
+StashTest >> testDictionary2 [
+
+	| object source |
+	object := Dictionary new at: #hello put: #world; yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'Dictionary new
+   at: #hello put: #world;
+   yourself'
+]
+
+{ #category : #tests }
+StashTest >> testDictionary3 [
+
+	| object source |
+	object := Dictionary new
+		          at: #key1 put: #value1;
+					 at: #key2 put: #value2;
+					 at: #key3 put: #value3;
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'Dictionary new
+   at: #key1 put: #value1;
+   at: #key2 put: #value2;
+   at: #key3 put: #value3;
+   yourself'
+]
+
+{ #category : #tests }
+StashTest >> testDictionary4 [
+
+	| object source |
+	object := Dictionary new
+		          at: #key1 put: #value1;
+		          at: #key2 put: #value2;
+		          at: #key3 put: #value3;
+		          yourself.
+	object at: object put: object.
+
+	source := Stash new serialize: object.
+	self assert: source equals: '| dictionary1 |
+dictionary1 := Dictionary new.
+dictionary1
+   at: dictionary1 put: dictionary1;
+   at: #key1 put: #value1;
+   at: #key2 put: #value2;
+   at: #key3 put: #value3;
+   yourself'
+]
+
+{ #category : #tests }
 StashTest >> testLiteral1 [
 
 	self assert: (Stash new serialize: 1) equals: '1'

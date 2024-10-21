@@ -5,3 +5,9 @@ Class {
 	#classTraits : 'TStashPropertySetter classTrait',
 	#category : #'Stash-Serialization-stash'
 }
+
+{ #category : #testing }
+StashOnlySetter >> isMultiArguments [
+
+	^ false
+]
