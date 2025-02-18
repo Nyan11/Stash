@@ -28,14 +28,12 @@ jobs:
           smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
           cd /home/runner/.smalltalkCI/_builds/
           ls -la
-          
         shell: bash
         timeout-minutes: 30
       - name: zip stuff
         run: |
           cd /home/runner/.smalltalkCI/_builds/
           ls -la
-          mkdir /outputs
           zip image.zip .
       - name: Archive zip stuff
         uses: actions/upload-artifact@v4
