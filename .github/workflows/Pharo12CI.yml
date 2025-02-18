@@ -29,6 +29,7 @@ jobs:
         timeout-minutes: 30
       - name: zip stuff
         run: |
+          ls -la
           zip mylocal.zip .
       - name: Archive zip stuff
         uses: actions/upload-artifact@v4
