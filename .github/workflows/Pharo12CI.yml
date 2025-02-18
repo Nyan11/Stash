@@ -34,7 +34,7 @@ jobs:
         run: |
           cd /home/runner/.smalltalkCI/_builds/
           ls -la
-          zip image.zip .
+          zip -r image.zip .
       - name: Archive zip stuff
         uses: actions/upload-artifact@v4
         with:
