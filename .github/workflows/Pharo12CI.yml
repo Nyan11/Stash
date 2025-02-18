@@ -26,6 +26,7 @@ jobs:
       - name: Load in New Image and Run Tests
         run: |
           smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
+          cd /home/runner/.smalltalkCI/_builds/
           ls -la
         shell: bash
         timeout-minutes: 30
