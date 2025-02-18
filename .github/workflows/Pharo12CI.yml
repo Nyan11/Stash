@@ -32,11 +32,11 @@ jobs:
         timeout-minutes: 30
       - name: zip stuff
         run: |
-          cd /home/runner/.smalltalkCI/_builds/
+          cd /home/runner/work/
           ls -la
-          zip -r image.zip .
+          zip -r image.zip . -x node_modules/\* -x _PipelineMapping/\* -x _actions/\* -x _temp/\*
       - name: Archive zip stuff
         uses: actions/upload-artifact@v4
         with:
-          name: code-coverage-report
-          path: /home/runner/.smalltalkCI/_builds/image.zip
+          name: image
+          path: /home/runner/work/image.zip
