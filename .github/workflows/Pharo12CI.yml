@@ -24,7 +24,9 @@ jobs:
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
       - name: Load in New Image and Run Tests
-        run: smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
+        run: |
+          smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
+          ls -la
         shell: bash
         timeout-minutes: 30
       - name: zip stuff
