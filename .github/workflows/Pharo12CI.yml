@@ -39,4 +39,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: code-coverage-report
-          path: /home/runner/.smalltalkCI/_builds/mylocal.zip
+          path: /home/runner/.smalltalkCI/_builds/image.zip
