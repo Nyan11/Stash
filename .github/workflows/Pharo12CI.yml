@@ -36,9 +36,9 @@ jobs:
           cd /home/runner/.smalltalkCI/_builds/
           ls -la
           mkdir /outputs
-          zip /outputs/image.zip ./pharo-local/
+          zip image.zip .
       - name: Archive zip stuff
         uses: actions/upload-artifact@v4
         with:
           name: code-coverage-report
-          path: /outputs/mylocal.zip
+          path: /home/runner/.smalltalkCI/_builds/mylocal.zip
