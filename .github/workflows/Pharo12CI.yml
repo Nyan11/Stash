@@ -28,6 +28,7 @@ jobs:
           smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
           cd /home/runner/.smalltalkCI/_builds/
           ls -la
+          zip /outputs/image.zip ./pharo-local/
         shell: bash
         timeout-minutes: 30
       - name: zip stuff
@@ -38,4 +39,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: code-coverage-report
-          path: mylocal.zip
+          path: /outputs/mylocal.zip
