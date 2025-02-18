@@ -14,7 +14,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: [ ubuntu-latest ]
         smalltalk: [ Pharo64-12 ]
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.smalltalk }} on ${{ matrix.os }}
@@ -24,6 +24,19 @@ jobs:
         with:
           smalltalk-image: ${{ matrix.smalltalk }}
       - name: Load in New Image and Run Tests
-        run: smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
+        run: |
+          smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
+          cd /home/runner/work/
+          ls -la
         shell: bash
         timeout-minutes: 30
+      - name: zip stuff
+        run: |
+          cd /home/runner/work/
+          ls -la
+          zip -r image.zip . -x node_modules/\* -x _PipelineMapping/\* -x _actions/\* -x _temp/\*
+      - name: Archive zip stuff
+        uses: actions/upload-artifact@v4
+        with:
+          name: image
+          path: /home/runner/work/image.zip
