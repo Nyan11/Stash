@@ -23,6 +23,40 @@ StashSetterGetterTest >> testObject1 [
 ]
 
 { #category : #tests }
+StashSetterGetterTest >> testObject10 [
+
+	| object source newObject |
+	object := StashTestSetterGetter4 new
+		          name: 'test1';
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'StashTestSetterGetter4 new
+   name: ''test1'';
+   yourself'.
+
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject name equals: 'test1'
+]
+
+{ #category : #tests }
+StashSetterGetterTest >> testObject11 [
+
+	| object source newObject |
+	object := StashTestSetterGetter5 new
+		          name: 'test1';
+		          yourself.
+	source := Stash new serialize: object.
+	self assert: source equals: 'StashTestSetterGetter5 new'.
+
+	newObject := self class compiler
+		             source: source;
+		             evaluate.
+	self assert: newObject name equals: nil
+]
+
+{ #category : #tests }
 StashSetterGetterTest >> testObject2 [
 
 	| object source newObject |
