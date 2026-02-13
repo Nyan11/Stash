@@ -13,9 +13,9 @@ jobs:
       matrix:
         smalltalk: [ Pharo64-12, Pharo64-13 ] #Pharo versions
         os: [ ubuntu-latest, macos-latest, windows-latest ] #OS versions
-        ston: [ .smalltalkci.ston ] #Can use multiple .ston files
+        ston: [ .smalltalk.ston ] #Can use multiple .ston files
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.ston == '.smalltalkci.ston' }} • ${{ matrix.smalltalk }} • ${{ matrix.os }}
+    name: ${{ matrix.ston == '.smalltalk.ston' }} • ${{ matrix.smalltalk }} • ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
         with:
