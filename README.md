@@ -1,5 +1,8 @@
+[![Pharo 12](https://img.shields.io/badge/Pharo-12-%23aac9ff.svg)](https://pharo.org/download)
+[![Pharo 13](https://img.shields.io/badge/Pharo-13-%23aac9ff.svg)](https://pharo.org/download)
+
 [![License](https://img.shields.io/github/license/Nyan11/Stash.svg)](./LICENSE)
-[![Pharo 12 CI](https://github.com/Nyan11/Stash/actions/workflows/Pharo12CI.yml/badge.svg)](https://github.com/Nyan11/Stash/actions/workflows/Pharo12CI.yml)
+[![Unit tests](https://github.com/Nyan11/Stash/actions/workflows/CI.yml/badge.svg)](https://github.com/Nyan11/Stash/actions/workflows/CI.yml)
 
 # Stash
 

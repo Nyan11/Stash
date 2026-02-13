@@ -1,0 +1,41 @@
+name: 'CI'
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        smalltalk: [ Pharo64-12, Pharo64-13 ] #Pharo versions
+        os: [ ubuntu-latest, macos-latest, windows-latest ] #OS versions
+        ston: [ .smalltalkci.ston ] #Can use multiple .ston files
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.ston == '.smalltalkci.ston' }} • ${{ matrix.smalltalk }} • ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup smalltalkCI
+        uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: ${{ matrix.smalltalk }}
+      - name: Load in new image and run tests
+        run: smalltalkci -s ${{ matrix.smalltalk }} ${{ matrix.ston }}
+        shell: bash
+        timeout-minutes: 30
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload logs
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Logs_${{ matrix.smalltalk }}_${{ matrix.os }}_${{ matrix.ston }}
+          path: |
+            *.fuel
+            PharoDebug.log
+          retention-days: 5
