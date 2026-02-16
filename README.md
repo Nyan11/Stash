@@ -6,11 +6,53 @@
 
 # Stash
 
-Stash is a serializer for Pharo that generate source-code.
+Stash is a serializer for Pharo that convert instances into code.
 
-Any object is composed of setters and getters, in Stash you define the setters and getters pairs and the serializer use them to access the object and their properties by the getter and use the setter to generate the corresponding serialized object.
+Stash can be used to genereate readable code that can create clone like instances of the serialized object, allowing developers to manually modify and leverage refactoring tools such as deprecation and class renaming.
+To use Stash, you need to define the description of the accessors (setter and getter) of the objects you want to serialize.
 
-Unlike Pharo's native source code generation (storeOn:, etc.), Stash also generate a readable code (as writed by a human) and manage references between objects to prevent cyclics problems. 
+# Installation
+
+```st
+Metacello new
+	baseline: 'StashSerialization';
+	repository: 'github://OpenSmock/Stash:master/src';
+	load
+```
+
+# Usage example
+
+Add the accessors description.
+```st
+StashTestSetterGetter1 >> #stashAccessors
+
+	<stashAccessors>
+	^ { (#name: -> #name) }
+
+```
+
+Instanciate an Object and Serialize it.
+```st
+"Instanciate a test object with a test class"
+object := StashTestSetterGetter1 new name: 'hello'; yourself.
+
+"Serialize the object as a String"
+string := Stash new serialize: object.
+
+"
+Value of string is:
+
+StashTestSetterGetter1 new
+name: 'hello';
+yourself
+"
+```
+
+To desirialize an object, use "Do It" on the generated code in a playground or materialize it:
+```st
+"Programmaticaly"
+object := Stash new materialize: string.
+```
 
 # Principles
 
@@ -38,51 +80,3 @@ During this step, Stash affect variables with referenced objects.
 
 This step generate all the expected source-code.
 
-# Usage example
-
-## Serialization of an object
-
-```st
-"Instanciate a test object with a test class"
-object := StashTestSetterGetter1 new name: 'hello'; yourself.
-
-"Serialize the object as a String"
-string := Stash new serialize: object.
-```
-
-string value is:
-
-```
-StashTestSetterGetter1 new
-name: 'hello';
-yourself
-```
-
-## Deserialization of an object
-
-Use "Do It" on the generated code in a playground or materialize it:
-
-```st
-"Programmaticaly"
-object := Stash new materialize: string.
-```
-
-## Example with a cycle reference
-
-```st
-| stashtestsettergetter11 |
-object := StashTestSetterGetter1 new.
-object name: object;
-yourself.
-
-Stash new serialize: object.
-```
-
-# Installation
-
-```st
-Metacello new
-	baseline: 'StashSerialization';
-	repository: 'github://OpenSmock/Stash:master/src';
-	load
-```
