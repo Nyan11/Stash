@@ -16,7 +16,7 @@ To use Stash, you need to define the description of the accessors (setter and ge
 ```st
 Metacello new
 	baseline: 'StashSerialization';
-	repository: 'github://OpenSmock/Stash:master/src';
+	repository: 'github://Nyan11/Stash:master';
 	load
 ```
 
@@ -80,3 +80,6 @@ During this step, Stash affect variables with referenced objects.
 
 This step generate all the expected source-code.
 
+# License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
