@@ -9,9 +9,27 @@ Object class >> allGettersForMyStash [
 { #category : #'*Stash-Serialization' }
 Object >> allSetterAndGettersForMyStash [
 
-	| pragmas |
-	pragmas := Pragma allNamed: #stashAccessors from: self class to: Object.
-	^ pragmas flatCollect: [ :p | p method receiver: self withArguments: #(  ) executeMethod: p method ].
+	| pragmas methods methodDict |
+	pragmas := Pragma
+		           allNamed: #stashAccessors
+		           from: self class
+		           to: Object.
+	methods := pragmas collect: #method.
+	methodDict := Dictionary new.
+	methods do: [ :currentMethod |
+			methodDict
+				at: currentMethod selector
+				ifPresent: [ :previousMethod |
+						(currentMethod methodClass inheritsFrom: previousMethod)
+							ifTrue: [
+							methodDict at: currentMethod selector put: currentMethod ] ]
+				ifAbsentPut: [ currentMethod ] ].
+
+	^ methodDict values flatCollect: [ :method |
+		  method
+			  receiver: self
+			  withArguments: #(  )
+			  executeMethod: method ]
 ]
 
 { #category : #'*Stash-Serialization' }
